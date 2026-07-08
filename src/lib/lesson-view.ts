@@ -19,6 +19,7 @@ export interface PlayableQuestion {
   sourceInfo: string | null;
   options: { id: string; text: string }[] | null;
   front: string | null;
+  back: string | null;
   blankHint: string | null;
   matchLeft: string[] | null;
   matchRight: string[] | null;
@@ -63,6 +64,7 @@ export async function getPlayableLesson(lessonId: string, userId: string): Promi
       sourceInfo: q.sourceInfo,
       options: q.options ? JSON.parse(q.options) : null,
       front: q.front,
+      back: q.back,
       blankHint: q.blankHint,
       matchLeft: q.matchPairs ? (JSON.parse(q.matchPairs) as { left: string; right: string }[]).map((p) => p.left) : null,
       matchRight: q.matchPairs

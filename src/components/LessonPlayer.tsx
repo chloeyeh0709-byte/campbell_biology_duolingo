@@ -312,22 +312,29 @@ function QuestionCard({
               顯示答案
             </button>
           ) : (
-            <div className="flex gap-3">
-              <button
-                disabled={submitting}
-                onClick={() => onSubmit({ type: question.type as "FLASHCARD" | "SHORT_ANSWER", selfRating: "incorrect" })}
-                className="btn-duo bg-[var(--red)] border-[#d63d3d] flex-1 text-white"
-              >
-                還不熟
-              </button>
-              <button
-                disabled={submitting}
-                onClick={() => onSubmit({ type: question.type as "FLASHCARD" | "SHORT_ANSWER", selfRating: "correct" })}
-                className="btn-duo-green flex-1"
-              >
-                答對了
-              </button>
-            </div>
+            <>
+              {question.back && (
+                <div className="rounded-xl border-2 border-[var(--blue)] bg-[var(--blue)]/10 px-4 py-3 text-sm font-semibold">
+                  {question.back}
+                </div>
+              )}
+              <div className="flex gap-3">
+                <button
+                  disabled={submitting}
+                  onClick={() => onSubmit({ type: question.type as "FLASHCARD" | "SHORT_ANSWER", selfRating: "incorrect" })}
+                  className="btn-duo bg-[var(--red)] border-[#d63d3d] flex-1 text-white"
+                >
+                  還不熟
+                </button>
+                <button
+                  disabled={submitting}
+                  onClick={() => onSubmit({ type: question.type as "FLASHCARD" | "SHORT_ANSWER", selfRating: "correct" })}
+                  className="btn-duo-green flex-1"
+                >
+                  答對了
+                </button>
+              </div>
+            </>
           )}
         </div>
       )}

@@ -1,0 +1,772 @@
+{
+  "title": "有機化學導論（第 1–4 章）",
+  "description": "改編自 Clayden《Organic Chemistry》第 1 章至第 4 章：有機化學是什麼、有機結構的表示法、如何測定分子結構，以及分子的電子結構與化學鍵結。",
+  "subject": "Chemistry",
+  "concepts": [
+    { "id": "organic_chemistry_intro", "name": "有機化學的本質", "summary": "有機化學是研究碳化合物的科學，最初被視為「生命的化學」，如今泛指所有含碳化合物，涵蓋藥物、香料、染料、塑膠等領域。", "importance": 0.7, "difficulty": 1, "tags": ["導論", "碳"], "posX": 0, "posY": 0 },
+    { "id": "natural_vs_synthetic", "name": "天然物與人工合成", "summary": "十九世紀有機物多來自天然萃取（如奎寧、薄荷醇），1856 年 Perkin 意外合成苯胺紫，開啟了人工合成有機分子的時代。", "importance": 0.5, "difficulty": 1, "tags": ["歷史", "染料"], "posX": 60, "posY": -30, "parentId": "organic_chemistry_intro" },
+
+    { "id": "hydrocarbon_skeleton", "name": "碳氫骨架", "summary": "有機分子由碳（與氫）組成的鏈狀或環狀骨架支撐官能基，骨架本身通常化學性質較不活潑。", "importance": 0.9, "difficulty": 2, "tags": ["結構"], "posX": 300, "posY": 0 },
+    { "id": "functional_groups", "name": "官能基", "summary": "官能基是分子中含有碳、氫以外元素（如 N、O、S）的原子團，決定分子的化學與生物性質，例如胺基（NH2）與羧酸基（CO2H）。", "importance": 1.0, "difficulty": 2, "tags": ["結構", "反應性"], "posX": 360, "posY": -30 },
+    { "id": "drawing_guidelines", "name": "結構繪圖三準則", "summary": "畫有機結構時：把碳鏈畫成鋸齒狀、省略碳上的氫與C–H鍵、省略代表碳的字母C，讓官能基更醒目。", "importance": 0.8, "difficulty": 2, "tags": ["繪圖", "骨架式"], "posX": 300, "posY": 60 },
+    { "id": "carbon_chain_naming", "name": "碳鏈命名與縮寫", "summary": "常見碳鏈長度有專屬名稱與縮寫，如 methyl(Me)、ethyl(Et)、propyl(Pr)、butyl(Bu)，僅可用於鏈的末端。", "importance": 0.6, "difficulty": 2, "tags": ["命名"], "posX": 360, "posY": 90 },
+    { "id": "carbon_rings", "name": "環狀結構與芳香基", "summary": "環狀骨架依碳數命名（環丙烷、環丁烷、環己烷…），苯環以單一碳連接時可用 Ph 表示，任意取代苯環則用 Ar。", "importance": 0.6, "difficulty": 2, "tags": ["環", "芳香性"], "posX": 240, "posY": 90 },
+    { "id": "isomers", "name": "同分異構物", "summary": "同分異構物指原子種類與數目相同，但連接方式不同的分子；不需要具有相同的官能基。", "importance": 0.6, "difficulty": 3, "tags": ["異構"], "posX": 420, "posY": 60 },
+
+    { "id": "mass_spectrometry", "name": "質譜法", "summary": "質譜儀將分子游離成帶電粒子並依質荷比分離偵測，最重的訊號峰（分子離子峰）代表分子量。", "importance": 0.8, "difficulty": 3, "tags": ["光譜", "分子量"], "posX": 300, "posY": 180 },
+    { "id": "isotopes_ms", "name": "同位素與質譜圖形", "summary": "含溴分子在質譜圖出現間隔2質量單位、強度約1:1的雙峰；含氯分子則出現強度約3:1的雙峰，反映天然同位素比例。", "importance": 0.5, "difficulty": 3, "tags": ["同位素"], "posX": 360, "posY": 210 },
+    { "id": "nmr_principles", "name": "核磁共振原理", "summary": "1H、13C等原子核在強磁場中具有不同能階，吸收無線電波後躍遷、再釋放能量而被偵測，即為核磁共振（NMR）。", "importance": 0.9, "difficulty": 3, "tags": ["NMR", "光譜"], "posX": 300, "posY": 250 },
+    { "id": "chemical_shift", "name": "化學位移與屏蔽效應", "summary": "原子核周圍電子產生的微弱磁場會屏蔽外加磁場；電負度大的鄰近原子會使核去屏蔽，在較高頻率（較大δ值，ppm）共振。", "importance": 0.8, "difficulty": 3, "tags": ["NMR", "屏蔽"], "posX": 300, "posY": 300 },
+    { "id": "c13_nmr_regions", "name": "13C NMR 光譜四區域", "summary": "13C NMR 大致分四區：飽和碳(0–50ppm)、鄰氧飽和碳(50–100ppm)、不飽和碳(100–150ppm)、鄰氧不飽和碳/C=O(150–200ppm)。", "importance": 0.7, "difficulty": 4, "tags": ["NMR", "判讀"], "posX": 300, "posY": 350 },
+
+    { "id": "atomic_orbitals", "name": "原子軌域", "summary": "電子的能量是量子化的，存在於1s（球形）、2s（球形，多一節點）、2p（啞鈴形，三個互相垂直方向）等原子軌域中。", "importance": 0.9, "difficulty": 3, "tags": ["軌域", "量子化"], "posX": 0, "posY": 250 },
+    { "id": "electron_configuration", "name": "電子組態與洪德定則", "summary": "電子依能量高低填入軌域，每軌域最多2個電子；能量相同的多個軌域（如三個2p）會先各自單獨佔據（洪德定則）才配對。", "importance": 0.6, "difficulty": 3, "tags": ["電子組態"], "posX": 60, "posY": 280 },
+    { "id": "molecular_orbitals", "name": "分子軌域理論（LCAO）", "summary": "原子軌域可同相或異相組合成分子軌域：同相組合形成能量較低的鍵結軌域，異相組合形成能量較高的反鍵結軌域。", "importance": 1.0, "difficulty": 4, "tags": ["分子軌域", "LCAO"], "posX": 0, "posY": 330 },
+    { "id": "bonding_antibonding", "name": "鍵結與反鍵結軌域", "summary": "電子填入鍵結軌域會使原子核被電子雲吸引在一起形成化學鍵；填入反鍵結軌域則會抵銷鍵結效果。H2存在而He2不存在即由此解釋。", "importance": 0.9, "difficulty": 4, "tags": ["鍵結"], "posX": 60, "posY": 370 },
+    { "id": "bond_order", "name": "鍵級", "summary": "鍵級 = (鍵結軌域電子數 − 反鍵結軌域電子數) / 2，用來量化兩原子間的鍵結程度，例如H2鍵級為1，He2鍵級為0。", "importance": 0.5, "difficulty": 4, "tags": ["鍵級"], "posX": 0, "posY": 420 },
+    { "id": "sigma_pi_bonds", "name": "σ鍵與π鍵", "summary": "2p軌域首尾重疊形成具圓柱對稱性的σ鍵；側邊重疊則形成不具圓柱對稱性的π鍵。N2分子含1個σ鍵與2個π鍵。", "importance": 0.9, "difficulty": 4, "tags": ["共價鍵", "π鍵"], "posX": 60, "posY": 460 }
+  ],
+  "edges": [
+    { "sourceId": "natural_vs_synthetic", "targetId": "organic_chemistry_intro", "relationshipType": "PART_OF" },
+    { "sourceId": "hydrocarbon_skeleton", "targetId": "functional_groups", "relationshipType": "RELATED" },
+    { "sourceId": "drawing_guidelines", "targetId": "hydrocarbon_skeleton", "relationshipType": "PREREQUISITE" },
+    { "sourceId": "drawing_guidelines", "targetId": "functional_groups", "relationshipType": "PREREQUISITE" },
+    { "sourceId": "carbon_chain_naming", "targetId": "hydrocarbon_skeleton", "relationshipType": "EXTENDS" },
+    { "sourceId": "carbon_rings", "targetId": "hydrocarbon_skeleton", "relationshipType": "EXTENDS" },
+    { "sourceId": "isomers", "targetId": "carbon_chain_naming", "relationshipType": "RELATED" },
+    { "sourceId": "mass_spectrometry", "targetId": "drawing_guidelines", "relationshipType": "PREREQUISITE" },
+    { "sourceId": "isotopes_ms", "targetId": "mass_spectrometry", "relationshipType": "PART_OF" },
+    { "sourceId": "nmr_principles", "targetId": "mass_spectrometry", "relationshipType": "PREREQUISITE" },
+    { "sourceId": "chemical_shift", "targetId": "nmr_principles", "relationshipType": "PREREQUISITE" },
+    { "sourceId": "c13_nmr_regions", "targetId": "chemical_shift", "relationshipType": "PREREQUISITE" },
+    { "sourceId": "atomic_orbitals", "targetId": "hydrocarbon_skeleton", "relationshipType": "PREREQUISITE" },
+    { "sourceId": "electron_configuration", "targetId": "atomic_orbitals", "relationshipType": "PREREQUISITE" },
+    { "sourceId": "molecular_orbitals", "targetId": "atomic_orbitals", "relationshipType": "PREREQUISITE" },
+    { "sourceId": "bonding_antibonding", "targetId": "molecular_orbitals", "relationshipType": "PREREQUISITE" },
+    { "sourceId": "bond_order", "targetId": "bonding_antibonding", "relationshipType": "PREREQUISITE" },
+    { "sourceId": "sigma_pi_bonds", "targetId": "bonding_antibonding", "relationshipType": "EXTENDS" }
+  ],
+  "units": [
+    {
+      "title": "第一章：什麼是有機化學？",
+      "description": "認識有機化學的範疇、歷史與生活中的應用",
+      "order": 1,
+      "color": "#58cc02",
+      "iconEmoji": "🧪",
+      "lessons": [
+        {
+          "title": "有機化學的本質與應用",
+          "type": "READING",
+          "order": 1,
+          "xpReward": 12,
+          "estimatedMinutes": 5,
+          "conceptIds": ["organic_chemistry_intro", "natural_vs_synthetic"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "你已經是一位有機化學家",
+              "content": "當你閱讀這些文字時，眼睛正利用一種有機化合物（視黃醛，retinal）把光轉換成神經訊號；肌肉利用醣類進行化學反應來獲得能量；腦細胞之間則靠簡單的有機分子（神經傳導物質）傳遞訊息。\n\n有機化學就是研究**碳化合物**的科學——它一開始被認為是「生命的化學」，現在則泛指所有由碳與氫、氧、氮等元素形成的化合物。目前已知的有機化合物超過 **1600 萬種**。"
+            },
+            {
+              "order": 2,
+              "title": "從天然萃取到人工合成",
+              "content": "十九世紀化學家能取得的有機物大多來自天然：**奎寧（quinine）**萃取自南美洲金雞納樹的樹皮，用來治療瘧疾；**薄荷醇（menthol）**來自薄荷精油。\n\n1856 年，18 歲的英國化學家 **William Perkin** 在嘗試合成奎寧時，意外做出紫色染料**苯胺紫（mauveine）**，開啟了合成染料工業。這象徵有機化學從「萃取天然物」邁向「創造新分子」的轉捩點。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "根據課文，奎寧（quinine）最初是從哪裡取得的？",
+              "explanation": "奎寧萃取自南美洲金雞納樹（cinchona）的樹皮，用於治療瘧疾。",
+              "difficulty": 1,
+              "sourceInfo": "第1章·有機化合物",
+              "options": [
+                { "id": "a", "text": "金雞納樹皮" },
+                { "id": "b", "text": "煤焦油" },
+                { "id": "c", "text": "石油" },
+                { "id": "d", "text": "薄荷葉" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "William Perkin 在 1856 年嘗試合成奎寧時，意外發現了紫色染料苯胺紫（mauveine），開啟了合成染料工業。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "這是真實的化學史事件，Perkin 當時只有 18 歲，這個意外發現催生了整個合成染料工業。",
+              "difficulty": 1,
+              "sourceInfo": "第1章·有機化合物"
+            },
+            {
+              "type": "FLASHCARD",
+              "order": 3,
+              "front": "有機化學研究的對象主要是由什麼元素構成的化合物？",
+              "back": "碳（carbon）——通常也含有氫，常見還有氧、氮、硫、磷、鹵素等元素。",
+              "explanation": "碳原子能與自身及多數元素形成穩定的鍵結，這是有機化合物種類極多的根本原因。",
+              "difficulty": 1,
+              "sourceInfo": "第1章·有機化合物與元素週期表"
+            }
+          ]
+        },
+        {
+          "title": "有機化合物的多樣性",
+          "type": "QUIZ",
+          "order": 2,
+          "xpReward": 12,
+          "estimatedMinutes": 5,
+          "conceptIds": ["natural_vs_synthetic", "organic_chemistry_intro"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "千變萬化的分子世界",
+              "content": "已知的有機化合物中，有結晶固體（如蔗糖）、揮發性液體（如汽油）、也有帶著怪味的化合物——臭鼬噴出的硫醇（thiol）、松露的獨特香氣、玫瑰香氣分子大馬士革酮（damascenone）。有些分子只需極微量就能發揮作用：雌性甲蟲費洛蒙只需約 1.5 毫克就能從 65,000 隻雌蟲身上分離出來。"
+            },
+            {
+              "order": 2,
+              "title": "化學就在生活中",
+              "content": "藥物（如抗生素 amoxicillin、抗流感藥 Tamiflu）、清潔用品裡的界面活性劑與香精、防曬乳裡的紫外線吸收劑，全部都是有機化合物。工業上，**石油**與**植物**是合成這些分子最主要的原料來源。標榜「天然」的沐浴乳香氛，其實際成分往往是多種碳氫化合物的混合物。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "課文提到，個人清潔用品中標榜「天然」的香氛精油，其化學本質其實是什麼？",
+              "explanation": "即使標榜天然，這些精油的化學本質仍是多種碳氫化合物的混合物，來自碳氫元素構成的天然來源。",
+              "difficulty": 2,
+              "sourceInfo": "第1章·有機化學與產業",
+              "options": [
+                { "id": "a", "text": "單一純化合物" },
+                { "id": "b", "text": "多種碳氫化合物的混合物" },
+                { "id": "c", "text": "無機鹽類" },
+                { "id": "d", "text": "完全不含碳的礦物質" }
+              ],
+              "correctOptionId": "b"
+            },
+            {
+              "type": "FILL_IN_THE_BLANK",
+              "order": 2,
+              "prompt": "臭鼬噴出的防禦性分泌物，主要成分是含有 SH 官能基的______化合物。",
+              "blankAnswer": "硫醇",
+              "blankHint": "英文是 thiol",
+              "explanation": "硫醇（thiol）含有 -SH 官能基，是許多惡臭氣味的來源。",
+              "difficulty": 2,
+              "sourceInfo": "第1章·有機化合物"
+            },
+            {
+              "type": "MATCHING",
+              "order": 3,
+              "prompt": "請將天然產物與其特性或用途配對。",
+              "matchPairs": [
+                { "left": "奎寧", "right": "抗瘧疾藥物" },
+                { "left": "苯胺紫（mauveine）", "right": "第一個人工合成染料" },
+                { "left": "大馬士革酮", "right": "玫瑰的香氣分子" }
+              ],
+              "explanation": "這些例子說明有機化合物在藥物、染料、香氛等領域的廣泛應用。",
+              "difficulty": 2,
+              "sourceInfo": "第1章·有機化合物"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "第二章：有機結構",
+      "description": "學習如何解讀與繪製有機分子的骨架式",
+      "order": 2,
+      "color": "#1cb0f6",
+      "iconEmoji": "🧱",
+      "lessons": [
+        {
+          "title": "碳氫骨架與官能基",
+          "type": "READING",
+          "order": 1,
+          "xpReward": 12,
+          "estimatedMinutes": 6,
+          "conceptIds": ["hydrocarbon_skeleton", "functional_groups"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "骨架支撐官能基",
+              "content": "有機分子可以想像成一個「骨架」加上「官能基」。骨架由碳（有時搭配氫）組成鏈狀或環狀結構；官能基則是像 **-NH2（胺基）**、**-CO2H（羧酸基）** 這類含有其他元素（N、O、S…）的原子團，決定分子的化學性質。\n\n例如甘胺酸（glycine）、離胺酸（lysine）、甲硫胺酸（methionine）這些胺基酸，骨架長度、形狀都不同，但都帶有胺基與羧酸基，因此化學性質相似——都能溶於水、都具有酸鹼兩性。"
+            },
+            {
+              "order": 2,
+              "title": "骨架的形式：鏈、環、分支",
+              "content": "碳骨架可以是直鏈、環狀，或帶有分支的鏈。多元不飽和脂肪酸的骨架是長鏈；類固醇激素（如睪固酮、雌二醇）由多個環稠合而成；天然毒素巴利毒素（palytoxin）擁有 **129 個碳原子**，展現骨架驚人的複雜度。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "決定有機分子化學性質的關鍵部分稱為什麼？",
+              "explanation": "官能基是決定分子化學與生物性質的關鍵，骨架則多半扮演支撐的角色。",
+              "difficulty": 2,
+              "sourceInfo": "第2章·碳氫骨架與官能基",
+              "options": [
+                { "id": "a", "text": "官能基" },
+                { "id": "b", "text": "原子量" },
+                { "id": "c", "text": "分子量" },
+                { "id": "d", "text": "顏色" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "甘胺酸、離胺酸與甲硫胺酸這三種胺基酸都含有胺基（NH2）與羧酸基（CO2H）兩種官能基。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "所有胺基酸都至少含有這兩種官能基，這也是它們共同呈現酸鹼兩性的原因。",
+              "difficulty": 2,
+              "sourceInfo": "第2章·碳氫骨架與官能基"
+            },
+            {
+              "type": "FLASHCARD",
+              "order": 3,
+              "front": "在有機分子中，「骨架」（hydrocarbon framework）扮演什麼角色？",
+              "back": "由碳（和氫）組成的鏈狀或環狀結構，支撐官能基，本身通常化學性質較不活潑，就像人體的骨骼支撐器官一樣。",
+              "explanation": "骨架與官能基的分工，是理解有機分子結構與反應性的基礎概念。",
+              "difficulty": 2,
+              "sourceInfo": "第2章·碳氫骨架與官能基"
+            }
+          ]
+        },
+        {
+          "title": "有機結構的繪圖準則",
+          "type": "PRACTICE",
+          "order": 2,
+          "xpReward": 12,
+          "estimatedMinutes": 6,
+          "conceptIds": ["drawing_guidelines"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "三個繪圖準則",
+              "content": "為了讓結構圖清楚又不繁瑣，有機化學家歸納出三個準則：\n\n1. 把碳鏈畫成**鋸齒狀**（zig-zag），因為飽和碳鏈的鍵角接近 109°，鋸齒狀最貼近真實形狀。\n2. **省略碳原子上的氫原子與 C–H 鍵**（除非有特別理由要標出）。\n3. **省略代表碳的字母 C**。\n\n這樣畫出來的「骨架式」（skeletal formula）能讓官能基一眼被看到，而不被一堆 C 和 H 淹沒。"
+            },
+            {
+              "order": 2,
+              "title": "判讀骨架式",
+              "content": "在骨架式中，鏈的每個轉折點與端點都代表一個碳原子。因為每個碳原子的價數是 4，所以沒畫出來的鍵，會自動用氫補滿：鏈中間的轉折點碳通常帶 1～2 個氫，鏈末端的碳帶 3 個氫。\n\n例如亞麻油酸（linoleic acid）的骨架式，雖然完全沒寫 C 或 H，仍能讓人一眼看出鋸齒狀長鏈與右端的羧酸官能基。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "在骨架式（skeletal formula）中，鏈的每一個轉折點代表什麼？",
+              "explanation": "每個轉折點與端點都隱含一個碳原子，這是骨架式的核心判讀規則。",
+              "difficulty": 2,
+              "sourceInfo": "第2章·繪製分子",
+              "options": [
+                { "id": "a", "text": "一個碳原子" },
+                { "id": "b", "text": "一個氫原子" },
+                { "id": "c", "text": "一個官能基" },
+                { "id": "d", "text": "一個電子對" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "FILL_IN_THE_BLANK",
+              "order": 2,
+              "prompt": "在骨架式中，鏈末端（只顯示 1 條鍵線的碳）通常隱含有 ___ 個氫原子。",
+              "blankAnswer": "3",
+              "blankHint": "碳的價數是4，鏈末端碳只顯示1條鍵線",
+              "explanation": "碳原子總共要滿足4個鍵；末端碳只畫出1條鍵線連到鏈上，其餘3個鍵都是隱含的C–H鍵。",
+              "difficulty": 2,
+              "sourceInfo": "第2章·繪製分子"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 3,
+              "prompt": "骨架式的目的是讓官能基更醒目，同時省略掉不重要的氫與代表碳的字母。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "這正是三個繪圖準則共同的目的：清楚、經濟、真實地呈現分子結構。",
+              "difficulty": 1,
+              "sourceInfo": "第2章·繪製分子"
+            }
+          ]
+        },
+        {
+          "title": "碳鏈命名、環狀結構與同分異構物",
+          "type": "QUIZ",
+          "order": 3,
+          "xpReward": 15,
+          "estimatedMinutes": 7,
+          "conceptIds": ["carbon_chain_naming", "carbon_rings", "isomers"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "碳鏈長度的命名與縮寫",
+              "content": "常見碳鏈長度都有專屬名稱與縮寫：1個碳是 methyl（**Me**），2個是 ethyl（**Et**），3個是 propyl（**Pr**），4個是 butyl（**Bu**）。\n\n這些縮寫在書寫結構時很方便，但**只能用在鏈的末端**，不能隨意套用在分支或中間的鏈段上。"
+            },
+            {
+              "order": 2,
+              "title": "環狀結構與芳香環代號",
+              "content": "環狀骨架依照碳原子數命名：環丙烷（cyclopropane，3個碳）、環丁烷（cyclobutane，4個碳）、環己烷（cyclohexane，6個碳）。\n\n當苯環只透過一個碳原子連接到分子上時，可以用 **Ph**（苯基，phenyl）代表；任何被取代的苯環則泛稱 **Ar**（芳香基，aryl）。"
+            },
+            {
+              "order": 3,
+              "title": "同分異構物",
+              "content": "**同分異構物（isomers）**是指原子種類與數目完全相同、但連接方式不同的分子。例如正丙醇（n-PrOH）與異丙醇（i-PrOH）都是 C3H8O，是同分異構物；它們甚至不需要有相同的官能基——分子式相同、結構不同即可稱為同分異構物。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "下列哪一個縮寫代表4個碳的直鏈基？",
+              "explanation": "Bu 代表 butyl，是4個碳的直鏈基；Me、Et、Pr 分別代表1、2、3個碳。",
+              "difficulty": 2,
+              "sourceInfo": "第2章·碳鏈命名",
+              "options": [
+                { "id": "a", "text": "Me" },
+                { "id": "b", "text": "Et" },
+                { "id": "c", "text": "Pr" },
+                { "id": "d", "text": "Bu" }
+              ],
+              "correctOptionId": "d"
+            },
+            {
+              "type": "MATCHING",
+              "order": 2,
+              "prompt": "請將環狀骨架的名稱與其碳原子數配對。",
+              "matchPairs": [
+                { "left": "環丙烷", "right": "3個碳的環" },
+                { "left": "環丁烷", "right": "4個碳的環" },
+                { "left": "環己烷", "right": "6個碳的環" }
+              ],
+              "explanation": "環的命名規則是「cyclo-」加上對應碳數的碳鏈名稱。",
+              "difficulty": 2,
+              "sourceInfo": "第2章·碳環"
+            },
+            {
+              "type": "FILL_IN_THE_BLANK",
+              "order": 3,
+              "prompt": "當苯環只以一個碳原子與分子其餘部分相連時，可以用有機元素符號 ___ 來表示。",
+              "blankAnswer": "Ph",
+              "blankHint": "phenyl 的縮寫",
+              "explanation": "Ph 專指苯基（C6H5-），而 Ar 則泛指任意取代的芳香環。",
+              "difficulty": 3,
+              "sourceInfo": "第2章·碳環"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 4,
+              "prompt": "同分異構物（isomers）必須含有相同的官能基。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "false",
+              "explanation": "同分異構物只需要原子種類與數目相同、排列方式不同即可，不需要有相同的官能基。例如分子式 C4H8O 的同分異構物就可以分別是醚、烯醇、酮或醛。",
+              "difficulty": 3,
+              "sourceInfo": "第2章·同分異構物"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "第三章：測定有機結構",
+      "description": "認識質譜法與核磁共振如何幫助我們確定分子結構",
+      "order": 3,
+      "color": "#ffc800",
+      "iconEmoji": "🔬",
+      "lessons": [
+        {
+          "title": "X光繞射與質譜法",
+          "type": "READING",
+          "order": 1,
+          "xpReward": 12,
+          "estimatedMinutes": 6,
+          "conceptIds": ["mass_spectrometry", "isotopes_ms"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "我們如何「看見」分子的形狀？",
+              "content": "光譜學（spectroscopy）讓我們能準確、快速地決定分子結構。**X光繞射**利用X光被原子散射的圖案，推算鍵長與鍵角，是驗證分子形狀最直接的方法，但需要良好的結晶樣品，且通常無法直接偵測氫原子（氫太輕，散射訊號太弱）。"
+            },
+            {
+              "order": 2,
+              "title": "質譜法：秤分子的重量",
+              "content": "質譜儀讓中性分子先被游離成帶電粒子（常見方法有電子撞擊法 EI、化學游離法 CI、電灑法 ES），再依照質荷比（m/z）分離、偵測。圖譜中最重的訊號峰（分子離子峰）代表分子量。\n\n若圖譜中出現間隔2個質量單位、強度比約 1:1 的兩個高峰，通常代表分子中含有**溴**（79Br 與 81Br 各半）；若強度比約 3:1，則代表含有**氯**（35Cl 與 37Cl 比例3:1）。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "X光繞射法最主要的限制是什麼？",
+              "explanation": "X光繞射需要良好的單晶樣品，且因為氫原子太輕、散射能力弱，通常無法直接被偵測到。",
+              "difficulty": 3,
+              "sourceInfo": "第3章·X光是最終的仲裁者",
+              "options": [
+                { "id": "a", "text": "無法用於氣體樣品" },
+                { "id": "b", "text": "需要良好的結晶樣品，且難以偵測氫原子" },
+                { "id": "c", "text": "只能用於無機物" },
+                { "id": "d", "text": "需要放射性同位素" }
+              ],
+              "correctOptionId": "b"
+            },
+            {
+              "type": "FILL_IN_THE_BLANK",
+              "order": 2,
+              "prompt": "在EI質譜圖中，若分子含有溴，通常會看到兩個強度接近1:1、相差 ___ 個質量單位的分子離子峰。",
+              "blankAnswer": "2",
+              "blankHint": "來自79Br與81Br兩種同位素",
+              "explanation": "溴有79Br與81Br兩種天然同位素，比例接近1:1，質量相差2，因此形成特徵性的雙峰。",
+              "difficulty": 3,
+              "sourceInfo": "第3章·質譜法偵測同位素"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 3,
+              "prompt": "在一張質譜圖中，最重要的訊號通常是圖中最重（m/z最大）的分子離子峰，因為它代表完整分子的質量。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "分子在游離過程中可能碎裂成較輕的片段，所以應該優先關注圖中最重的訊號，因為那最接近完整分子的質量。",
+              "difficulty": 2,
+              "sourceInfo": "第3章·質譜法"
+            }
+          ]
+        },
+        {
+          "title": "核磁共振原理與化學位移",
+          "type": "READING",
+          "order": 2,
+          "xpReward": 12,
+          "estimatedMinutes": 6,
+          "conceptIds": ["nmr_principles", "chemical_shift"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "NMR如何偵測原子核？",
+              "content": "某些原子核（如 1H、13C）具有「自旋」特性，在強磁場中會產生兩種能階：與磁場同向（低能）或反向（高能）。用無線電波照射樣品，原子核吸收能量從低能階躍遷到高能階，再釋放能量被偵測到，這就是**核磁共振**。\n\n醫學上稱為 MRI，因為「核」（nuclear）這個字容易讓病人誤解為放射性，其實 NMR 與放射性完全無關。"
+            },
+            {
+              "order": 2,
+              "title": "化學位移：辨認不同的碳與氫",
+              "content": "原子核外圍的電子會產生微弱的磁場，「屏蔽」外加磁場對原子核的影響。電負度較大的原子（如氧）會拉走鄰近碳原子的電子雲，使該碳被「**去屏蔽**」，感受到更強的磁場，因而在較高頻率（較大的化學位移 δ，單位 ppm）共振。\n\n這種因電子環境不同而產生的共振頻率差異，稱為**化學位移**。例如乙醇中，連接OH的碳的化學位移（約58 ppm）明顯高於甲基碳（約18 ppm）。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "在NMR中，鄰近電負度較大原子（如氧）的碳原子，通常會怎麼樣？",
+              "explanation": "電負度大的原子會拉走電子雲，使鄰近的碳核被去屏蔽，需要更高頻率才能共振，因而化學位移變大。",
+              "difficulty": 3,
+              "sourceInfo": "第3章·化學位移",
+              "options": [
+                { "id": "a", "text": "被屏蔽，化學位移變小" },
+                { "id": "b", "text": "被去屏蔽，在較高頻率共振" },
+                { "id": "c", "text": "完全不會共振" },
+                { "id": "d", "text": "訊號消失" }
+              ],
+              "correctOptionId": "b"
+            },
+            {
+              "type": "FLASHCARD",
+              "order": 2,
+              "front": "為什麼NMR在醫學上被稱為MRI而不是NMR？",
+              "back": "因為「核磁共振」中的「核」（nuclear）容易讓病人誤以為與放射性有關而感到恐懼，實際上NMR技術與放射性完全無關，只是利用原子核的磁性質。",
+              "explanation": "這只是命名上避免引起誤解，技術原理完全相同。",
+              "difficulty": 2,
+              "sourceInfo": "第3章·核磁共振"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 3,
+              "prompt": "化學位移的符號是 δ，單位是 ppm（百萬分之一）。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "使用ppm是因為化學位移與磁場強度的比值有關，用ppm可以讓不同機器測得的結果互相比較。",
+              "difficulty": 2,
+              "sourceInfo": "第3章·化學位移量表"
+            }
+          ]
+        },
+        {
+          "title": "解讀13C NMR光譜的四個區域",
+          "type": "PRACTICE",
+          "order": 3,
+          "xpReward": 15,
+          "estimatedMinutes": 7,
+          "conceptIds": ["c13_nmr_regions"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "13C NMR光譜的四大區域",
+              "content": "13C NMR光譜大致可分成四個區域：**飽和碳（0–50 ppm）**、**鄰接氧的飽和碳（50–100 ppm）**、**不飽和碳如C=C（100–150 ppm）**、**鄰接氧的不飽和碳如C=O（150–200 ppm）**。\n\n訊號數目反映分子中「不同環境」碳原子的種類數——例如己二酸（hexanedioic acid）雖有6個碳，但因分子對稱，只出現3個訊號峰。"
+            },
+            {
+              "order": 2,
+              "title": "由訊號數目看出分子對稱性",
+              "content": "BHT（C15H24O）有15個碳原子，但因分子高度對稱，13C NMR只出現7個訊號：6個等價的第三丁基甲基碳合併成1個訊號，芳香環也因對稱只給出4個訊號而非6個。\n\n判讀13C NMR的關鍵，不是訊號的高度，而是訊號的**數目**與**所在區域**是否吻合預期的分子結構。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "羰基碳（C=O）通常出現在13C NMR光譜的哪個區域？",
+              "explanation": "羰基碳同時是不飽和碳又鄰接氧，因此出現在去屏蔽程度最高的150–200 ppm區。",
+              "difficulty": 4,
+              "sourceInfo": "第3章·13C NMR光譜的區域",
+              "options": [
+                { "id": "a", "text": "0–50 ppm" },
+                { "id": "b", "text": "50–100 ppm" },
+                { "id": "c", "text": "100–150 ppm" },
+                { "id": "d", "text": "150–200 ppm" }
+              ],
+              "correctOptionId": "d"
+            },
+            {
+              "type": "FILL_IN_THE_BLANK",
+              "order": 2,
+              "prompt": "己二酸（hexanedioic acid）雖然有6個碳原子，但因為分子具有對稱性，13C NMR只出現 ___ 個訊號峰。",
+              "blankAnswer": "3",
+              "blankHint": "對稱的碳會給出相同訊號",
+              "explanation": "因為分子左右對稱，C1/C6、C2/C5、C3/C4 各自等價，所以只出現3個訊號。",
+              "difficulty": 4,
+              "sourceInfo": "第3章·13C NMR範例：己二酸"
+            },
+            {
+              "type": "MATCHING",
+              "order": 3,
+              "prompt": "請將13C NMR的化學位移區間與其對應的碳原子類型配對。",
+              "matchPairs": [
+                { "left": "0–50 ppm", "right": "飽和碳" },
+                { "left": "50–100 ppm", "right": "鄰接氧的飽和碳" },
+                { "left": "150–200 ppm", "right": "鄰接氧的不飽和碳（C=O）" }
+              ],
+              "explanation": "熟記這四個區間，是快速判讀13C NMR光譜、推測官能基的第一步。",
+              "difficulty": 3,
+              "sourceInfo": "第3章·13C NMR光譜的區域"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "第四章：分子結構",
+      "description": "從原子軌域到分子軌域，理解化學鍵結的本質",
+      "order": 4,
+      "color": "#cd6be0",
+      "iconEmoji": "⚛️",
+      "lessons": [
+        {
+          "title": "原子軌域與電子組態",
+          "type": "READING",
+          "order": 1,
+          "xpReward": 15,
+          "estimatedMinutes": 7,
+          "conceptIds": ["atomic_orbitals", "electron_configuration"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "電子的能量是量子化的",
+              "content": "原子發射光譜顯示，電子只能存在特定、不連續的能階，這種現象稱為**量子化**。若把電子想像成像吉他弦一樣的「駐波」，只有特定波長（對應特定能量）的振動模式才被允許存在，這解釋了為什麼電子的能量是量子化的，而不是連續變化。"
+            },
+            {
+              "order": 2,
+              "title": "s軌域與p軌域的形狀",
+              "content": "最低能量的 **1s軌域**呈球形，沒有節點。能量較高的 **2s軌域**也是球形，但多了一個球形節點。**2p軌域**則呈啞鈴狀，有一個平面節點，且互相垂直的三個方向（2px、2py、2pz）各自對應一個軌域。\n\n碳原子的電子組態是 1s²2s²2p²，根據**洪德定則（Hund's rule）**，2個2p電子會優先各自佔據不同的p軌域、自旋方向相同，而不是擠在同一個軌域中配對。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "1s軌域的形狀是？",
+              "explanation": "1s軌域是最低能量、最簡單的原子軌域，呈球對稱、沒有節點。",
+              "difficulty": 3,
+              "sourceInfo": "第4章·電子佔據原子軌域",
+              "options": [
+                { "id": "a", "text": "球形，無節點" },
+                { "id": "b", "text": "啞鈴形" },
+                { "id": "c", "text": "平面形" },
+                { "id": "d", "text": "環形" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "FLASHCARD",
+              "order": 2,
+              "front": "根據洪德定則（Hund's rule），電子在能量相同的多個軌域（如三個2p軌域）中會如何排列？",
+              "back": "電子會優先各自佔據不同的軌域、且自旋方向相同，而不是先兩兩配對佔滿同一軌域，以降低電子間的排斥力。",
+              "explanation": "這解釋了為什麼碳原子的兩個2p電子會分別佔據兩個不同的p軌域，而不是擠在同一個軌域中。",
+              "difficulty": 3,
+              "sourceInfo": "第4章·電子佔據原子軌域"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 3,
+              "prompt": "每一個原子軌域最多只能容納2個電子。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "這是包立不相容原理的結果：每個軌域最多容納兩個自旋方向相反的電子。",
+              "difficulty": 2,
+              "sourceInfo": "第4章·電子佔據原子軌域"
+            }
+          ]
+        },
+        {
+          "title": "分子軌域理論與鍵結",
+          "type": "READING",
+          "order": 2,
+          "xpReward": 15,
+          "estimatedMinutes": 7,
+          "conceptIds": ["molecular_orbitals", "bonding_antibonding", "bond_order"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "原子軌域組合成分子軌域（LCAO）",
+              "content": "當兩個原子靠近，它們的原子軌域可以「同相」或「異相」組合，形成分子軌域——這個方法稱為**原子軌域線性組合（LCAO）**。\n\n同相組合（相加）會在兩核之間產生高電子密度區，形成能量較低的**鍵結軌域（bonding orbital）**；異相組合（相減）則在兩核間出現節點，形成能量較高的**反鍵結軌域（antibonding orbital）**。"
+            },
+            {
+              "order": 2,
+              "title": "為什麼H2存在而He2不存在？",
+              "content": "氫分子H2的兩個電子都填入能量較低的鍵結軌域，兩核間電子密度高，原子核被電子「黏住」，形成穩定的化學鍵。\n\n氦分子He2若要形成，4個電子必須同時填滿鍵結軌域與反鍵結軌域，兩者的鍵結效果互相抵銷，結果沒有淨鍵結，He2並不存在。我們用**鍵級（bond order）** = (鍵結軌域電子數 − 反鍵結軌域電子數) / 2 來量化鍵結程度：H2的鍵級是1（單鍵），He2的鍵級是0（無鍵）。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "兩個原子軌域「同相」疊加會形成哪一種分子軌域？",
+              "explanation": "同相（建設性）疊加使兩核間電子密度增加，形成能量較低的鍵結軌域。",
+              "difficulty": 4,
+              "sourceInfo": "第4章·雙原子分子的分子軌域",
+              "options": [
+                { "id": "a", "text": "反鍵結軌域" },
+                { "id": "b", "text": "鍵結軌域" },
+                { "id": "c", "text": "非鍵結軌域" },
+                { "id": "d", "text": "游離軌域" }
+              ],
+              "correctOptionId": "b"
+            },
+            {
+              "type": "FILL_IN_THE_BLANK",
+              "order": 2,
+              "prompt": "氦分子He2的鍵級是 ___，因此He2並不存在。",
+              "blankAnswer": "0",
+              "blankHint": "鍵結軌域與反鍵結軌域的電子數相等，互相抵銷",
+              "explanation": "He2的4個電子必須同時填滿鍵結與反鍵結軌域，鍵級=(2-2)/2=0，代表沒有淨鍵結。",
+              "difficulty": 4,
+              "sourceInfo": "第4章·鍵級"
+            },
+            {
+              "type": "SHORT_ANSWER",
+              "order": 3,
+              "prompt": "請解釋為什麼H2分子可以穩定存在，但He2卻不存在？",
+              "back": "H2的兩個電子都能填入能量較低的鍵結軌域，使兩核間電子密度增加，讓帶正電的原子核被吸引在一起，形成穩定的化學鍵（鍵級=1）。He2則有4個電子，必須同時填滿鍵結軌域與反鍵結軌域，兩者的效果互相抵銷（鍵級=0），沒有淨鍵結力，因此He2並不存在。",
+              "explanation": "這是分子軌域理論最經典的入門範例，說明鍵結軌域與反鍵結軌域的電子佔據情形如何決定分子是否穩定。",
+              "difficulty": 4,
+              "sourceInfo": "第4章·為什麼氫是雙原子而氦不是"
+            }
+          ]
+        },
+        {
+          "title": "σ鍵與π鍵",
+          "type": "CHALLENGE",
+          "order": 3,
+          "xpReward": 18,
+          "estimatedMinutes": 8,
+          "conceptIds": ["sigma_pi_bonds"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "p軌域的兩種重疊方式",
+              "content": "當兩個2p軌域沿著鍵軸「首尾相接」（end-on）重疊時，形成的分子軌域具有**圓柱對稱性**（從鍵軸方向看，無論怎麼旋轉都一樣），稱為**σ軌域**；由此形成的鍵稱為**σ鍵**。\n\n當兩個2p軌域「側邊對側邊」（side-on）重疊時，形成的分子軌域不具圓柱對稱性，稱為**π軌域**；由此形成的鍵稱為**π鍵**，電子雲分布在鍵軸的上下（或前後）兩側，而不是直接在兩核之間。"
+            },
+            {
+              "order": 2,
+              "title": "N2分子：一個σ鍵加兩個π鍵",
+              "content": "氮分子N2中，每個氮原子貢獻一個2p軌域進行首尾重疊，形成1個σ鍵；另外兩對互相垂直的2p軌域則側邊重疊，形成2個π鍵。\n\n總計N2分子由**1個σ鍵加2個π鍵**構成，鍵級為3，也就是我們熟知的「氮氮三鍵」。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "兩個2p軌域「首尾相接」（end-on）重疊，形成的鍵稱為？",
+              "explanation": "首尾重疊形成具有圓柱對稱性的σ鍵，這是共價鍵中最基本的類型。",
+              "difficulty": 4,
+              "sourceInfo": "第4章·σ與π軌域",
+              "options": [
+                { "id": "a", "text": "π鍵" },
+                { "id": "b", "text": "σ鍵" },
+                { "id": "c", "text": "氫鍵" },
+                { "id": "d", "text": "離子鍵" }
+              ],
+              "correctOptionId": "b"
+            },
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 2,
+              "prompt": "N2分子總共含有幾個π鍵？",
+              "explanation": "N2的三重鍵由1個σ鍵和2個π鍵組成，來自兩對側邊重疊的2p軌域。",
+              "difficulty": 4,
+              "sourceInfo": "第4章·N2分子的分子軌域",
+              "options": [
+                { "id": "a", "text": "0" },
+                { "id": "b", "text": "1" },
+                { "id": "c", "text": "2" },
+                { "id": "d", "text": "3" }
+              ],
+              "correctOptionId": "c"
+            },
+            {
+              "type": "FILL_IN_THE_BLANK",
+              "order": 3,
+              "prompt": "σ鍵形成的分子軌域具有 ___ 對稱性，也就是沿著鍵軸旋轉任何角度，形狀都不變。",
+              "blankAnswer": "圓柱",
+              "blankHint": "想像一根雪茄或棒球棍",
+              "explanation": "這種圓柱對稱性是σ鍵區別於π鍵的關鍵幾何特徵。",
+              "difficulty": 4,
+              "sourceInfo": "第4章·σ與π軌域"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 4,
+              "prompt": "π鍵的電子雲主要分布在兩個原子核連線的正中間。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "false",
+              "explanation": "π鍵的電子雲分布在鍵軸的上下（或前後）兩側，而不是直接落在兩核連線上，這正是σ鍵與π鍵的關鍵差異。",
+              "difficulty": 4,
+              "sourceInfo": "第4章·σ與π軌域"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
