@@ -1,0 +1,1037 @@
+{
+  "title": "Clayden 有機化學",
+  "description": "改編自 Clayden《Organic Chemistry》，翻譯成繁體中文。目前涵蓋第 1–19 章：有機化學導論、有機結構、測定有機結構、分子結構、有機反應、羰基的親核加成、離域與共軛、酸鹼性與pKa、有機金屬試劑形成碳碳鍵、羰基的親核取代、羰基氧的置換（半縮醛與亞胺）、平衡速率與反應機構、氫核磁共振、立體化學、飽和碳上的親核取代、構形分析、消去反應、光譜方法總覽、烯烴的親電加成。",
+  "subject": "Chemistry",
+  "concepts": [
+    { "id": "sn1_sn2_overview", "name": "SN1與SN2：兩種取代機構", "summary": "飽和（sp3）碳上的親核取代不能像羰基一樣先加成，只能：離去基先離去、形成碳陽離子後親核基才進攻（SN1），或親核基進攻與離去基離去同時發生、一步完成（SN2）。", "importance": 1.0, "difficulty": 3, "tags": ["SN1", "SN2", "取代反應"], "posX": 150, "posY": 950 },
+    { "id": "sn2_kinetics", "name": "SN2的二階動力學", "summary": "SN2反應的決速步驟同時牽涉受質與親核基，速率方程式為rate = k2[受質][親核基]，是雙分子的二階反應，親核基的濃度與親核性都會影響速率。", "importance": 0.9, "difficulty": 3, "tags": ["動力學", "SN2"], "posX": 210, "posY": 950 },
+    { "id": "sn1_kinetics", "name": "SN1的一階動力學", "summary": "SN1反應的決速步驟只有離去基離去、形成碳陽離子，親核基不參與決速步驟，速率方程式為rate = k1[受質]，完全不受親核基濃度或種類影響。", "importance": 0.9, "difficulty": 3, "tags": ["動力學", "SN1"], "posX": 150, "posY": 980 },
+    { "id": "carbocation_stability", "name": "碳陽離子的穩定性", "summary": "碳陽離子穩定性隨取代基增加而提升（三級 > 二級 > 一級 > 甲基），鄰接π系統形成allylic/benzylic陽離子、或鄰位孤對電子形成oxonium/iminium離子，都能大幅穩定正電荷。", "importance": 1.0, "difficulty": 3, "tags": ["碳陽離子", "穩定性"], "posX": 210, "posY": 980 },
+    { "id": "sn_stereochemistry", "name": "取代反應的立體化學：反轉與消旋化", "summary": "SN2反應使受攻擊碳的組態反轉（背面進攻，像雨傘翻面）；SN1反應則因碳陽離子為平面結構，親核基兩面等機率攻擊，造成消旋化。", "importance": 0.9, "difficulty": 3, "tags": ["立體化學", "反轉", "消旋化"], "posX": 150, "posY": 1010 },
+    { "id": "sn_structure_nucleophile_leaving_group", "name": "受質結構、離去基與親核基如何決定機構", "summary": "受質的碳骨架（甲基/一級/二級/三級/allylic/benzylic/neopentyl）、離去基的離去能力、以及親核基的親核性與濃度，三者共同決定取代反應走SN1還是SN2、以及反應速率。", "importance": 0.9, "difficulty": 4, "tags": ["離去基", "親核基", "結構效應"], "posX": 210, "posY": 1010 },
+
+    { "id": "conformation_configuration", "name": "構形與組態", "summary": "旋轉單鍵能把分子變成不同形狀，稱為構形；只能靠打斷鍵才能互相轉換的結構稱為組態，組態不同的分子是立體異構物。", "importance": 1.0, "difficulty": 2, "tags": ["構形", "組態"], "posX": 350, "posY": 950 },
+    { "id": "ethane_butane_conformations", "name": "乙烷與丁烷的構形：交錯式、重疊式與Newman投影", "summary": "以Newman投影沿C–C鍵觀察：交錯式比重疊式穩定；丁烷有anti-periplanar（最穩定）、synclinal（gauche）與syn/anticlinal等不同交錯與重疊構形，旋轉能障隨取代基增大而升高。", "importance": 0.9, "difficulty": 3, "tags": ["Newman投影", "旋轉能障"], "posX": 410, "posY": 950 },
+    { "id": "ring_strain_angle", "name": "環的角張力", "summary": "把碳環視為平面多邊形時，鍵角會偏離理想的109.5°造成角張力；三員環張力最大，隨環變大先快速下降，但實際燃燒熱顯示環己烷才是真正無張力的環。", "importance": 0.8, "difficulty": 3, "tags": ["環張力", "燃燒熱"], "posX": 350, "posY": 980 },
+    { "id": "cyclohexane_chair_boat", "name": "環己烷的椅式、船式與環翻轉", "summary": "環己烷實際呈椅式構形：鍵角完美109.5°、所有鍵都交錯，是能量最低的構形；船式構形雖無角張力但因重疊C–H而能量較高，兩個椅式構形間會經半椅式、扭船式來回環翻轉。", "importance": 1.0, "difficulty": 3, "tags": ["椅式", "船式", "環翻轉"], "posX": 410, "posY": 980 },
+    { "id": "axial_equatorial_preference", "name": "軸向、赤道取代基與1,3-diaxial作用力", "summary": "椅式環己烷每個碳有一軸向、一赤道氫；取代基通常偏好赤道位置，因為軸向取代基會與同環1,3-位置的軸向氫產生空間排斥，取代基越大偏好赤道的比例越高。", "importance": 0.9, "difficulty": 3, "tags": ["軸向", "赤道", "1,3-diaxial"], "posX": 350, "posY": 1010 },
+    { "id": "disubstituted_cyclohexane_decalin", "name": "雙取代環己烷與十氫萘（decalin）", "summary": "雙取代環己烷能否同時佔據赤道位置取決於cis/trans組態；t-丁基等大基團可鎖定環的構形，trans-decalin的環間鍵都是赤道-赤道、無法環翻轉，cis-decalin則可正常翻轉。", "importance": 0.7, "difficulty": 4, "tags": ["雙取代", "decalin", "鎖定基"], "posX": 410, "posY": 1010 },
+
+    { "id": "e1_e2_overview", "name": "E1與E2：兩種消去機構", "summary": "消去反應中親核基（此時扮演鹼）攻擊β氫而非碳：E2是鹼移除氫與離去基離去同時發生的一步雙分子反應；E1是離去基先離去形成碳陽離子、鹼再移除質子的兩步反應。", "importance": 1.0, "difficulty": 3, "tags": ["E1", "E2", "消去反應"], "posX": 550, "posY": 950 },
+    { "id": "substitution_elimination_competition", "name": "取代與消去的競爭", "summary": "鹼性越強、體積越大的親核基，以及溫度越高，都越有利於消去反應勝過取代反應；攻擊碳造成取代，攻擊β氫造成消去。", "importance": 0.9, "difficulty": 3, "tags": ["取代", "消去", "鹼性", "位阻"], "posX": 610, "posY": 950 },
+    { "id": "e1_selectivity", "name": "E1的區域與立體選擇性", "summary": "E1消去偏好生成取代基較多、較穩定的烯烴（Zaitsev選擇性），也偏好較穩定的E型雙鍵，因為兩者形成的過渡態能量都較低。", "importance": 0.8, "difficulty": 4, "tags": ["Zaitsev", "區域選擇性", "E/Z選擇性"], "posX": 550, "posY": 980 },
+    { "id": "e2_anti_periplanar", "name": "E2的anti-periplanar立體化學", "summary": "E2消去需要C–H與C–離去基的鍵在anti-periplanar（交錯、180°）排列才能有效重疊形成新π鍵；起始物的立體化學唯一決定產物的雙鍵幾何，是立體專一反應。", "importance": 1.0, "difficulty": 4, "tags": ["anti-periplanar", "立體專一"], "posX": 610, "posY": 980 },
+    { "id": "e2_cyclohexane", "name": "環己烷中的E2消去：只有軸向離去基能消去", "summary": "環己烷中只有軸向的C–離去基鍵才能與軸向C–H形成anti-periplanar排列，赤道離去基只與C–C鍵anti-periplanar，因此E2消去只能從離去基佔軸向的椅式構形發生。", "importance": 0.8, "difficulty": 4, "tags": ["環己烷", "E2", "軸向離去基"], "posX": 550, "posY": 1010 },
+    { "id": "e1cb_mechanism", "name": "E1cB機構：先去質子、後離去", "summary": "當β氫因鄰近拉電子基（如羰基）而格外酸性時，鹼可先移除氫形成穩定的共軛鹼中間體，離去基之後才離去；這種先去質子、後離去的機構稱為E1cB。", "importance": 0.7, "difficulty": 4, "tags": ["E1cB", "共軛鹼"], "posX": 610, "posY": 1010 },
+
+    { "id": "carbonyl_spectroscopy_classes", "name": "用13C NMR與IR分辨含羰基官能基", "summary": "13C NMR能可靠地把醛酮（δ191–208 ppm）與羧酸衍生物（δ164–185 ppm）分成兩群，但難以細分醯氯、酸酐、酯、醯胺；IR的C=O伸縮頻率因共軛（降頻）與誘導效應（升頻）的平衡，能有效區分各種酸衍生物。", "importance": 1.0, "difficulty": 3, "tags": ["13C NMR", "IR", "羰基分類"], "posX": 750, "posY": 950 },
+    { "id": "aldehyde_ketone_distinction", "name": "醛與酮的區分：靠1H NMR而非碳譜", "summary": "醛與酮的碳譜訊號範圍太接近、難以區分，但醛特有的醛氫訊號落在1H NMR的9–10 ppm，是辨認醛類最可靠的方法。", "importance": 0.8, "difficulty": 3, "tags": ["醛", "酮", "1H NMR"], "posX": 810, "posY": 950 },
+    { "id": "ring_strain_spectroscopy", "name": "環大小對IR與NMR的影響", "summary": "小環（三、四員環）因軌域重疊角度受限，環上羰基的紅外C=O伸縮頻率會升高（環越小頻率越高）；小環上C–H的p特性使質子NMR訊號移到異常高磁場。", "importance": 0.7, "difficulty": 4, "tags": ["環張力", "IR頻率", "NMR位移"], "posX": 750, "posY": 980 },
+    { "id": "heteronuclear_coupling", "name": "異核偶合：與19F、31P的偶合", "summary": "1H與13C不僅彼此偶合，也會和19F、31P等磁性活躍原子核偶合；由於這兩種原子核幾乎100%以單一同位素存在，偶合常數往往特別大且容易觀察。", "importance": 0.6, "difficulty": 4, "tags": ["異核偶合", "19F", "31P"], "posX": 810, "posY": 980 },
+    { "id": "cyclohexane_coupling_constants", "name": "環己烷的偶合常數：判斷軸向與赤道氫", "summary": "環己烷中軸向-軸向氫（二面角180°）的偶合常數（10–12 Hz）遠大於牽涉赤道氫（二面角60°）的偶合常數（2–5 Hz），可用來判斷氫與取代基的構形位置。", "importance": 0.7, "difficulty": 4, "tags": ["偶合常數", "軸向", "赤道"], "posX": 750, "posY": 1010 },
+    { "id": "structure_elucidation", "name": "整合光譜證據解出未知結構", "summary": "解出未知化合物結構需整合質譜（分子式）、IR（官能基類型）、13C NMR（碳的種類）與1H NMR（氫的環境、數量、偶合）等證據交叉比對，才能排除所有不合理的候選結構。", "importance": 0.8, "difficulty": 4, "tags": ["結構鑑定", "光譜整合"], "posX": 810, "posY": 1010 },
+
+    { "id": "bromonium_ion", "name": "溴鎓離子：Br2對雙鍵的親電加成", "summary": "烯烴的π鍵（HOMO）進攻Br–Br的σ*軌域（LUMO），形成三員環的溴鎓離子中間體；接著溴離子從背後以SN2方式進攻，完成整體的親電加成。", "importance": 1.0, "difficulty": 3, "tags": ["溴鎓離子", "親電加成"], "posX": 950, "posY": 950 },
+    { "id": "epoxidation_peracid", "name": "過氧酸環氧化反應", "summary": "過氧酸（如m-CPBA）的O–O鍵是弱的親電位置，烯烴π鍵直接進攻氧原子，一步形成環氧化合物，是立體專一的syn加成，取代基越多的雙鍵反應越快。", "importance": 0.9, "difficulty": 3, "tags": ["環氧化", "m-CPBA", "syn加成"], "posX": 1010, "posY": 950 },
+    { "id": "markovnikov_regioselectivity", "name": "馬可尼可夫規則的機構解釋", "summary": "H–X對不對稱烯烴加成時，質子加到能形成較穩定碳陽離子的那一端；決定區域選擇性的關鍵是碳陽離子的相對穩定性，而非單純的經驗規則。", "importance": 0.9, "difficulty": 3, "tags": ["馬可尼可夫規則", "區域選擇性"], "posX": 950, "posY": 980 },
+    { "id": "syn_anti_addition", "name": "anti加成 vs syn加成", "summary": "溴經溴鎓離子、背後SN2開環，整體造成反式（anti）加成；OsO4在單一步驟中把兩個OH加到雙鍵同一面，是順式（syn）加成，同一烯烴可因此得到不同立體異構物。", "importance": 0.8, "difficulty": 4, "tags": ["anti加成", "syn加成", "雙羥基化"], "posX": 1010, "posY": 980 },
+    { "id": "alkene_oxidative_cleavage", "name": "烯烴的氧化裂解：臭氧解與過碘酸裂解", "summary": "臭氧（O3）或OsO4接NaIO4都能把烯烴的π與σ鍵完全切斷，生成兩個羰基化合物；臭氧解依還原/氧化後處理不同，可分別得到醛、羧酸或醇。", "importance": 0.7, "difficulty": 3, "tags": ["臭氧解", "氧化裂解"], "posX": 950, "posY": 1010 },
+    { "id": "oxymercuration_diene_addition", "name": "氧汞化與雙烯的1,2/1,4加成", "summary": "汞（II）與烯烴形成類似溴鎓離子的汞鎓離子，水在較擁擠一端進攻、NaBH4去汞化後得馬可尼可夫型醇，不經過碳陽離子；共軛雙烯質子化形成去域化allylic陽離子，可於1,2或1,4位置被進攻。", "importance": 0.7, "difficulty": 4, "tags": ["氧汞化", "共軛雙烯", "1,4加成"], "posX": 1010, "posY": 1010 },
+
+    { "id": "ref_stereogenic_centre_rs", "name": "立體中心與R/S命名法", "summary": "（沿用第14章已建立的概念，供本檔案的知識圖譜連結使用）連接四個不同取代基的sp3碳是立體中心；依原子序排優先順序判斷R或S組態。", "importance": 0.9, "difficulty": 3, "tags": ["立體中心", "R/S"], "posX": 900, "posY": 860 },
+    { "id": "ref_nmr_chemical_shift_regions", "name": "1H NMR的化學位移區域", "summary": "（沿用第13章已建立的概念，供本檔案的知識圖譜連結使用）1H NMR化學位移範圍約0–10 ppm，依化學環境大致分區。", "importance": 1.0, "difficulty": 3, "tags": ["NMR", "化學位移"], "posX": 780, "posY": 800 },
+    { "id": "ref_nmr_coupling_constant", "name": "偶合與偶合常數J", "summary": "（沿用第13章已建立的概念，供本檔案的知識圖譜連結使用）鄰近氫核透過鍵傳遞交互作用，偶合常數J以Hz為單位，不隨儀器磁場強度改變。", "importance": 1.0, "difficulty": 4, "tags": ["NMR", "偶合"], "posX": 780, "posY": 860 }
+  ],
+  "edges": [
+    { "sourceId": "sn2_kinetics", "targetId": "sn1_sn2_overview", "relationshipType": "EXTENDS" },
+    { "sourceId": "sn1_kinetics", "targetId": "sn1_sn2_overview", "relationshipType": "EXTENDS" },
+    { "sourceId": "carbocation_stability", "targetId": "sn1_kinetics", "relationshipType": "PART_OF" },
+    { "sourceId": "sn_stereochemistry", "targetId": "sn1_sn2_overview", "relationshipType": "RELATED" },
+    { "sourceId": "sn_stereochemistry", "targetId": "ref_stereogenic_centre_rs", "relationshipType": "PREREQUISITE" },
+    { "sourceId": "sn_structure_nucleophile_leaving_group", "targetId": "sn1_sn2_overview", "relationshipType": "EXTENDS" },
+    { "sourceId": "sn_structure_nucleophile_leaving_group", "targetId": "carbocation_stability", "relationshipType": "RELATED" },
+
+    { "sourceId": "ethane_butane_conformations", "targetId": "conformation_configuration", "relationshipType": "EXTENDS" },
+    { "sourceId": "ring_strain_angle", "targetId": "ethane_butane_conformations", "relationshipType": "RELATED" },
+    { "sourceId": "cyclohexane_chair_boat", "targetId": "ring_strain_angle", "relationshipType": "EXTENDS" },
+    { "sourceId": "axial_equatorial_preference", "targetId": "cyclohexane_chair_boat", "relationshipType": "PART_OF" },
+    { "sourceId": "disubstituted_cyclohexane_decalin", "targetId": "axial_equatorial_preference", "relationshipType": "EXTENDS" },
+    { "sourceId": "conformation_configuration", "targetId": "ref_stereogenic_centre_rs", "relationshipType": "RELATED" },
+
+    { "sourceId": "substitution_elimination_competition", "targetId": "e1_e2_overview", "relationshipType": "RELATED" },
+    { "sourceId": "e1_selectivity", "targetId": "e1_e2_overview", "relationshipType": "EXTENDS" },
+    { "sourceId": "e1_selectivity", "targetId": "carbocation_stability", "relationshipType": "PREREQUISITE" },
+    { "sourceId": "e2_anti_periplanar", "targetId": "e1_e2_overview", "relationshipType": "EXTENDS" },
+    { "sourceId": "e2_anti_periplanar", "targetId": "ethane_butane_conformations", "relationshipType": "PREREQUISITE" },
+    { "sourceId": "e2_cyclohexane", "targetId": "e2_anti_periplanar", "relationshipType": "EXTENDS" },
+    { "sourceId": "e2_cyclohexane", "targetId": "axial_equatorial_preference", "relationshipType": "RELATED" },
+    { "sourceId": "e1cb_mechanism", "targetId": "e1_e2_overview", "relationshipType": "CONTRASTS" },
+    { "sourceId": "substitution_elimination_competition", "targetId": "sn1_sn2_overview", "relationshipType": "RELATED" },
+
+    { "sourceId": "aldehyde_ketone_distinction", "targetId": "carbonyl_spectroscopy_classes", "relationshipType": "PART_OF" },
+    { "sourceId": "ring_strain_spectroscopy", "targetId": "carbonyl_spectroscopy_classes", "relationshipType": "RELATED" },
+    { "sourceId": "ring_strain_spectroscopy", "targetId": "ring_strain_angle", "relationshipType": "RELATED" },
+    { "sourceId": "heteronuclear_coupling", "targetId": "ref_nmr_coupling_constant", "relationshipType": "EXTENDS" },
+    { "sourceId": "cyclohexane_coupling_constants", "targetId": "ref_nmr_coupling_constant", "relationshipType": "EXTENDS" },
+    { "sourceId": "cyclohexane_coupling_constants", "targetId": "axial_equatorial_preference", "relationshipType": "RELATED" },
+    { "sourceId": "structure_elucidation", "targetId": "ref_nmr_chemical_shift_regions", "relationshipType": "RELATED" },
+
+    { "sourceId": "epoxidation_peracid", "targetId": "bromonium_ion", "relationshipType": "RELATED" },
+    { "sourceId": "markovnikov_regioselectivity", "targetId": "bromonium_ion", "relationshipType": "RELATED" },
+    { "sourceId": "markovnikov_regioselectivity", "targetId": "carbocation_stability", "relationshipType": "PREREQUISITE" },
+    { "sourceId": "syn_anti_addition", "targetId": "bromonium_ion", "relationshipType": "EXTENDS" },
+    { "sourceId": "syn_anti_addition", "targetId": "epoxidation_peracid", "relationshipType": "RELATED" },
+    { "sourceId": "alkene_oxidative_cleavage", "targetId": "syn_anti_addition", "relationshipType": "RELATED" },
+    { "sourceId": "oxymercuration_diene_addition", "targetId": "bromonium_ion", "relationshipType": "EXTENDS" },
+    { "sourceId": "oxymercuration_diene_addition", "targetId": "markovnikov_regioselectivity", "relationshipType": "RELATED" },
+    { "sourceId": "bromonium_ion", "targetId": "e1_e2_overview", "relationshipType": "CONTRASTS" }
+  ],
+  "units": [
+    {
+      "title": "第十五章：飽和碳上的親核取代",
+      "description": "SN1與SN2兩種取代機構的動力學證據、碳陽離子穩定性，以及立體化學如何反映機構",
+      "order": 15,
+      "color": "#e05252",
+      "iconEmoji": "🔄",
+      "lessons": [
+        {
+          "title": "SN1與SN2：兩種取代機構",
+          "type": "READING",
+          "order": 1,
+          "xpReward": 15,
+          "estimatedMinutes": 6,
+          "conceptIds": ["sn1_sn2_overview"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "為什麼飽和碳上的取代不能像羰基一樣一步加成？",
+              "content": "在第10章我們看過羰基上的親核取代：親核基先加成到sp2的羰基碳，形成四面體中間體，再踢出離去基。但飽和（sp3）碳沒有π鍵可以加成——親核基不可能在離去基還沒開始離開之前就先加進來，否則碳會出現五個鍵。因此親核基與離去基的「進」與「出」，要嘛一前一後（先讓離去基走），要嘛同步發生。"
+            },
+            {
+              "order": 2,
+              "title": "兩種可能的機構：SN1與SN2",
+              "content": "如果離去基先自己離開、形成一個碳陽離子中間體，親核基之後才進攻，這稱為**SN1機構**（取代、單分子）。如果親核基進攻與離去基離去同時發生、一步完成，這稱為**SN2機構**（取代、雙分子）。同一個分子（例如苄基氯）有時兩種機構都可能發生，要靠動力學證據才能判斷實際上走哪一條路。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "SN1與SN2機構最主要的差別在於？",
+              "explanation": "SN1是離去基先離去、形成碳陽離子後親核基才進攻（分兩步）；SN2是親核基進攻與離去基離去同時發生（一步完成）。",
+              "difficulty": 2,
+              "sourceInfo": "第15章·兩種機構總覽",
+              "options": [
+                { "id": "a", "text": "離去基離去與親核基進攻是否同時發生" },
+                { "id": "b", "text": "是否使用格林納試劑" },
+                { "id": "c", "text": "反應溫度的高低" },
+                { "id": "d", "text": "產物是否為環狀化合物" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "飽和碳（sp3）上的親核取代，親核基可以像羰基加成一樣，在離去基離開前就先加進去，形成暫時的五鍵碳。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "false",
+              "explanation": "sp3碳只有四個鍵的空間，親核基不可能在離去基還沒開始離開前就先加成進去，這是SN1、SN2機構存在的根本原因。",
+              "difficulty": 2,
+              "sourceInfo": "第15章·機構的必要性"
+            },
+            {
+              "type": "FLASHCARD",
+              "order": 3,
+              "front": "SN1與SN2這兩個名稱中，數字1和2分別代表什麼意思？",
+              "back": "代表決速步驟牽涉到的分子數目：SN1的決速步驟只有受質（烷基鹵化物）本身參與，是單分子反應；SN2的決速步驟同時牽涉受質與親核基兩者，是雙分子反應。",
+              "explanation": "這個命名方式直接反映了動力學上的差異，也是判斷機構最重要的線索。",
+              "difficulty": 2,
+              "sourceInfo": "第15章·命名由來"
+            }
+          ]
+        },
+        {
+          "title": "速率方程式：SN1與SN2的動力學證據",
+          "type": "READING",
+          "order": 2,
+          "xpReward": 15,
+          "estimatedMinutes": 6,
+          "conceptIds": ["sn2_kinetics", "sn1_kinetics"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "SN2的二階動力學",
+              "content": "Hughes與Ingold在1930年代發現，有些取代反應的速率同時取決於受質與親核基的濃度：例如n-BuBr與NaOH反應，rate = k2[n-BuBr][HO⁻]。這代表決速步驟只有一步，且親核基與受質同時參與——這正是SN2機構的證據，k2稱為二階速率常數。"
+            },
+            {
+              "order": 2,
+              "title": "SN1的一階動力學",
+              "content": "但t-BuBr與NaOH反應卻是一階：rate = k1[t-BuBr]，完全不受氫氧根濃度影響。這代表決速步驟不牽涉親核基，只有受質的離去基先離去、形成碳陽離子；之後親核基才快速加入。這個「決速步驟慢、後續步驟快」的兩步機構就是SN1，k1稱為一階速率常數。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "已知某取代反應的實驗數據顯示，改變親核基的濃度完全不影響反應速率，這代表反應機構最可能是？",
+              "explanation": "SN1的決速步驟只涉及受質本身，親核基不參與決速步驟，因此親核基的濃度、甚至種類都不影響速率。",
+              "difficulty": 3,
+              "sourceInfo": "第15章·SN1的動力學證據",
+              "options": [
+                { "id": "a", "text": "SN1" },
+                { "id": "b", "text": "SN2" },
+                { "id": "c", "text": "無法用動力學判斷" },
+                { "id": "d", "text": "兩者皆有可能，機率相同" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "SN2反應的速率方程式同時包含受質與親核基的濃度項，是二階反應。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "rate = k2[受質][親核基]，決速步驟同時牽涉兩者，因此是二階反應。",
+              "difficulty": 2,
+              "sourceInfo": "第15章·SN2的動力學證據"
+            },
+            {
+              "type": "FILL_IN_THE_BLANK",
+              "order": 3,
+              "prompt": "SN1反應的速率方程式為rate = k1[受質]，完全不受______濃度影響。",
+              "blankAnswer": "親核基",
+              "blankHint": "這正是SN1與SN2動力學上最大的差別",
+              "explanation": "因為親核基不參與SN1的決速步驟（碳陽離子形成），它的濃度或種類都不會改變反應速率。",
+              "difficulty": 3,
+              "sourceInfo": "第15章·SN1速率方程式"
+            }
+          ]
+        },
+        {
+          "title": "碳陽離子穩定性、立體化學與機構的選擇",
+          "type": "PRACTICE",
+          "order": 3,
+          "xpReward": 18,
+          "estimatedMinutes": 7,
+          "conceptIds": ["carbocation_stability", "sn_stereochemistry", "sn_structure_nucleophile_leaving_group"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "什麼樣的受質容易走SN1？碳陽離子要夠穩定",
+              "content": "SN1反應的決速步驟是形成碳陽離子，所以受質能不能形成穩定的碳陽離子，決定了SN1反應好不好進行。三級碳陽離子最穩定，其次是可以形成allylic或benzylic離域的碳陽離子（電荷分散到雙鍵或苯環），或鄰位有孤對電子（O、N、S）能形成oxonium/iminium離子穩定電荷的結構。反之，一級與甲基受質幾乎不可能形成穩定的碳陽離子，只能走SN2；受質的碳骨架、離去基能力與親核基性質，三者一起決定最終走哪條路。"
+            },
+            {
+              "order": 2,
+              "title": "立體化學：SN2造成反轉，SN1造成消旋化",
+              "content": "SN2反應中親核基從離去基的背後攻擊，像雨傘在強風中翻面一樣，使受攻擊碳的組態發生**反轉**（inversion）。SN1反應則因為碳陽離子中間體是平面sp2結構，親核基可以從兩面幾乎等機率攻擊，得到（±）消旋混合物，稱為**消旋化**（racemization）。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "下列哪一種碳陽離子最穩定，因此最容易發生SN1反應？",
+              "explanation": "碳陽離子的穩定性隨烷基取代基增加而提升，三級碳陽離子有三個烷基提供σ鍵電子donate進入空的p軌域，最穩定。",
+              "difficulty": 2,
+              "sourceInfo": "第15章·碳陽離子的穩定性",
+              "options": [
+                { "id": "a", "text": "三級碳陽離子" },
+                { "id": "b", "text": "一級碳陽離子" },
+                { "id": "c", "text": "甲基碳陽離子" },
+                { "id": "d", "text": "三者一樣穩定" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "SN2反應會使受攻擊的碳原子組態發生反轉，而SN1反應則通常導致消旋化。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "SN2是背面進攻的一步反應，造成反轉；SN1的碳陽離子是平面結構，兩面都可能被攻擊，造成消旋化。",
+              "difficulty": 3,
+              "sourceInfo": "第15章·取代反應的立體化學"
+            },
+            {
+              "type": "MATCHING",
+              "order": 3,
+              "prompt": "請將受質類型與其偏好的取代機構配對。",
+              "matchPairs": [
+                { "left": "三級／allylic／benzylic鹵化物", "right": "偏好SN1（可形成穩定碳陽離子）" },
+                { "left": "甲基／一級鹵化物", "right": "偏好SN2（碳陽離子不穩定，且位阻小）" },
+                { "left": "neopentyl型鹵化物", "right": "兩種機構都很慢（碳陽離子不穩定，位阻又大）" }
+              ],
+              "explanation": "受質的碳骨架同時影響碳陽離子的穩定性與親核基能否靠近，是判斷機構的第一步。",
+              "difficulty": 4,
+              "sourceInfo": "第15章·結構如何決定機構"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "第十六章：構形分析",
+      "description": "單鍵旋轉造成的構形變化、環的張力，以及環己烷椅式構形中軸向與赤道取代基的行為",
+      "order": 16,
+      "color": "#4a90d9",
+      "iconEmoji": "🪑",
+      "lessons": [
+        {
+          "title": "構形與組態、乙烷與丁烷的旋轉",
+          "type": "READING",
+          "order": 1,
+          "xpReward": 15,
+          "estimatedMinutes": 6,
+          "conceptIds": ["conformation_configuration", "ethane_butane_conformations"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "構形（conformation）vs 組態（configuration）",
+              "content": "分子中的單鍵可以自由旋轉，同一個分子因此能呈現許多不同的形狀，這些形狀稱為**構形**；只靠旋轉單鍵就能互相轉換的結構，都是同一個構形。但如果兩個結構只能透過打斷鍵才能互相轉換（例如立體中心的排列），它們就有不同的**組態**，稱為立體異構物。"
+            },
+            {
+              "order": 2,
+              "title": "乙烷與丁烷的交錯式、重疊式構形",
+              "content": "以Newman投影沿C–C鍵觀察乙烷，重疊式（eclipsed，二面角0°）比交錯式（staggered，二面角60°）能量高約12 kJ/mol，因為重疊式的C–H鍵電子彼此排斥。丁烷更複雜：旋轉中心C–C鍵時會經過syn-periplanar（最不穩定的重疊式）、anticlinal、synclinal（gauche）與anti-periplanar（最穩定的交錯式）等構形，anti-periplanar是丁烷最穩定的構形。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "下列敘述何者正確描述「構形」與「組態」的差別？",
+              "explanation": "構形是旋轉單鍵造成的暫時形狀變化；組態的改變則需要打斷鍵，屬於立體異構物的範疇。",
+              "difficulty": 2,
+              "sourceInfo": "第16章·構形與組態",
+              "options": [
+                { "id": "a", "text": "構形只需旋轉單鍵即可互相轉換，組態需要打斷鍵才能轉換" },
+                { "id": "b", "text": "構形與組態是同一件事" },
+                { "id": "c", "text": "組態可以透過旋轉單鍵自由轉換" },
+                { "id": "d", "text": "構形是分子中原子的連接方式" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "乙烷的交錯式構形比重疊式構形穩定，因為重疊式中C–H鍵的電子彼此排斥。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "交錯式比重疊式低約12 kJ/mol，主因是重疊式鍵電子的排斥。",
+              "difficulty": 2,
+              "sourceInfo": "第16章·乙烷的構形"
+            },
+            {
+              "type": "FILL_IN_THE_BLANK",
+              "order": 3,
+              "prompt": "丁烷分子中，兩個甲基彼此距離最遠、能量最低的構形稱為______構形。",
+              "blankAnswer": "anti-periplanar",
+              "blankHint": "二面角180°、是丁烷六種代表性構形中能量最低的一種",
+              "explanation": "anti-periplanar構形中兩個甲基彼此距離最遠，位阻最小，是丁烷最穩定的構形。",
+              "difficulty": 3,
+              "sourceInfo": "第16章·丁烷的構形"
+            }
+          ]
+        },
+        {
+          "title": "環的張力與環己烷的椅式構形",
+          "type": "READING",
+          "order": 2,
+          "xpReward": 15,
+          "estimatedMinutes": 6,
+          "conceptIds": ["ring_strain_angle", "cyclohexane_chair_boat"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "為什麼環不是平面的？角張力與燃燒熱資料",
+              "content": "如果假設碳環是平面多邊形，鍵角就會被迫偏離理想的109.5°，造成**角張力**：三員環的張力最大（偏差49.5°），四員環次之，五員環之後張力大幅下降。但實際測得的燃燒熱資料顯示，張力最小的其實是六員環（環己烷），而不是計算上角張力最小的五員環——這說明真實的環並不是平面的，而是會摺疊成特定的立體形狀來降低整體能量。"
+            },
+            {
+              "order": 2,
+              "title": "環己烷的椅式與船式構形",
+              "content": "環己烷實際呈現**椅式（chair）**構形：六個碳中四個共平面、第五個在平面上方、第六個在平面下方，所有鍵角都是完美的109.5°，而且沿任兩個C–C鍵看去，所有C–H鍵都是交錯的——完全無角張力也無重疊張力，是能量最低的構形。另一種**船式（boat）**構形雖然鍵角一樣是109.5°，但有四對C–H鍵重疊，能量比椅式高約25 kJ/mol；環己烷會經過半椅式、扭船式等中間構形，在兩個椅式之間來回「翻轉」。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "根據燃燒熱數據，張力最小、幾乎無環張力的環是？",
+              "explanation": "環己烷的椅式構形鍵角完美、又無重疊張力，是幾乎完全無張力的環，燃燒熱與直鏈烷烴的CH2貢獻值幾乎一致。",
+              "difficulty": 3,
+              "sourceInfo": "第16章·環的張力",
+              "options": [
+                { "id": "a", "text": "環己烷（六員環）" },
+                { "id": "b", "text": "環丙烷（三員環）" },
+                { "id": "c", "text": "環戊烷（五員環）" },
+                { "id": "d", "text": "環丁烷（四員環）" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "環己烷的船式構形雖然鍵角也是109.5°、沒有角張力，但因為C–H鍵重疊，能量仍比椅式構形高。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "船式構形有四對重疊的C–H鍵（包括很不利的「旗桿」位置），使能量比椅式高約25 kJ/mol。",
+              "difficulty": 3,
+              "sourceInfo": "第16章·環己烷的船式構形"
+            },
+            {
+              "type": "FLASHCARD",
+              "order": 3,
+              "front": "環己烷的「環翻轉」（ring flipping）發生時，原本軸向的氫會變成什麼？",
+              "back": "環翻轉會讓所有原本軸向（axial）的鍵變成赤道（equatorial），原本赤道的鍵變成軸向——整個過程只靠旋轉單鍵完成，不打斷任何鍵，因此是構形變化而非組態變化。",
+              "explanation": "環翻轉不改變分子的組態，只是改變構形，因此不會產生新的立體異構物。",
+              "difficulty": 3,
+              "sourceInfo": "第16章·環翻轉"
+            }
+          ]
+        },
+        {
+          "title": "軸向、赤道取代基與雙取代環己烷",
+          "type": "PRACTICE",
+          "order": 3,
+          "xpReward": 18,
+          "estimatedMinutes": 7,
+          "conceptIds": ["axial_equatorial_preference", "disubstituted_cyclohexane_decalin"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "取代基偏好赤道位置：1,3-diaxial作用力",
+              "content": "單取代環己烷中，取代基在軸向或赤道位置的兩個椅式構形會快速互變，但能量不同：**赤道位置通常較穩定**，因為軸向取代基會與同碳環上另外兩個1,3-位置的軸向氫產生空間排斥（1,3-diaxial interaction）。取代基越大，這個效應越明顯：t-丁基幾乎100%佔據赤道位置（軸向t-丁基太擁擠，幾乎不存在）。"
+            },
+            {
+              "order": 2,
+              "title": "雙取代環己烷與十氫萘（decalin）",
+              "content": "當環上有兩個取代基時，究竟能不能同時佔據赤道位置，要看它們是cis還是trans、以及彼此的相對位置。像t-丁基這種幾乎必然佔據赤道的「鎖定基」，可以固定整個環的構形，用來研究另一個取代基的軸向/赤道行為。十氫萘（decalin，兩個環己烷稠合）也有cis與trans異構物：trans-decalin的兩個環都以赤道鍵相連、無法環翻轉；cis-decalin則可以正常翻轉。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "甲基環己烷中，甲基佔據赤道位置比軸向位置更穩定，主要原因是？",
+              "explanation": "軸向取代基與同碳環另外兩個1,3-軸向氫距離很近，會產生明顯的空間排斥，使軸向構形能量較高。",
+              "difficulty": 3,
+              "sourceInfo": "第16章·1,3-diaxial作用力",
+              "options": [
+                { "id": "a", "text": "軸向甲基與同側1,3-軸向氫的空間排斥（1,3-diaxial interaction）" },
+                { "id": "b", "text": "赤道鍵比軸向鍵短" },
+                { "id": "c", "text": "軸向位置的碳是sp2" },
+                { "id": "d", "text": "甲基在赤道時會形成氫鍵" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "t-丁基是體積很大的取代基，幾乎總是佔據環己烷的赤道位置，因此常被用來鎖定環的構形。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "軸向t-丁基與1,3-軸向氫的排斥非常嚴重，幾乎不存在軸向t-丁基環己烷，因此可作為構形的「鎖定基」。",
+              "difficulty": 2,
+              "sourceInfo": "第16章·鎖定基"
+            },
+            {
+              "type": "FILL_IN_THE_BLANK",
+              "order": 3,
+              "prompt": "trans-decalin兩環間的連接鍵都必須是赤道-赤道，環翻轉後會需要變成______-______，因此無法形成六員環，環翻轉不可能發生。",
+              "blankAnswer": "軸向-軸向",
+              "blankHint": "環翻轉會把所有赤道鍵變成軸向鍵",
+              "explanation": "trans-decalin的稠合鍵在兩個環都必須是赤道位置；環翻轉會把它們同時變成軸向，但軸向-軸向無法連成六員環，因此trans-decalin構形固定。",
+              "difficulty": 4,
+              "sourceInfo": "第16章·decalin的環翻轉"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "第十七章：消去反應",
+      "description": "E1、E2、E1cB三種消去機構，取代與消去的競爭，以及anti-periplanar立體化學如何控制產物",
+      "order": 17,
+      "color": "#f2994a",
+      "iconEmoji": "✂️",
+      "lessons": [
+        {
+          "title": "E1與E2機構、取代與消去的競爭",
+          "type": "READING",
+          "order": 1,
+          "xpReward": 15,
+          "estimatedMinutes": 6,
+          "conceptIds": ["e1_e2_overview", "substitution_elimination_competition"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "消去反應：親核基改攻擊氫而非碳",
+              "content": "親核基除了可以攻擊碳原子（造成取代），也可以攻擊碳旁邊（β位）的氫原子：氫被移除、離去基同時離開，形成新的C=C雙鍵，這就是**消去反應**（elimination）。就像取代反應一樣，消去也有兩種機構：**E2**（鹼移除氫的同時離去基離去，一步完成、二階動力學）與**E1**（離去基先離去形成碳陽離子，鹼再移除質子，決速步驟只涉及受質、一階動力學）。"
+            },
+            {
+              "order": 2,
+              "title": "什麼因素決定取代還是消去獲勝？",
+              "content": "鹼性越強的親核基越傾向攻擊氫（消去）而非碳（取代）；體積越大的親核基（如t-butoxide）也因為難以擠進碳原子、但攻擊外露的氫容易得多，而偏好消去。溫度升高也有利於消去，因為消去反應會讓分子數增加（2變3），熵變化更有利，ΔG = ΔH − TΔS中溫度越高、熵有利的一方越吃香。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "下列何者最能描述E2機構？",
+              "explanation": "E2是協同（concerted）反應：鹼奪取氫的同時，離去基離開、新的π鍵形成，全部一步完成，速率同時取決於受質與鹼的濃度。",
+              "difficulty": 2,
+              "sourceInfo": "第17章·E2機構",
+              "options": [
+                { "id": "a", "text": "鹼移除β氫與離去基離去同時發生，一步完成的雙分子反應" },
+                { "id": "b", "text": "離去基先離去、形成穩定碳陽離子後鹼才移除質子" },
+                { "id": "c", "text": "親核基先加成到碳上形成中間體" },
+                { "id": "d", "text": "反應完全不需要鹼" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "使用體積龐大的鹼（如t-butoxide）通常會讓消去反應比取代反應更有利，因為大鹼難以攻擊擁擠的碳原子，但攻擊外露的氫比較容易。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "位阻越大的鹼越難進行SN2取代，但攻擊氫原子不太受位阻影響，因此體積大的鹼傾向消去。",
+              "difficulty": 3,
+              "sourceInfo": "第17章·取代與消去的競爭"
+            },
+            {
+              "type": "FILL_IN_THE_BLANK",
+              "order": 3,
+              "prompt": "從ΔG = ΔH − TΔS的角度來看，消去反應使分子數目增加（2個變3個），因此ΔS為正值；溫度越______，消去反應越有利。",
+              "blankAnswer": "高",
+              "blankHint": "溫度乘上正的熵變，會讓ΔG變得更負、反應更有利",
+              "explanation": "消去反應的正熵變在高溫下對ΔG的貢獻更大，因此高溫有利於消去、不利於取代。",
+              "difficulty": 3,
+              "sourceInfo": "第17章·溫度對消去的影響"
+            }
+          ]
+        },
+        {
+          "title": "E1的區域選擇性與立體選擇性",
+          "type": "READING",
+          "order": 2,
+          "xpReward": 15,
+          "estimatedMinutes": 6,
+          "conceptIds": ["e1_selectivity"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "E1偏好生成取代基較多的烯烴（Zaitsev選擇性）",
+              "content": "E1消去經過平面的碳陽離子中間體，若碳陽離子兩側都有β氫可以移除，會優先形成**取代基較多、較穩定的烯烴**：因為通往這個烯烴的過渡態中，部分形成的π鍵取代基更多、更穩定，過渡態能量較低，反應較快。這個偏好稱為Zaitsev（Saytsev）選擇性。"
+            },
+            {
+              "order": 2,
+              "title": "E1也偏好生成較穩定的E型（trans）雙鍵",
+              "content": "如果消去可以產生E或Z兩種幾何異構物，E1通常會偏好**E型雙鍵**，因為E型雙鍵的取代基彼此距離較遠、位阻較小。這個立體選擇性與Zaitsev選擇性背後的原因相同：反應會偏好通往能量較低過渡態、也就是較穩定產物的路徑。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "E1消去反應在有選擇的情況下，通常偏好生成哪一種烯烴？",
+              "explanation": "這是Zaitsev選擇性：通往取代基較多烯烴的過渡態能量較低，因為部分形成的雙鍵有更多取代基可以穩定它，所以反應較快、產物較多。",
+              "difficulty": 3,
+              "sourceInfo": "第17章·E1的區域選擇性",
+              "options": [
+                { "id": "a", "text": "取代基較多、較穩定的烯烴" },
+                { "id": "b", "text": "取代基較少的烯烴" },
+                { "id": "c", "text": "環狀烯烴" },
+                { "id": "d", "text": "兩種烯烴生成量必然相等" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "E1消去若能產生E或Z雙鍵，通常會以E型雙鍵為主要產物，因為E型雙鍵的取代基彼此位阻較小、較穩定。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "E型雙鍵的大取代基在相對兩側、彼此距離較遠，因此更穩定，其形成的過渡態能量也較低，是E1反應動力學上偏好的產物。",
+              "difficulty": 3,
+              "sourceInfo": "第17章·E1的立體選擇性"
+            },
+            {
+              "type": "FLASHCARD",
+              "order": 3,
+              "front": "為什麼E1反應中「決定產物穩定性」的因素，同時也能解釋「哪個產物形成得比較快」？",
+              "back": "因為E1消去的區域/立體選擇性都是「動力學」選擇性：兩種可能產物來自同一個碳陽離子中間體，差別只在哪一個質子被移除。較穩定產物的部分雙鍵在過渡態中通常也提供更多穩定，因此過渡態能量低、反應快，兩者剛好一致。",
+              "explanation": "這說明了為什麼「熱力學上更穩定」與「動力學上形成更快」在E1消去中經常指向同一個產物。",
+              "difficulty": 4,
+              "sourceInfo": "第17章·E1選擇性的本質"
+            }
+          ]
+        },
+        {
+          "title": "E2的反式共平面立體化學、環己烷消去與E1cB",
+          "type": "CHALLENGE",
+          "order": 3,
+          "xpReward": 20,
+          "estimatedMinutes": 8,
+          "conceptIds": ["e2_anti_periplanar", "e2_cyclohexane", "e1cb_mechanism"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "E2需要anti-periplanar排列，環己烷只能從軸向離去基消去",
+              "content": "E2消去要形成新的π鍵，需要C–H的σ鍵與C–離去基的σ*軌域重疊，唯有**anti-periplanar**（交錯、180°夾角）排列才能達到真正平行的重疊，所以起始物的立體化學會唯一決定產物的雙鍵幾何——這樣的反應稱為立體專一。在環己烷系統中，只有**軸向**的C–離去基鍵才能與環上軸向C–H形成anti-periplanar排列（赤道離去基只與C–C鍵anti-periplanar），因此E2消去只能從離去基佔軸向的椅式構形發生，即使這個構形能量較高、佔比較少。"
+            },
+            {
+              "order": 2,
+              "title": "E1cB：先去質子、後離去的第三種機構",
+              "content": "當β氫因鄰近拉電子的羰基而格外酸性（pKa約20）時，鹼可以先快速、可逆地移除這個氫，形成一個能被羰基穩定的烯醇化陰離子中間體；接著離去基才在決速步驟中離開，整體生成與羰基共軛的烯酮。這種先去質子、後離去的機構稱為**E1cB**（cB代表conjugate base，共軛鹼）；雖然HO⁻絕不會是E2反應的離去基，但在E1cB中它是從已經形成的氧陰離子上離去，並不違反這個規則。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "E2消去要求C–H與C–離去基的鍵呈現哪一種排列，才能有效重疊形成新的π鍵？",
+              "explanation": "只有anti-periplanar排列讓C–H σ鍵與C–X σ*軌域真正平行重疊，重疊效果最好，是E2偏好的過渡態幾何。",
+              "difficulty": 3,
+              "sourceInfo": "第17章·E2的anti-periplanar立體化學",
+              "options": [
+                { "id": "a", "text": "anti-periplanar（180°交錯）" },
+                { "id": "b", "text": "syn-periplanar（0°重疊）" },
+                { "id": "c", "text": "垂直排列" },
+                { "id": "d", "text": "排列不影響反應" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "在環己烷的E2消去中，只要離去基在環上，不論處於軸向或赤道位置都能順利消去。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "false",
+              "explanation": "只有軸向的離去基才能與軸向C-H達到anti-periplanar排列；赤道離去基只與C-C鍵anti-periplanar，無法進行E2消去。",
+              "difficulty": 3,
+              "sourceInfo": "第17章·環己烷的E2消去"
+            },
+            {
+              "type": "FILL_IN_THE_BLANK",
+              "order": 3,
+              "prompt": "當離去基旁邊的氫因鄰近羰基而特別酸性時，消去可能先經過去質子化、形成穩定的共軛鹼中間體，這種機構稱為______。",
+              "blankAnswer": "E1cB",
+              "blankHint": "cB代表conjugate base（共軛鹼）",
+              "explanation": "E1cB的決速步驟是離去基從已形成的共軛鹼（如烯醇化物）離去，去質子化這一步則是快速且可逆的。",
+              "difficulty": 4,
+              "sourceInfo": "第17章·E1cB機構"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "第十八章：光譜方法總覽",
+      "description": "整合13C、1H NMR與IR，區分含羰基官能基、判斷環大小效應，並綜合解出未知化合物結構",
+      "order": 18,
+      "color": "#6c5ce7",
+      "iconEmoji": "📡",
+      "lessons": [
+        {
+          "title": "用13C NMR與IR分辨含羰基官能基",
+          "type": "READING",
+          "order": 1,
+          "xpReward": 15,
+          "estimatedMinutes": 6,
+          "conceptIds": ["carbonyl_spectroscopy_classes", "aldehyde_ketone_distinction"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "13C NMR與IR：分辨含羰基官能基的兩大工具",
+              "content": "13C NMR能可靠地把醛酮（δ191–208 ppm附近）與各種羧酸衍生物（δ164–185 ppm附近）分成兩群，兩個區間不重疊、判讀容易；但要細分醯氯、酸酐、酯、醯胺彼此的差異，碳譜就無能為力了，因為這些活性差異懸殊的官能基，碳位移卻十分接近。這時該換紅外線：C=O伸縮頻率由共軛（拉低頻率）與誘導效應（拉高頻率）的平衡決定，醯氯（誘導效應主導，頻率最高）、酸酐（兩者拉鋸）、酯（誘導稍強）、醯胺（共軛主導，頻率最低）各自落在明顯不同的區間。"
+            },
+            {
+              "order": 2,
+              "title": "醛與酮：靠1H NMR而非13C NMR分辨",
+              "content": "醛與酮的碳譜訊號範圍太接近，很難單靠13C區分；但醛特有的醛氫訊號落在1H NMR的9–10 ppm，是幾乎不會被誤認的特徵訊號。因此實務上的策略是：先用13C NMR判斷是醛/酮還是酸衍生物，再用1H NMR的醛氫訊號區分醛與酮，最後用IR細分不同的酸衍生物。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "若碳譜上的羰基訊號落在170 ppm附近，這個化合物最可能是？",
+              "explanation": "醛酮的碳譜羰基訊號多落在191–208 ppm，而各種羧酸衍生物則落在164–185 ppm，170 ppm明顯屬於後者。",
+              "difficulty": 2,
+              "sourceInfo": "第18章·13C NMR分辨羰基類型",
+              "options": [
+                { "id": "a", "text": "某種羧酸衍生物（如酯、醯胺）" },
+                { "id": "b", "text": "醛" },
+                { "id": "c", "text": "酮" },
+                { "id": "d", "text": "醇" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "13C NMR很適合用來分辨醯氯、酸酐、酯、醯胺彼此的差異。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "false",
+              "explanation": "這五類羧酸衍生物的碳譜位移都擠在164-185 ppm附近，彼此差異僅幾個ppm，碳譜無法可靠分辨；要靠IR的C=O伸縮頻率才能有效區分。",
+              "difficulty": 3,
+              "sourceInfo": "第18章·酸衍生物的碳譜侷限"
+            },
+            {
+              "type": "FLASHCARD",
+              "order": 3,
+              "front": "要判斷一個含羰基的化合物屬於「醛」還是「酮」，最可靠的光譜證據是什麼？",
+              "back": "醛特有的醛氫（CHO的H）在1H NMR中落在9–10 ppm，是非常特徵的訊號；而醛酮的13C位移太接近，無法單靠碳譜可靠分辨。",
+              "explanation": "醛氫訊號的化學位移範圍幾乎不與其他官能基重疊，是辨認醛類最直接的證據。",
+              "difficulty": 3,
+              "sourceInfo": "第18章·分辨醛與酮"
+            }
+          ]
+        },
+        {
+          "title": "環大小效應與異核偶合",
+          "type": "READING",
+          "order": 2,
+          "xpReward": 15,
+          "estimatedMinutes": 6,
+          "conceptIds": ["ring_strain_spectroscopy", "heteronuclear_coupling"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "小環對IR與NMR的特殊影響",
+              "content": "小環（三、四員環）中的軌域必須以不到109.5°的角度重疊，這種張力會讓環內σ鍵含更多p特性、環外的鍵（如C=O或C–H）含更多s特性。s特性越高，鍵越短、電子被拉得越緊，因此小環上羰基的紅外C=O伸縮頻率會**升高**（環越小、升高越多，三員環可達+100 cm⁻¹）；而小環上的C–H因為s特性同樣增加，質子NMR訊號則會移到異常**高磁場**（甚至趨近0 ppm，遠低於一般CH2的1.3 ppm）。"
+            },
+            {
+              "order": 2,
+              "title": "異核偶合：氫、碳與氟、磷之間的偶合",
+              "content": "偶合不只發生在氫與氫之間；氫或碳也可能與其他磁性活躍的原子核偶合，稱為異核偶合。19F與31P是常見的例子，因為它們幾乎100%以單一同位素存在（不像13C只佔1.1%），偶合效應特別容易觀察，而且¹J（直接鍵結）偶合常數往往非常龐大，例如二甲基亞磷酸酯的¹JPH可達693 Hz。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "隨著環越小（例如從六員環變成三員環），環上羰基的紅外C=O伸縮頻率會如何變化？",
+              "explanation": "環越小，軌域被迫以更小角度重疊，環外的σ鍵（如C=O）s特性增加、鍵變短變強，伸縮頻率因此升高。",
+              "difficulty": 3,
+              "sourceInfo": "第18章·環大小對IR的影響",
+              "options": [
+                { "id": "a", "text": "升高" },
+                { "id": "b", "text": "降低" },
+                { "id": "c", "text": "完全不變" },
+                { "id": "d", "text": "先升高再降低" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "19F與31P常表現出特別大的偶合常數，部分原因是這兩種原子核在自然界幾乎100%以單一同位素存在。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "因為幾乎所有分子中的F、P原子都具有磁性活躍的同位素，偶合效應能穩定、完整地被觀察到，且其1J值通常遠大於1H-1H偶合。",
+              "difficulty": 3,
+              "sourceInfo": "第18章·異核偶合"
+            },
+            {
+              "type": "FILL_IN_THE_BLANK",
+              "order": 3,
+              "prompt": "三員環上的C–H質子，因為s特性增加、鍵被拉得更短，NMR訊號會出現在異常______磁場（ppm數值偏低甚至接近0）。",
+              "blankAnswer": "高",
+              "blankHint": "與一般CH2訊號（約1.3 ppm）相比，環丙烷上的氫訊號明顯偏向高磁場",
+              "explanation": "小環C-H鍵s特性增加，電子被拉得更緊，遮蔽效應增強，訊號移到高磁場（低ppm值）。",
+              "difficulty": 3,
+              "sourceInfo": "第18章·小環的NMR位移"
+            }
+          ]
+        },
+        {
+          "title": "環己烷的偶合常數與結構鑑定策略",
+          "type": "PRACTICE",
+          "order": 3,
+          "xpReward": 18,
+          "estimatedMinutes": 7,
+          "conceptIds": ["cyclohexane_coupling_constants", "structure_elucidation"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "環己烷的偶合常數：判斷軸向與赤道氫",
+              "content": "在環己烷中，兩個都是軸向的氫之間二面角為180°，偶合常數（3J）通常有10–12 Hz；軸向-赤道或赤道-赤道的氫之間二面角只有60°，偶合常數則小得多（2–5 Hz）。這個規律讓我們光看偶合常數的大小，就能判斷一個氫是軸向還是赤道，進一步推論取代基在環上的構形。"
+            },
+            {
+              "order": 2,
+              "title": "整合多種光譜證據，解出未知結構",
+              "content": "解出一個未知化合物的結構，通常需要把不同光譜方法的線索兜在一起：質譜給出分子式與可能的分子量；IR先鎖定官能基類型（例如是否有羰基、其頻率屬於哪一類）；13C NMR確認碳的種類與數目；1H NMR的化學位移、積分與偶合常數則提供氫的環境、數量與鄰近關係。任何一種方法單獨往往無法排除所有候選結構，必須交叉比對才能得到唯一解。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "在環己烷的1H NMR中，觀察到某氫與鄰位氫的偶合常數高達11 Hz，這代表兩者的關係最可能是？",
+              "explanation": "軸向-軸向氫的二面角為180°，是完全平行、重疊最好的排列，偶合常數因此特別大（10-12 Hz）；軸向-赤道或赤道-赤道的偶合常數則小得多。",
+              "difficulty": 4,
+              "sourceInfo": "第18章·環己烷的偶合常數",
+              "options": [
+                { "id": "a", "text": "兩者都是軸向氫（二面角180°）" },
+                { "id": "b", "text": "兩者都是赤道氫" },
+                { "id": "c", "text": "一個軸向、一個赤道" },
+                { "id": "d", "text": "無法從偶合常數判斷" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "要解出一個未知化合物的結構，通常需要同時運用質譜、IR、13C NMR與1H NMR等多種方法交叉比對，單一方法往往不足以排除所有可能結構。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "每種光譜方法提供的資訊不同（分子式、官能基、碳的種類、氫的環境與數量等），必須整合才能鎖定唯一結構。",
+              "difficulty": 2,
+              "sourceInfo": "第18章·結構鑑定策略"
+            },
+            {
+              "type": "FLASHCARD",
+              "order": 3,
+              "front": "為什麼環己烷的偶合常數可以拿來判斷取代基是軸向還是赤道？",
+              "back": "因為偶合常數的大小反映兩個C-H鍵的二面角：軸向-軸向氫呈180°、偶合常數大（10-12 Hz）；牽涉赤道氫的偶合二面角只有60°、偶合常數小（2-5 Hz）。只要量出偶合常數，就能反推氫（進而取代基）的構形位置。",
+              "explanation": "這是Karplus關係的具體應用：偶合常數與二面角有明確的對應關係。",
+              "difficulty": 4,
+              "sourceInfo": "第18章·偶合常數與構形"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "第十九章：烯烴的親電加成",
+      "description": "溴、過氧酸、酸與汞鹽對烯烴的親電加成機構，區域選擇性、立體化學與雙鍵的氧化裂解",
+      "order": 19,
+      "color": "#27ae60",
+      "iconEmoji": "⚡",
+      "lessons": [
+        {
+          "title": "溴鎓離子機構與過氧酸環氧化",
+          "type": "READING",
+          "order": 1,
+          "xpReward": 15,
+          "estimatedMinutes": 6,
+          "conceptIds": ["bromonium_ion", "epoxidation_peracid"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "溴鎓離子：溴對雙鍵的親電加成",
+              "content": "簡單、未共軛的烯烴是親核基，π鍵就是它的HOMO；溴分子（Br2）雖然電中性，但Br–Br的σ*軌域是很好的LUMO，使Br2成為親電基。烯烴的π鍵從中間進攻Br–Br，形成一個三員環的**溴鎓離子**中間體（兩個C–Br鍵都已部分形成）；接著溴離子再從背後以SN2方式進攻溴鎓離子的碳，完成整體的親電加成，兩個溴原子最終加到雙鍵的兩端。"
+            },
+            {
+              "order": 2,
+              "title": "環氧化：過氧酸把一個氧原子加到雙鍵上",
+              "content": "過氧酸（peracid，如m-CPBA）的O–O鍵很弱，是親電的位置：烯烴的π鍵直接進攻鄰近的氧原子，同時把質子從遠端的氧轉移到即將離去的羧酸根上，一步形成三員環的**環氧化合物**，並釋出對應的羧酸。這個反應是立體專一的**syn加成**（兩個新的C–O鍵在雙鍵同一面形成），取代基越多的雙鍵反應越快，因為更多烷基能提升π鍵的HOMO能量、使其更親核。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "烯烴與Br2反應時，何者扮演親核基、何者扮演親電基？",
+              "explanation": "烯烴的π鍵（HOMO）進攻Br-Br的σ*軌域（LUMO），烯烴扮演親核基、Br2扮演親電基，形成溴鎓離子中間體。",
+              "difficulty": 2,
+              "sourceInfo": "第19章·溴鎓離子機構",
+              "options": [
+                { "id": "a", "text": "烯烴是親核基，Br2是親電基" },
+                { "id": "b", "text": "烯烴是親電基，Br2是親核基" },
+                { "id": "c", "text": "兩者都是親電基" },
+                { "id": "d", "text": "兩者都是親核基" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "過氧酸對烯烴的環氧化反應，兩個新的C-O鍵是在雙鍵的同一面形成，屬於syn加成。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "環氧化經由一步的環狀機構完成，兩個C-O鍵必然同時在π鍵同一面形成，因此是立體專一的syn加成。",
+              "difficulty": 3,
+              "sourceInfo": "第19章·過氧酸環氧化"
+            },
+            {
+              "type": "FILL_IN_THE_BLANK",
+              "order": 3,
+              "prompt": "烯烴與Br2反應形成的三員環中間體稱為______離子。",
+              "blankAnswer": "溴鎓",
+              "blankHint": "溴原子透過孤對電子與兩個碳同時形成部分鍵結的三員環正離子",
+              "explanation": "溴鎓離子中溴原子帶正電、與兩個碳都有部分鍵結，是親電加成的關鍵中間體。",
+              "difficulty": 3,
+              "sourceInfo": "第19章·溴鎓離子"
+            }
+          ]
+        },
+        {
+          "title": "馬可尼可夫規則與雙鍵的順反加成",
+          "type": "READING",
+          "order": 2,
+          "xpReward": 15,
+          "estimatedMinutes": 6,
+          "conceptIds": ["markovnikov_regioselectivity", "syn_anti_addition"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "馬可尼可夫規則的真正原因：碳陽離子穩定性",
+              "content": "H–X對不對稱烯烴加成時（如異丁烯加HBr），質子會加到能生成**較穩定碳陽離子**的那一端：異丁烯質子化會形成三級碳陽離子，而非不穩定的一級碳陽離子，溴離子再進攻這個碳陽離子，得到t-丁基溴。傳統上把這個現象稱為馬可尼可夫規則（氫加到氫比較多的碳上），但真正該記住的是背後的原因——反應會走向能形成較穩定碳陽離子中間體的那條路徑。"
+            },
+            {
+              "order": 2,
+              "title": "anti加成 vs syn加成：由同一烯烴做出不同立體異構物",
+              "content": "溴進行親電加成時，經過溴鎓離子中間體，再由溴離子從背後SN2開環，整體造成**反式（anti）加成**：環己烯加溴只會得到（±）-反式-1,2-二溴環己烷，順式異構物完全不會生成。相對地，OsO4對雙鍵進行雙羥基化，兩個OH基在單一步驟中同時加到雙鍵同一面，是**順式（syn）加成**。同一個烯烴，用溴（anti）或OsO4（syn）處理，可以得到不同的非鏡像立體異構物。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "異丁烯（2-methylpropene）與HBr反應，主要產物t-丁基溴的生成，最主要是因為？",
+              "explanation": "質子化若發生在另一端會形成不穩定的一級碳陽離子；形成三級碳陽離子的路徑能量較低，是實際發生的反應路徑，這正是馬可尼可夫規則的機構解釋。",
+              "difficulty": 3,
+              "sourceInfo": "第19章·馬可尼可夫規則",
+              "options": [
+                { "id": "a", "text": "質子加到能形成三級（較穩定）碳陽離子的碳上" },
+                { "id": "b", "text": "溴離子先攻擊雙鍵" },
+                { "id": "c", "text": "反應不具區域選擇性" },
+                { "id": "d", "text": "一級碳陽離子比三級穩定" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "環己烯與Br2反應只會得到反式（anti）加成的產物，順式二溴化物完全不會生成。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "反應經由溴鎓離子中間體、再由溴離子從背後SN2開環，這個機構必然造成反式加成，因此順式產物不會生成。",
+              "difficulty": 3,
+              "sourceInfo": "第19章·溴的立體專一加成"
+            },
+            {
+              "type": "MATCHING",
+              "order": 3,
+              "prompt": "請將加成試劑與其造成的立體化學（syn/anti）配對。",
+              "matchPairs": [
+                { "left": "Br2（經溴鎓離子）", "right": "anti加成" },
+                { "left": "OsO4（雙羥基化）", "right": "syn加成" },
+                { "left": "m-CPBA（環氧化）", "right": "syn加成" }
+              ],
+              "explanation": "反應機構決定立體化學：一步環狀機構造成syn加成，背後SN2開環的兩步機構造成anti加成。",
+              "difficulty": 3,
+              "sourceInfo": "第19章·syn與anti加成比較"
+            }
+          ]
+        },
+        {
+          "title": "烯烴的氧化裂解與雙烯的加成",
+          "type": "CHALLENGE",
+          "order": 3,
+          "xpReward": 20,
+          "estimatedMinutes": 8,
+          "conceptIds": ["alkene_oxidative_cleavage", "oxymercuration_diene_addition"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "徹底切斷雙鍵：臭氧解與過碘酸裂解",
+              "content": "有時我們需要把雙鍵完全切斷——不只π鍵，連σ鍵也要斷開。方法之一是先用OsO4雙羥基化得到雙醇，再用NaIO4氧化裂解C–C鍵；另一個更直接的方法是**臭氧解（ozonolysis）**：臭氧（O3）與雙鍵形成五員環的臭氧化物，接著分解成一個醛與一個不穩定的carbonyl oxide，最後用溫和的還原劑（Me2S或Ph3P）把carbonyl oxide也還原成羰基化合物，整體把一個雙鍵切成兩個羰基化合物。改用不同的後續試劑（H2O2氧化、NaBH4還原）還能分別得到羧酸或醇。"
+            },
+            {
+              "order": 2,
+              "title": "汞鎓離子與雙烯的1,2/1,4加成",
+              "content": "汞（II）離子也能像溴一樣與烯烴形成類似溴鎓離子的**汞鎓離子**，水在較擁擠（取代基較多）的一端進攻，最後用NaBH4把碳-汞鍵還原掉，整體得到馬可尼可夫型的醇，且完全不經過不穩定的碳陽離子（稱為oxymercuration–demercuration）。共軛雙烯（如isoprene）質子化後會形成去域化在兩個碳上的allylic陽離子，親核基可以在鄰近碳（1,2-加成，動力學產物、低溫較多）或末端碳（1,4-加成，熱力學產物、加熱後較多）進攻，兩種產物的比例會因反應溫度而改變。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "臭氧解（ozonolysis）搭配Me2S作為還原後處理，最終會把一個烯烴的雙鍵轉變成？",
+              "explanation": "臭氧解會同時切斷π鍵與σ鍵，用溫和還原劑（Me2S或Ph3P）處理後得到兩個羰基化合物；若改用H2O2則得到羧酸，改用NaBH4則得到醇。",
+              "difficulty": 3,
+              "sourceInfo": "第19章·臭氧解",
+              "options": [
+                { "id": "a", "text": "兩個羰基化合物（醛或酮）" },
+                { "id": "b", "text": "一個環氧化合物" },
+                { "id": "c", "text": "一個二醇" },
+                { "id": "d", "text": "兩個羧酸（無論後處理為何）" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "氧汞化-去汞化（oxymercuration-demercuration）反應得到馬可尼可夫型的醇，且反應過程中不經過不穩定的碳陽離子中間體。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "反應經由類似溴鎓離子的環狀汞鎓離子，水在較取代的一端進攻，全程沒有真正遊離的碳陽離子，因此不會有碳陽離子常見的重排副反應。",
+              "difficulty": 4,
+              "sourceInfo": "第19章·氧汞化-去汞化"
+            },
+            {
+              "type": "FILL_IN_THE_BLANK",
+              "order": 3,
+              "prompt": "共軛雙烯質子化後形成的去域化allylic陽離子，親核基可以在鄰近碳（1,2-加成）或末端碳（______-加成）進攻，後者通常是加熱後才佔優勢的熱力學產物。",
+              "blankAnswer": "1,4",
+              "blankHint": "沿著三個碳的去域化陽離子，親核基可以進攻最遠端的碳",
+              "explanation": "1,4-加成的產物通常有更穩定、取代較多的雙鍵，且在熱力學控制（加熱、較長反應時間）下佔優勢。",
+              "difficulty": 4,
+              "sourceInfo": "第19章·雙烯的1,2/1,4加成"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
