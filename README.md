@@ -18,11 +18,13 @@
 
 ```bash
 npm install
-cp .env.example .env        # 填入 DATABASE_URL 與 JWT_SECRET
+cp .env.example .env        # 填入 DATABASE_URL、DIRECT_URL 與 JWT_SECRET
 npx prisma migrate dev      # 建立資料表
 npm run db:seed -- prisma/seed/organic-chemistry-ch1-4.json
 npm run dev
 ```
+
+本機開發用同一個資料庫時，`DATABASE_URL` 跟 `DIRECT_URL` 可以填一樣的值；只有部署到 Neon 這類「連線池／直連分開」的雲端 Postgres 時，兩者才需要不同（見下方部署章節）。
 
 開啟 http://localhost:3000，註冊帳號後就會進入學習路徑。
 
@@ -32,32 +34,35 @@ npm run dev
 
 ### 1. 申請一個免費的 PostgreSQL（擇一）
 
-- [Supabase](https://supabase.com)：新增 Project，在 Settings → Database 找到 Connection string（選 "URI" 格式，記得把 `[YOUR-PASSWORD]` 換成你設定的密碼）
-- [Neon](https://neon.tech)：新增 Project 後直接會給你一組 `postgresql://...` 連線字串
+- [Neon](https://neon.tech)：新增 Project 後，到 Connect 畫面**分別複製兩組連線字串**：
+  - 有勾選「Connection pooling」的（網址裡有 `-pooler`）→ 這個是 `DATABASE_URL`
+  - 沒勾選的直連字串（網址裡沒有 `-pooler`）→ 這個是 `DIRECT_URL`
+- [Supabase](https://supabase.com)：Settings → Database 底下同樣有 "Transaction pooler"（給 `DATABASE_URL`）跟 "Direct connection"（給 `DIRECT_URL`）兩種字串
 
-拿到形如 `postgresql://user:password@host:5432/dbname` 的連線字串備用。
+**用連線池的字串當 `DATABASE_URL` 這件事很重要**：Vercel 每次請求都可能是全新的伺服器執行個體，如果 `DATABASE_URL` 用直連字串，每次讀寫資料庫都要重新建立一條全新連線，會讓網站變得很慢；直連字串只給 `DIRECT_URL` 在建置時執行資料庫遷移用。
 
 ### 2. 建立 Vercel 專案
 
 1. 到 [vercel.com](https://vercel.com) 用 GitHub 帳號登入
-2. 「Add New… → Project」，選擇 `chloeyeh0709-byte/campbell_biology_duolingo` 這個 repo
+2. 「Add New… → Project」，選擇 `chloeyeh0709-byte/campbell_biology_duolingo` 這個 repo（**注意**：如果之前已經 import 過一次，直接選那個既有專案繼續用，不要每次都重新 import，否則會建出好幾個不同網址的專案）
 3. Branch 選 `claude/athena-repo-review-hyuqw1`（或先把它合併到 `main`）
 4. 在 Environment Variables 設定：
-   - `DATABASE_URL`：上一步拿到的 Postgres 連線字串
+   - `DATABASE_URL`：連線池（pooler）字串，記得在結尾加上 `&pgbouncer=true`
+   - `DIRECT_URL`：直連字串
    - `JWT_SECRET`：隨便一段夠長的隨機字串（例如用 `openssl rand -base64 32` 產生）
 5. 按下 Deploy。建置時會自動執行 `prisma migrate deploy` 建立資料表（見 `package.json` 的 `build` 腳本）。
 
 ### 3. 匯入課程內容（部署完成後，只需執行一次）
 
-在本機，把 `.env` 的 `DATABASE_URL` 暫時換成 Vercel 專案用的那組正式資料庫連線字串，然後執行：
+在本機，把 `.env` 的 `DATABASE_URL` 暫時換成 Vercel 專案用的那組正式資料庫連線字串（連線池版本即可，已經有 `pgbouncer=true`），然後執行：
 
 ```bash
 npm run db:seed -- prisma/seed/organic-chemistry-ch1-4.json
 ```
 
-跑完後記得把 `.env` 的 `DATABASE_URL` 換回本機開發用的資料庫。
+跑完後記得把 `.env` 的 `DATABASE_URL` 換回本機開發用的資料庫。如果你手邊沒有能跑 `npm` 指令的環境，也可以請 Claude 幫你在專案裡臨時加一個受密碼保護的匯入 API route，從瀏覽器觸發匯入，完成後記得請它移除該 route。
 
-完成後，Vercel 給你的網址（例如 `https://campbell-biology-duolingo.vercel.app`）就是正式可用、任何人都能打開、帳號與進度會確實存起來的網站。
+完成後，Vercel 給你的網址就是正式可用、任何人都能打開、帳號與進度會確實存起來的網站。
 
 ## 匯入教科書內容
 
