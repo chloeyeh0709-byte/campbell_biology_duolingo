@@ -2,6 +2,8 @@
 
 把教科書內容轉換成解鎖式學習路徑、知識圖譜與遊戲化機制（XP、等級、連勝、生命值、成就）的學習平台。架構參考了 [Athena](https://github.com/devjoshi0/Athena) 的資料模型與內容產生流程，但簡化為單機可跑、不需外部服務的版本。
 
+系統支援**多學科、多教科書**：首頁會列出所有已匯入的課程，依 `Course.subject` 分組（例如 Chemistry、Biology），每本教科書是一個 `Course`，底下的每一章是一個 `Unit`。
+
 目前已匯入的課程：`prisma/seed/organic-chemistry-ch1-4.json` —— 改編自 Clayden《Organic Chemistry》第 1–4 章（有機化學導論、有機結構、測定有機結構、分子結構），翻譯成繁體中文，共 4 個單元、11 堂課、19 個知識圖譜概念、35 道題目。
 
 ## 技術棧
@@ -66,19 +68,32 @@ npm run db:seed -- prisma/seed/organic-chemistry-ch1-4.json
 
 ## 匯入教科書內容
 
-課程內容以 `prisma/seed/curriculum-schema.ts` 定義的 JSON 格式描述（單元 → 課程 → 投影片/題目，加上知識圖譜的概念與關係）。要匯入新章節：
+課程內容以 `prisma/seed/curriculum-schema.ts` 定義的 JSON 格式描述（單元 → 課程 → 投影片/題目，加上知識圖譜的概念與關係）。一本書可以分好幾次、分好幾份 JSON 陸續匯入新章節。
 
-1. 依照 schema 準備一份 JSON（可參考 `prisma/seed/sample-curriculum.json` 或實際已匯入的 `prisma/seed/organic-chemistry-ch1-4.json`）
-2. 執行 `npm run db:seed -- path/to/your-chapter.json`
+```bash
+npm run db:seed -- path/to/your-chapter.json
+```
 
-若已存在同名課程（`title` 相同），會先整個刪除再重新建立，方便反覆調整內容。
+**預設是安全的增量匯入**：如果 `title` 跟現有課程相同，不會整個砍掉重建，而是：
+- 概念（concept）依名稱比對，同名的直接沿用既有的，不會重複建立
+- 章節（unit）依標題比對，同名的整個跳過（假設已經匯入過，避免影響已有進度）；只有標題還沒出現過的新章節會被加進去，排在既有章節後面
+
+也就是說，同一本書想陸續加新章節，直接把新章節放進同一個 `title`、同一份 JSON（或新的 JSON 檔案，只要 `title` 一樣）再跑一次 `db:seed` 就好，已經在讀的人進度不會被清掉。
+
+**只有真的想砍掉重來**（例如調整範例內容、測試用途）時，才加上 `--replace`：
+
+```bash
+npm run db:seed -- path/to/your-chapter.json --replace
+```
+
+新增一本全新的教科書、或全新的學科，就準備一份新的 JSON、換一個 `title`（`subject` 也可以換成新學科名稱），一樣執行 `npm run db:seed -- path/to/new-book.json`，首頁會自動列出來，不需要額外設定。
 
 ## 資料模型重點
 
 - `Course → Unit → Lesson → LessonSlide / Question`：學習路徑的主結構
 - `Concept / ConceptEdge`：知識圖譜節點與關係（PREREQUISITE / RELATED / EXTENDS / CONTRASTS / PART_OF）
 - `UserConceptMastery`：每個使用者對每個概念的熟練度（獨立於 Concept，因為同一門課可能有多個帳號一起使用）
-- `UserLessonProgress` / `UserCourseProgress`：課程進度與正確率
+- `UserLessonProgress` / `UserCourseProgress`：課程進度與正確率。`UserCourseProgress` 不會在註冊時就幫每個人建好每一門課的紀錄，而是使用者第一次在該課程完成一堂課時才建立（見 `syncCourseProgress`），首頁的課程總覽是即時算 `UserLessonProgress` 的完成數，不依賴這筆紀錄是否存在
 - 課程解鎖邏輯：下一堂課只有在前一堂課被標記為 `COMPLETED`/`PERFECT` 後才會解鎖（見 `src/lib/roadmap.ts`）
 - 遊戲化邏輯（等級曲線、連勝、生命值恢復、成就解鎖）集中在 `src/lib/gamification.ts`
 

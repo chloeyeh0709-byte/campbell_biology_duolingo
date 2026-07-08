@@ -3,8 +3,8 @@ import "./globals.css";
 import "katex/dist/katex.min.css";
 
 export const metadata: Metadata = {
-  title: "Organic Chemistry · 學習路徑",
-  description: "以有機化學教科書內容打造的多鄰國風格學習系統",
+  title: "教科書學習路徑",
+  description: "把教科書內容打造成多鄰國風格的學習系統",
 };
 
 export default function RootLayout({

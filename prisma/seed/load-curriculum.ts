@@ -1,26 +1,57 @@
 import { PrismaClient } from "@prisma/client";
 import type { SeedCourse } from "./curriculum-schema";
 
-/** Inserts a full course (concepts/edges/units/lessons/slides/questions) into the database.
- * If a course with the same title already exists, it is deleted first (cascades to
- * everything under it) so this script is safe to re-run while iterating on content. */
-export async function loadCurriculum(db: PrismaClient, seed: SeedCourse) {
+export interface LoadCurriculumOptions {
+  /** If true, an existing course with the same title is deleted and rebuilt from
+   * scratch — this destroys any progress students have made in it. Defaults to
+   * false: re-running the seed for an existing course merges in new content
+   * instead (reuses concepts that already exist by name, skips units whose
+   * title already exists, and appends genuinely new units at the end). */
+  replace?: boolean;
+}
+
+/** Loads a course's concepts/edges/units/lessons/slides/questions into the database.
+ * Safe to re-run: by default it merges into an existing course of the same title
+ * rather than wiping it, so adding new chapters later won't destroy user progress
+ * tied to units/lessons/concepts that were already imported. */
+export async function loadCurriculum(db: PrismaClient, seed: SeedCourse, options: LoadCurriculumOptions = {}) {
   const existing = await db.course.findFirst({ where: { title: seed.title } });
-  if (existing) {
+
+  if (existing && options.replace) {
     await db.course.delete({ where: { id: existing.id } });
   }
 
-  const course = await db.course.create({
-    data: {
-      title: seed.title,
-      description: seed.description,
-      subject: seed.subject ?? "Biology",
-    },
-  });
+  const isFreshCourse = !existing || options.replace;
 
-  // 1. Concepts (map local JSON key -> real DB id, two passes for parentId self-refs)
+  const course = isFreshCourse
+    ? await db.course.create({
+        data: {
+          title: seed.title,
+          description: seed.description,
+          subject: seed.subject ?? "Biology",
+        },
+      })
+    : await db.course.update({
+        where: { id: existing!.id },
+        data: {
+          description: seed.description ?? existing!.description,
+          subject: seed.subject ?? existing!.subject,
+        },
+      });
+
+  // 1. Concepts: reuse an existing concept in this course if its name already matches,
+  // instead of creating a duplicate (map local JSON key -> real DB id either way).
   const conceptIdByLocalKey = new Map<string, string>();
+  const existingConceptsByName = isFreshCourse
+    ? new Map<string, string>()
+    : new Map((await db.concept.findMany({ where: { courseId: course.id } })).map((c) => [c.name, c.id]));
+
   for (const concept of seed.concepts) {
+    const reuseId = existingConceptsByName.get(concept.name);
+    if (reuseId) {
+      conceptIdByLocalKey.set(concept.id, reuseId);
+      continue;
+    }
     const created = await db.concept.create({
       data: {
         courseId: course.id,
@@ -39,36 +70,43 @@ export async function loadCurriculum(db: PrismaClient, seed: SeedCourse) {
     if (!concept.parentId) continue;
     const childId = conceptIdByLocalKey.get(concept.id);
     const parentId = conceptIdByLocalKey.get(concept.parentId);
-    if (!childId || !parentId) continue;
+    if (!childId || !parentId || childId === parentId) continue;
     await db.concept.update({ where: { id: childId }, data: { parentId } });
   }
 
-  // 2. Concept edges
+  // 2. Concept edges: skip ones that already exist (unique on source/target/type).
   for (const edge of seed.edges) {
     const sourceId = conceptIdByLocalKey.get(edge.sourceId);
     const targetId = conceptIdByLocalKey.get(edge.targetId);
     if (!sourceId || !targetId) {
       throw new Error(`Edge references unknown concept key: ${edge.sourceId} -> ${edge.targetId}`);
     }
+    const relationshipType = edge.relationshipType;
+    const alreadyExists = await db.conceptEdge.findUnique({
+      where: { sourceId_targetId_relationshipType: { sourceId, targetId, relationshipType } },
+    });
+    if (alreadyExists) continue;
     await db.conceptEdge.create({
-      data: {
-        courseId: course.id,
-        sourceId,
-        targetId,
-        relationshipType: edge.relationshipType,
-        weight: edge.weight ?? 1.0,
-      },
+      data: { courseId: course.id, sourceId, targetId, relationshipType, weight: edge.weight ?? 1.0 },
     });
   }
 
-  // 3. Units -> lessons -> slides/questions/conceptLinks
+  // 3. Units: skip ones whose title already exists in this course (assume already
+  // imported — leave their lessons/progress untouched); append genuinely new units
+  // after the current highest order, in the order they appear in this file.
+  const existingUnits = isFreshCourse ? [] : await db.unit.findMany({ where: { courseId: course.id } });
+  const existingUnitTitles = new Set(existingUnits.map((u) => u.title));
+  let nextOrder = existingUnits.length > 0 ? Math.max(...existingUnits.map((u) => u.order)) + 1 : 1;
+
   for (const unit of seed.units) {
+    if (existingUnitTitles.has(unit.title)) continue;
+
     const createdUnit = await db.unit.create({
       data: {
         courseId: course.id,
         title: unit.title,
         description: unit.description,
-        order: unit.order,
+        order: nextOrder++,
         color: unit.color ?? "#5E6AD2",
         iconEmoji: unit.iconEmoji ?? "🧬",
       },

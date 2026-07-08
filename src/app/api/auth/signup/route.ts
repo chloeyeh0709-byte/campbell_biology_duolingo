@@ -25,13 +25,9 @@ export async function POST(req: NextRequest) {
     data: { email, name: name || null, passwordHash },
   });
 
-  const courses = await db.course.findMany({ select: { id: true } });
-  if (courses.length > 0) {
-    await db.userCourseProgress.createMany({
-      data: courses.map((c) => ({ userId: user.id, courseId: c.id })),
-    });
-  }
-
+  // Course enrollment is on-demand: a UserCourseProgress row is created the first
+  // time the user completes a lesson in that course (see syncCourseProgress in
+  // src/lib/lessons.ts), not up front for every course that exists.
   setSessionCookie(user.id);
 
   return NextResponse.json({ id: user.id, email: user.email, name: user.name });

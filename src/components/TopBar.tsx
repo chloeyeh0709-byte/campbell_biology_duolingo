@@ -11,7 +11,7 @@ export interface UserStats {
   maxHearts: number;
 }
 
-export function TopBar({ stats, courseId }: { stats: UserStats; courseId: string }) {
+export function TopBar({ stats, courseId }: { stats: UserStats; courseId?: string }) {
   const router = useRouter();
 
   async function handleLogout() {
@@ -23,8 +23,8 @@ export function TopBar({ stats, courseId }: { stats: UserStats; courseId: string
   return (
     <header className="sticky top-0 z-10 flex items-center justify-between border-b-2 border-[var(--border)] bg-[var(--bg)] px-4 py-3 sm:px-8">
       <div className="flex items-center gap-4 text-sm font-bold sm:text-base">
-        <Link href={`/course/${courseId}`} className="text-lg">
-          🧬
+        <Link href="/" className="text-lg">
+          📚
         </Link>
         <span className="flex items-center gap-1 text-[var(--gold)]">
           ⭐ Lv.{stats.level}
@@ -40,9 +40,11 @@ export function TopBar({ stats, courseId }: { stats: UserStats; courseId: string
         </span>
       </div>
       <div className="flex items-center gap-3">
-        <Link href={`/course/${courseId}/graph`} className="text-sm font-bold text-[var(--blue)]">
-          知識圖譜
-        </Link>
+        {courseId && (
+          <Link href={`/course/${courseId}/graph`} className="text-sm font-bold text-[var(--blue)]">
+            知識圖譜
+          </Link>
+        )}
         <button onClick={handleLogout} className="text-sm font-bold text-[var(--gray)] hover:text-[var(--red)]">
           登出
         </button>
