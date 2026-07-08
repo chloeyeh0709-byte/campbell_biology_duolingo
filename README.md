@@ -1,6 +1,8 @@
-# Campbell Biology · 多鄰國風格學習系統
+# 多鄰國風格教科書學習系統
 
-把 Campbell Biology 教科書內容轉換成解鎖式學習路徑、知識圖譜與遊戲化機制（XP、等級、連勝、生命值、成就）的學習平台。架構參考了 [Athena](https://github.com/devjoshi0/Athena) 的資料模型與內容產生流程，但簡化為單機可跑、不需外部服務的版本。
+把教科書內容轉換成解鎖式學習路徑、知識圖譜與遊戲化機制（XP、等級、連勝、生命值、成就）的學習平台。架構參考了 [Athena](https://github.com/devjoshi0/Athena) 的資料模型與內容產生流程，但簡化為單機可跑、不需外部服務的版本。
+
+目前已匯入的課程：`prisma/seed/organic-chemistry-ch1-4.json` —— 改編自 Clayden《Organic Chemistry》第 1–4 章（有機化學導論、有機結構、測定有機結構、分子結構），翻譯成繁體中文，共 4 個單元、11 堂課、19 個知識圖譜概念、35 道題目。
 
 ## 技術棧
 
@@ -16,7 +18,7 @@
 npm install
 cp .env.example .env        # 視需要調整 JWT_SECRET
 npx prisma migrate dev      # 建立本地 SQLite 資料庫
-npm run db:seed             # 匯入 prisma/seed/sample-curriculum.json 的範例章節
+npm run db:seed -- prisma/seed/organic-chemistry-ch1-4.json
 npm run dev
 ```
 
@@ -26,7 +28,7 @@ npm run dev
 
 課程內容以 `prisma/seed/curriculum-schema.ts` 定義的 JSON 格式描述（單元 → 課程 → 投影片/題目，加上知識圖譜的概念與關係）。要匯入新章節：
 
-1. 依照 schema 準備一份 JSON（可參考 `prisma/seed/sample-curriculum.json`）
+1. 依照 schema 準備一份 JSON（可參考 `prisma/seed/sample-curriculum.json` 或實際已匯入的 `prisma/seed/organic-chemistry-ch1-4.json`）
 2. 執行 `npm run db:seed -- path/to/your-chapter.json`
 
 若已存在同名課程（`title` 相同），會先整個刪除再重新建立，方便反覆調整內容。
