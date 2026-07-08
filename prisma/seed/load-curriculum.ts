@@ -15,7 +15,12 @@ export interface LoadCurriculumOptions {
  * rather than wiping it, so adding new chapters later won't destroy user progress
  * tied to units/lessons/concepts that were already imported. */
 export async function loadCurriculum(db: PrismaClient, seed: SeedCourse, options: LoadCurriculumOptions = {}) {
-  const existing = await db.course.findFirst({ where: { title: seed.title } });
+  // Match by the current title first — after a rename has already happened once,
+  // matchTitle (the *old* title) won't exist anymore, so re-running the same file
+  // must still find the course via its new title rather than creating a duplicate.
+  const existing =
+    (await db.course.findFirst({ where: { title: seed.title } })) ??
+    (seed.matchTitle ? await db.course.findFirst({ where: { title: seed.matchTitle } }) : null);
 
   if (existing && options.replace) {
     await db.course.delete({ where: { id: existing.id } });
@@ -34,6 +39,7 @@ export async function loadCurriculum(db: PrismaClient, seed: SeedCourse, options
     : await db.course.update({
         where: { id: existing!.id },
         data: {
+          title: seed.title,
           description: seed.description ?? existing!.description,
           subject: seed.subject ?? existing!.subject,
         },

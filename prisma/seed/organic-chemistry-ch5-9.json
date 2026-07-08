@@ -1,0 +1,924 @@
+{
+  "title": "Clayden 有機化學",
+  "matchTitle": "有機化學導論（第 1–4 章）",
+  "description": "改編自 Clayden《Organic Chemistry》，翻譯成繁體中文。目前涵蓋第 1–9 章：有機化學導論、有機結構、測定有機結構、分子結構、有機反應、羰基的親核加成、離域與共軛、酸鹼性與pKa、有機金屬試劑形成碳碳鍵。",
+  "subject": "Chemistry",
+  "concepts": [
+    { "id": "functional_groups", "name": "官能基", "summary": "官能基是分子中含有碳、氫以外元素（如 N、O、S）的原子團，決定分子的化學與生物性質，例如胺基（NH2）與羧酸基（CO2H）。", "importance": 1.0, "difficulty": 2, "tags": ["結構", "反應性"], "posX": 360, "posY": -30 },
+    { "id": "molecular_orbitals", "name": "分子軌域理論（LCAO）", "summary": "原子軌域可同相或異相組合成分子軌域：同相組合形成能量較低的鍵結軌域，異相組合形成能量較高的反鍵結軌域。", "importance": 1.0, "difficulty": 4, "tags": ["分子軌域", "LCAO"], "posX": 0, "posY": 330 },
+    { "id": "sigma_pi_bonds", "name": "σ鍵與π鍵", "summary": "2p軌域首尾重疊形成具圓柱對稱性的σ鍵；側邊重疊則形成不具圓柱對稱性的π鍵。N2分子含1個σ鍵與2個π鍵。", "importance": 0.9, "difficulty": 4, "tags": ["共價鍵", "π鍵"], "posX": 60, "posY": 460 },
+    { "id": "nucleophile_electrophile", "name": "親核基與親電基", "summary": "親核基（nucleophile）提供電子，親電基（electrophile）接受電子；一個鍵的形成就是電子從親核基流向親電基。", "importance": 0.9, "difficulty": 3, "tags": ["反應性", "HOMO", "LUMO"], "posX": 300, "posY": 500 },
+    { "id": "homo_lumo_reactivity", "name": "HOMO–LUMO交互作用", "summary": "最佳的反應發生在親核基的最高填滿軌域（HOMO）與親電基的最低空軌域（LUMO）能量相近時；能量差越小，交互作用越有利。", "importance": 0.7, "difficulty": 4, "tags": ["軌域", "反應性"], "posX": 360, "posY": 530 },
+    { "id": "curly_arrows", "name": "彎箭頭與反應機構", "summary": "彎箭頭代表一對電子的移動，箭尾在電子對（孤對電子、負電荷或鍵）上，箭頭指向新鍵形成的位置；反應中電荷必須守恆。", "importance": 0.9, "difficulty": 3, "tags": ["機構", "彎箭頭"], "posX": 240, "posY": 530 },
+
+    { "id": "carbonyl_addition", "name": "羰基的親核加成", "summary": "親核基攻擊羰基的sp2碳，電子流入C=O的π*反鍵軌域，碳由sp2變成sp3，形成新的四面體中心；接著氧陰離子被質子化。", "importance": 1.0, "difficulty": 3, "tags": ["羰基", "加成反應"], "posX": 300, "posY": 580 },
+    { "id": "cyanohydrin", "name": "氰醇的形成", "summary": "氰離子加成到醛酮的羰基上形成氰醇，是可逆反應；醛的氰醇形成平衡比酮更有利，因為酮的立體障礙較大。", "importance": 0.5, "difficulty": 3, "tags": ["氰醇", "可逆反應"], "posX": 240, "posY": 610 },
+    { "id": "hydride_reduction", "name": "氫化物與有機金屬對羰基的還原/加成", "summary": "NaBH4、LiAlH4等氫化物提供者可將醛酮還原成醇；有機金屬試劑（如格林納試劑）則對羰基進行親核加成，形成新的C–C鍵與醇。", "importance": 0.8, "difficulty": 3, "tags": ["還原", "NaBH4"], "posX": 360, "posY": 610 },
+    { "id": "hemiacetal_acetal", "name": "半縮醛與縮醛、水合物", "summary": "醇加成到醛酮的羰基上形成半縮醛（更進一步反應成縮醛）；水加成則形成水合物。這些反應都是可逆的，並受酸鹼催化。", "importance": 0.6, "difficulty": 4, "tags": ["半縮醛", "水合物"], "posX": 300, "posY": 640 },
+
+    { "id": "conjugation_delocalization", "name": "共軛與電子離域", "summary": "當兩個雙鍵被恰好一個單鍵隔開時稱為共軛；共軛系統中的p軌域相互重疊，使π電子離域（不再侷限於單一鍵），讓分子更穩定。", "importance": 1.0, "difficulty": 3, "tags": ["共軛", "離域"], "posX": 60, "posY": 500 },
+    { "id": "allyl_system", "name": "烯丙基系統（陽離子/陰離子）", "summary": "烯丙基陽離子與陰離子由三個p軌域組合成三個分子軌域，電荷（正或負）離域分布在兩端的碳原子上，使系統比未共軛時更穩定。", "importance": 0.6, "difficulty": 4, "tags": ["烯丙基", "離域"], "posX": 0, "posY": 530 },
+    { "id": "amide_delocalization", "name": "醯胺基的離域", "summary": "醯胺氮上的孤對電子與羰基共軛離域，使醯胺氮呈平面sp2結構、C–N鍵有部分雙鍵特性、旋轉受限，也讓醯胺氧比氮更帶負電。", "importance": 0.7, "difficulty": 4, "tags": ["醯胺", "離域"], "posX": 60, "posY": 560 },
+    { "id": "aromaticity", "name": "芳香性與休克爾規則", "summary": "平面、完全共軛的單環系統，若π電子數符合(4n+2)規則（如苯的6個），會形成閉殼層結構、格外穩定，稱為芳香性；4n電子系統則是反芳香性。", "importance": 0.9, "difficulty": 4, "tags": ["芳香性", "休克爾規則"], "posX": 0, "posY": 590 },
+
+    { "id": "pka_concept", "name": "pKa與酸鹼強度", "summary": "pKa是酸與其共軛鹼濃度相等時的pH值；pKa越小，酸性越強。強酸有穩定的共軛鹼，強鹼的共軛酸則不穩定。", "importance": 0.9, "difficulty": 3, "tags": ["pKa", "酸鹼"], "posX": 120, "posY": 650 },
+    { "id": "conjugate_base_stability", "name": "共軛鹼的穩定性", "summary": "電負度大的原子、負電荷的離域（共軛）、以及誘導效應都能穩定共軛鹼，進而提高其共軛酸的酸性。", "importance": 0.7, "difficulty": 4, "tags": ["共軛鹼", "穩定性"], "posX": 60, "posY": 680 },
+    { "id": "acid_base_extraction", "name": "酸鹼萃取", "summary": "利用調整pH值讓有機酸或有機鹼在水層與有機層之間轉換型態（中性分子 vs 離子），可用來分離混合物中的化合物。", "importance": 0.4, "difficulty": 2, "tags": ["萃取", "分離"], "posX": 180, "posY": 680 },
+    { "id": "lewis_acid_base", "name": "路易士酸鹼", "summary": "路易士酸是電子對的接受者（如BF3、AlCl3），路易士鹼是電子對的提供者；這比布忍斯特酸鹼（質子的提供/接受）更廣義。", "importance": 0.5, "difficulty": 3, "tags": ["路易士酸鹼"], "posX": 120, "posY": 710 },
+
+    { "id": "grignard_organolithium", "name": "格林納試劑與有機鋰試劑", "summary": "格林納試劑（R-MgX）與有機鋰試劑（R-Li）的碳金屬鍵極化朝向碳，使碳帶負電、成為強力的親核基，也是強鹼。", "importance": 0.9, "difficulty": 3, "tags": ["格林納", "有機鋰"], "posX": 360, "posY": 680 },
+    { "id": "making_organometallics", "name": "有機金屬試劑的製備", "summary": "格林納試劑由鎂與鹵烷氧化插入製成；有機鋰試劑由鋰金屬插入鹵烷製成；兩者也可由去質子化炔類或鹵素-金屬交換製成。", "importance": 0.5, "difficulty": 3, "tags": ["製備"], "posX": 420, "posY": 710 },
+    { "id": "cc_bond_formation", "name": "用有機金屬試劑形成碳碳鍵", "summary": "格林納或有機鋰試劑加成到二氧化碳、甲醛、其他醛、酮上，分別產生羧酸、一級醇、二級醇、三級醇，是形成碳碳鍵最重要的方法之一。", "importance": 0.9, "difficulty": 3, "tags": ["碳碳鍵", "合成"], "posX": 360, "posY": 740 },
+    { "id": "alcohol_oxidation", "name": "醇的氧化", "summary": "鉻(VI)試劑（如PCC）可將一級醇氧化成醛（或進一步到羧酸）、二級醇氧化成酮；三級醇則無法被氧化（除非打斷C–C鍵）。", "importance": 0.5, "difficulty": 3, "tags": ["氧化", "PCC"], "posX": 300, "posY": 770 }
+  ],
+  "edges": [
+    { "sourceId": "nucleophile_electrophile", "targetId": "molecular_orbitals", "relationshipType": "EXTENDS" },
+    { "sourceId": "homo_lumo_reactivity", "targetId": "nucleophile_electrophile", "relationshipType": "PART_OF" },
+    { "sourceId": "curly_arrows", "targetId": "nucleophile_electrophile", "relationshipType": "PREREQUISITE" },
+
+    { "sourceId": "carbonyl_addition", "targetId": "nucleophile_electrophile", "relationshipType": "PREREQUISITE" },
+    { "sourceId": "carbonyl_addition", "targetId": "curly_arrows", "relationshipType": "PREREQUISITE" },
+    { "sourceId": "cyanohydrin", "targetId": "carbonyl_addition", "relationshipType": "PART_OF" },
+    { "sourceId": "hydride_reduction", "targetId": "carbonyl_addition", "relationshipType": "EXTENDS" },
+    { "sourceId": "hemiacetal_acetal", "targetId": "carbonyl_addition", "relationshipType": "EXTENDS" },
+
+    { "sourceId": "conjugation_delocalization", "targetId": "sigma_pi_bonds", "relationshipType": "PREREQUISITE" },
+    { "sourceId": "allyl_system", "targetId": "conjugation_delocalization", "relationshipType": "PART_OF" },
+    { "sourceId": "amide_delocalization", "targetId": "conjugation_delocalization", "relationshipType": "RELATED" },
+    { "sourceId": "amide_delocalization", "targetId": "functional_groups", "relationshipType": "RELATED" },
+    { "sourceId": "aromaticity", "targetId": "conjugation_delocalization", "relationshipType": "EXTENDS" },
+
+    { "sourceId": "pka_concept", "targetId": "conjugation_delocalization", "relationshipType": "PREREQUISITE" },
+    { "sourceId": "pka_concept", "targetId": "carbonyl_addition", "relationshipType": "RELATED" },
+    { "sourceId": "conjugate_base_stability", "targetId": "pka_concept", "relationshipType": "PART_OF" },
+    { "sourceId": "acid_base_extraction", "targetId": "pka_concept", "relationshipType": "EXTENDS" },
+    { "sourceId": "lewis_acid_base", "targetId": "pka_concept", "relationshipType": "RELATED" },
+
+    { "sourceId": "grignard_organolithium", "targetId": "carbonyl_addition", "relationshipType": "PREREQUISITE" },
+    { "sourceId": "grignard_organolithium", "targetId": "pka_concept", "relationshipType": "PREREQUISITE" },
+    { "sourceId": "making_organometallics", "targetId": "grignard_organolithium", "relationshipType": "PART_OF" },
+    { "sourceId": "cc_bond_formation", "targetId": "grignard_organolithium", "relationshipType": "EXTENDS" },
+    { "sourceId": "alcohol_oxidation", "targetId": "cc_bond_formation", "relationshipType": "RELATED" }
+  ],
+  "units": [
+    {
+      "title": "第五章：有機反應",
+      "description": "認識親核基、親電基與用彎箭頭描繪反應機構",
+      "order": 5,
+      "color": "#1cb0f6",
+      "iconEmoji": "🔗",
+      "lessons": [
+        {
+          "title": "親核基、親電基與反應驅動力",
+          "type": "READING",
+          "order": 1,
+          "xpReward": 15,
+          "estimatedMinutes": 6,
+          "conceptIds": ["nucleophile_electrophile", "homo_lumo_reactivity"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "分子如何相遇並反應？",
+              "content": "多數分子表面帶負電（被電子雲包覆），彼此會互相排斥。要反應，分子必須克服這個排斥力，方法通常是**電荷吸引**（如陽離子與陰離子）或**軌域重疊**（一個分子的填滿軌域與另一個分子的空軌域交互作用）。能發生反應所需的最低能量稱為**活化能**。"
+            },
+            {
+              "order": 2,
+              "title": "親核基與親電基",
+              "content": "在多數有機反應中，電子從一個分子流向另一個分子：提供電子的一方稱為**親核基（nucleophile）**，接受電子的一方稱為**親電基（electrophile）**。反應發生時，親核基的**HOMO**（最高填滿分子軌域）與親電基的**LUMO**（最低空分子軌域）交互作用形成新鍵；兩者能量越接近，反應越有利。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "在化學鍵形成的過程中，電子的流動方向是？",
+              "explanation": "親核基（electron donor）把電子提供給親電基（electron acceptor），這是形成新鍵的基本方向。",
+              "difficulty": 3,
+              "sourceInfo": "第5章·反應發生時電子從分子間流動",
+              "options": [
+                { "id": "a", "text": "從親核基流向親電基" },
+                { "id": "b", "text": "從親電基流向親核基" },
+                { "id": "c", "text": "電子不會移動，只有原子核移動" },
+                { "id": "d", "text": "視反應溫度而定" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "最理想的反應發生在親核基的HOMO與親電基的LUMO能量非常接近的時候。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "兩軌域能量越接近，交互作用後的能量增益越大，反應越有利；能量差異太大則交互作用微弱。",
+              "difficulty": 3,
+              "sourceInfo": "第5章·親核基與親電基"
+            },
+            {
+              "type": "FLASHCARD",
+              "order": 3,
+              "front": "什麼是「親核基」（nucleophile）？請舉出至少一種常見的親核基類型。",
+              "back": "親核基是提供電子的分子或離子，通常具有孤對電子（如NH3、H2O）、負電荷（如Br⁻）、雙鍵（如烯類的π鍵）或連接到電正性原子的σ鍵（如硼氫化物、有機金屬）。",
+              "explanation": "熟記親核基的常見來源，有助於快速判斷反應中誰是親核基、誰是親電基。",
+              "difficulty": 3,
+              "sourceInfo": "第5章·辨認親核基"
+            }
+          ]
+        },
+        {
+          "title": "用彎箭頭描繪反應機構",
+          "type": "QUIZ",
+          "order": 2,
+          "xpReward": 15,
+          "estimatedMinutes": 6,
+          "conceptIds": ["curly_arrows"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "彎箭頭的規則",
+              "content": "**彎箭頭**代表一對電子的移動：箭尾必須畫在代表電子對的地方（孤對電子、負電荷，或一個鍵），箭頭則指向電子最終要去的地方（新鍵形成處，或一個帶得起負電荷的電負性原子）。反應前後，**整體電荷必須守恆**。"
+            },
+            {
+              "order": 2,
+              "title": "多步驟機構範例",
+              "content": "以醛與氰化鈉反應形成氰醇為例：第一步，氰離子的孤對電子攻擊羰基碳，同時C=O的π鍵電子移到氧上形成負電荷；第二步，這個氧陰離子從水中奪取一個質子，完成氰醇的形成。這個「先加成、再質子化」的兩步驟模式，是許多羰基加成反應的共同特徵。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "彎箭頭的箭尾必須畫在代表什麼的地方？",
+              "explanation": "彎箭頭代表電子對的移動，箭尾必須從電子對出發：孤對電子、負電荷，或一個鍵。",
+              "difficulty": 2,
+              "sourceInfo": "第5章·彎箭頭代表反應機構",
+              "options": [
+                { "id": "a", "text": "一對電子（孤對電子、負電荷或鍵）" },
+                { "id": "b", "text": "任何一個原子核" },
+                { "id": "c", "text": "分子的幾何中心" },
+                { "id": "d", "text": "反應產物的位置" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "FILL_IN_THE_BLANK",
+              "order": 2,
+              "prompt": "在任何一步反應中，整體的______必須守恆，不能無中生有或憑空消失。",
+              "blankAnswer": "電荷",
+              "blankHint": "正負電荷的總和",
+              "explanation": "如果起始物沒有淨電荷，產物也必須沒有淨電荷；反應前後電荷總量必須一致。",
+              "difficulty": 2,
+              "sourceInfo": "第5章·電荷守恆"
+            },
+            {
+              "type": "MATCHING",
+              "order": 3,
+              "prompt": "請將彎箭頭的起點類型與範例配對。",
+              "matchPairs": [
+                { "left": "孤對電子", "right": "氨分子上氮的孤對電子" },
+                { "left": "負電荷", "right": "氫氧根離子 OH⁻" },
+                { "left": "π鍵", "right": "烯烴的碳碳雙鍵" }
+              ],
+              "explanation": "這三種都是彎箭頭合法的起點，因為它們都代表可用來形成新鍵的電子對。",
+              "difficulty": 3,
+              "sourceInfo": "第5章·彎箭頭代表反應機構"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "第六章：羰基的親核加成",
+      "description": "羰基如何與親核基反應，以及氰醇、氫化物還原、半縮醛的形成",
+      "order": 6,
+      "color": "#58cc02",
+      "iconEmoji": "⚗️",
+      "lessons": [
+        {
+          "title": "羰基的結構與親核加成機構",
+          "type": "READING",
+          "order": 1,
+          "xpReward": 15,
+          "estimatedMinutes": 6,
+          "conceptIds": ["carbonyl_addition"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "羰基為什麼容易被攻擊？",
+              "content": "羰基（C=O）由一個σ鍵與一個π鍵組成，碳為sp2混成、平面結構。由於氧比碳電負度高，π鍵被極化朝向氧，使碳帶部分正電；而反鍵的π*軌域則偏向碳，成為親核基攻擊的目標（LUMO）。"
+            },
+            {
+              "order": 2,
+              "title": "加成的兩個步驟與攻擊角度",
+              "content": "親核基的電子對流入C=O的π*軌域（碳從sp2變成sp3），同時π鍵斷裂、電子移到氧上形成負電荷；接著氧陰離子被質子化。親核基攻擊羰基的角度約**107°（Bürgi–Dunitz軌跡）**，而不是垂直於平面，這是軌域重疊與電子排斥之間的最佳折衷。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "在羰基的親核加成反應中，碳原子的混成方式如何變化？",
+              "explanation": "親核基加成後，碳從平面的sp2變成四面體的sp3，這是羰基加成反應的關鍵結構變化。",
+              "difficulty": 3,
+              "sourceInfo": "第6章·分子軌域解釋羰基的反應性",
+              "options": [
+                { "id": "a", "text": "sp2變成sp3" },
+                { "id": "b", "text": "sp3變成sp2" },
+                { "id": "c", "text": "sp變成sp2" },
+                { "id": "d", "text": "混成方式不會改變" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "親核基攻擊羰基的角度大約是107°，而不是垂直於C=O平面。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "這個角度稱為Bürgi–Dunitz軌跡，是π*軌域重疊最大化與π電子排斥最小化的折衷結果。",
+              "difficulty": 4,
+              "sourceInfo": "第6章·親核加成的角度"
+            },
+            {
+              "type": "FLASHCARD",
+              "order": 3,
+              "front": "羰基的親核加成反應通常分成哪兩個機構步驟？",
+              "back": "第一步：親核基攻擊羰基碳，電子流入π*軌域，π鍵斷裂形成氧陰離子；第二步：氧陰離子被質子化，形成中性的醇（或相關官能基）。",
+              "explanation": "幾乎所有羰基加成反應（氰醇、氫化物還原、有機金屬加成）都遵循這個「加成→質子化」的模式。",
+              "difficulty": 2,
+              "sourceInfo": "第6章·分子軌域解釋羰基的反應性"
+            }
+          ]
+        },
+        {
+          "title": "氫化物與有機金屬對羰基的加成",
+          "type": "READING",
+          "order": 2,
+          "xpReward": 15,
+          "estimatedMinutes": 6,
+          "conceptIds": ["hydride_reduction"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "用NaBH4、LiAlH4把醛酮還原成醇",
+              "content": "**氫化硼鈉（NaBH4）**是溫和的氫化物提供者，可在水或醇溶液中把醛、酮還原成醇；**氫化鋰鋁（LiAlH4）**更強力，但遇水會劇烈反應，需要在無水條件下操作。兩者都不會還原酯或醯胺這類較不活潑的羰基化合物。"
+            },
+            {
+              "order": 2,
+              "title": "立體障礙影響反應速率",
+              "content": "醛的加成速率通常比酮快，因為酮的羰基碳連接兩個較大的取代基，造成較大的**立體障礙**，減緩親核基以107°角度接近的過程。例如苯甲醛被NaBH4還原的速率，比苯乙酮快上約400倍。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "NaBH4與LiAlH4主要能把醛、酮還原成什麼官能基？",
+              "explanation": "氫化物加成到羰基，接著質子化，產物是對應的醇：加成到醛得二級醇的情況不對，應為一級醇（醛還原成一級醇，酮還原成二級醇）。",
+              "difficulty": 3,
+              "sourceInfo": "第6章·親核性氫化物對醛酮的加成",
+              "options": [
+                { "id": "a", "text": "醇" },
+                { "id": "b", "text": "羧酸" },
+                { "id": "c", "text": "胺" },
+                { "id": "d", "text": "醚" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "FILL_IN_THE_BLANK",
+              "order": 2,
+              "prompt": "酮的加成反應通常比醛慢，主要原因是酮的羰基碳連接較大的取代基，造成較大的______。",
+              "blankAnswer": "立體障礙",
+              "blankHint": "英文是steric hindrance",
+              "explanation": "較大的取代基會阻礙親核基以正確角度接近羰基碳，使反應速率下降。",
+              "difficulty": 3,
+              "sourceInfo": "第6章·親核加成的角度"
+            }
+          ]
+        },
+        {
+          "title": "半縮醛、縮醛與水合物",
+          "type": "PRACTICE",
+          "order": 3,
+          "xpReward": 18,
+          "estimatedMinutes": 7,
+          "conceptIds": ["hemiacetal_acetal", "cyanohydrin"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "水合物與半縮醛：可逆的加成反應",
+              "content": "水加成到醛酮的羰基形成**水合物（1,1-二醇）**；醇加成則形成**半縮醛**。這些反應都是可逆的平衡，立體障礙小、且鄰近有拉電子基（如氯）的羰基化合物更容易形成水合物或半縮醛。醣類（如葡萄糖）常以環狀半縮醛的形式存在。"
+            },
+            {
+              "order": 2,
+              "title": "氰醇的形成與酸鹼催化",
+              "content": "氰離子加成到醛酮形成**氰醇**，同樣是可逆反應；醛的氰醇比酮的氰醇更穩定（平衡常數更大），因為酮的立體障礙較大。酸或鹼都能催化半縮醛、水合物、氰醇的形成：**酸催化**是讓羰基更親電（先質子化羰基氧），**鹼催化**則是讓親核基更活躍（先去質子化）。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "醇加成到醛或酮的羰基，會形成什麼中間產物？",
+              "explanation": "醇加成到羰基形成半縮醛；半縮醛可以再與另一分子醇反應形成縮醛。",
+              "difficulty": 3,
+              "sourceInfo": "第6章·半縮醛的形成",
+              "options": [
+                { "id": "a", "text": "半縮醛" },
+                { "id": "b", "text": "羧酸" },
+                { "id": "c", "text": "醯胺" },
+                { "id": "d", "text": "烯烴" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "醛的氰醇形成平衡通常比酮更有利，因為酮的立體障礙較大。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "當羰基碳從sp2變成sp3，鍵角從120°縮小到109°，取代基之間會更靠近；酮的取代基較大，這個效應更不利。",
+              "difficulty": 3,
+              "sourceInfo": "第6章·氰醇的形成"
+            },
+            {
+              "type": "MATCHING",
+              "order": 3,
+              "prompt": "請將酸/鹼催化的作用機制配對。",
+              "matchPairs": [
+                { "left": "酸催化", "right": "先質子化羰基氧，讓羰基更容易被親核基攻擊" },
+                { "left": "鹼催化", "right": "先去質子化親核基（如醇），讓它更容易進攻羰基" }
+              ],
+              "explanation": "兩種催化方式最終都會被再生（催化劑不被消耗），只是作用的對象不同。",
+              "difficulty": 4,
+              "sourceInfo": "第6章·酸鹼催化半縮醛與水合物的形成"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "第七章：離域與共軛",
+      "description": "共軛系統如何讓分子更穩定、更有顏色，以及芳香性的本質",
+      "order": 7,
+      "color": "#ff9600",
+      "iconEmoji": "🌈",
+      "lessons": [
+        {
+          "title": "共軛的條件與丁二烯的分子軌域",
+          "type": "READING",
+          "order": 1,
+          "xpReward": 15,
+          "estimatedMinutes": 6,
+          "conceptIds": ["conjugation_delocalization"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "什麼樣的雙鍵算是共軛？",
+              "content": "當兩個雙鍵被**恰好一個單鍵**隔開時，稱為共軛；被兩個（或以上）單鍵隔開、或完全沒有單鍵隔開（如允烯allene），則不算共軛。共軛系統中，p軌域可以互相重疊，讓π電子**離域**到整個系統，而不侷限於單一鍵上，這會讓分子更穩定。"
+            },
+            {
+              "order": 2,
+              "title": "共軛如何影響顏色與反應性",
+              "content": "共軛程度越高，HOMO與LUMO的能量差越小，吸收光的波長越長。少於8個共軛雙鍵只吸收紫外光；超過8個開始吸收可見光而顯色，例如番茄紅素（11個共軛雙鍵）吸收藍綠光而呈紅色。共軛也讓分子的HOMO變高、LUMO變低，同時對親核基與親電基都更活躍。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "兩個雙鍵要形成共軛系統，中間必須被幾個單鍵隔開？",
+              "explanation": "共軛要求雙鍵之間恰好被一個單鍵隔開，這樣p軌域才能連續重疊。",
+              "difficulty": 3,
+              "sourceInfo": "第7章·共軛的條件",
+              "options": [
+                { "id": "a", "text": "0個（沒有單鍵）" },
+                { "id": "b", "text": "恰好1個" },
+                { "id": "c", "text": "恰好2個" },
+                { "id": "d", "text": "3個以上" }
+              ],
+              "correctOptionId": "b"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "共軛程度越高的分子，HOMO與LUMO的能量差通常越小，因此吸收光的波長越長。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "這也是為什麼高度共軛的天然色素（如番茄紅素、葉綠素）能吸收可見光而呈現顏色。",
+              "difficulty": 3,
+              "sourceInfo": "第7章·紫外-可見光光譜"
+            },
+            {
+              "type": "FLASHCARD",
+              "order": 3,
+              "front": "為什麼共軛的丁二烯比兩個獨立的雙鍵更穩定？",
+              "back": "丁二烯的π分子軌域是由四個p軌域組合而成，電子填入的兩個鍵結軌域整體能量比兩個獨立乙烯的π軌域更低，這個額外的穩定化就是共軛帶來的效果。",
+              "explanation": "這說明了共軛不只是「畫出來好看」，而是真正降低了分子的能量。",
+              "difficulty": 3,
+              "sourceInfo": "第7章·兩個π鍵的共軛"
+            }
+          ]
+        },
+        {
+          "title": "烯丙基系統與醯胺基的離域",
+          "type": "READING",
+          "order": 2,
+          "xpReward": 15,
+          "estimatedMinutes": 6,
+          "conceptIds": ["allyl_system", "amide_delocalization"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "烯丙基陽離子與陰離子",
+              "content": "烯丙基陰離子（或陽離子）由三個p軌域組合成三個分子軌域，電荷主要離域在**兩端的碳原子**上（中間碳在非鍵結軌域上沒有電子密度）。這種三原子上的離域，也出現在羧酸根、硝基、醯胺基等官能基中。"
+            },
+            {
+              "order": 2,
+              "title": "醯胺基為什麼是平面結構？",
+              "content": "醯胺氮上的孤對電子與羰基共軛，讓氮從sp3變成**sp2**（平面），孤對電子離域進入π系統。這讓C–N鍵帶有部分雙鍵特性、**旋轉受限**（比典型單鍵需要更多能量才能旋轉），也讓醯胺的氧比氮更帶負電——這正是蛋白質中胜肽鍵維持剛性結構的原因。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "在烯丙基陰離子中，負電荷主要分布在哪裡？",
+              "explanation": "非鍵結分子軌域（ψ2）在中間碳上是節點（沒有電子密度），所以電荷主要落在兩端碳。",
+              "difficulty": 4,
+              "sourceInfo": "第7章·烯丙基系統",
+              "options": [
+                { "id": "a", "text": "兩端的碳原子" },
+                { "id": "b", "text": "中間的碳原子" },
+                { "id": "c", "text": "均勻分布在三個碳" },
+                { "id": "d", "text": "完全侷限在單一個碳" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "FILL_IN_THE_BLANK",
+              "order": 2,
+              "prompt": "醯胺基中的氮原子因為孤對電子與羰基共軛，呈現______混成（而非典型胺類的sp3）。",
+              "blankAnswer": "sp2",
+              "blankHint": "跟羰基碳一樣的混成方式",
+              "explanation": "sp2混成讓氮的孤對電子能位於p軌域中，才能與羰基的π系統有效重疊。",
+              "difficulty": 4,
+              "sourceInfo": "第7章·醯胺基"
+            },
+            {
+              "type": "MATCHING",
+              "order": 3,
+              "prompt": "請將離域系統與其電荷/電子分布的官能基配對。",
+              "matchPairs": [
+                { "left": "烯丙基陰離子", "right": "負電荷離域在兩端碳原子" },
+                { "left": "醯胺基", "right": "氮的孤對電子離域進入羰基的π系統" },
+                { "left": "羧酸根", "right": "負電荷平均分布在兩個氧原子" }
+              ],
+              "explanation": "這些都是「三原子上的離域」的例子，是有機化學中非常常見的結構特徵。",
+              "difficulty": 3,
+              "sourceInfo": "第7章·離域在三個原子上是常見的結構特徵"
+            }
+          ]
+        },
+        {
+          "title": "芳香性與休克爾規則",
+          "type": "CHALLENGE",
+          "order": 3,
+          "xpReward": 20,
+          "estimatedMinutes": 8,
+          "conceptIds": ["aromaticity"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "苯為什麼特別穩定？",
+              "content": "苯的六個p軌域組合成六個分子軌域，六個π電子恰好填滿三個鍵結軌域，形成「閉殼層」結構。實驗測得苯的氫化熱（208 kJ/mol）遠低於預期值（3×120=360 kJ/mol），這多出來的約150 kJ/mol穩定化能量，就是**芳香性**帶來的額外穩定。"
+            },
+            {
+              "order": 2,
+              "title": "休克爾規則（Hückel's rule）",
+              "content": "平面、完全共軛的單環系統，若π電子數符合**(4n+2)**（n=0,1,2...，即2、6、10...個電子），就會形成閉殼層結構、格外穩定，稱為**芳香性**；電子數符合**4n**（如環辛四烯的8個電子）則是反芳香性，分子反而會扭曲成非平面形狀以避免不穩定的電子排列。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "根據休克爾規則，平面單環共軛系統要具有芳香性，π電子數需要符合什麼公式？",
+              "explanation": "(4n+2)電子數（n為整數）會形成閉殼層電子結構，帶來額外的芳香穩定性。",
+              "difficulty": 4,
+              "sourceInfo": "第7章·休克爾規則",
+              "options": [
+                { "id": "a", "text": "4n" },
+                { "id": "b", "text": "4n+2" },
+                { "id": "c", "text": "2n" },
+                { "id": "d", "text": "n+2" }
+              ],
+              "correctOptionId": "b"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "環辛四烯（cyclooctatetraene）在中性狀態下是平面結構，並具有芳香性。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "false",
+              "explanation": "中性環辛四烯有8個π電子（4n，n=2），是反芳香性的組態，因此分子會扭曲成非平面的「浴缸」形狀以避免這種不穩定排列；只有形成二價陽離子（6電子）或二價陰離子（10電子）時才會變平面、具有芳香性。",
+              "difficulty": 4,
+              "sourceInfo": "第7章·環辛四烯"
+            },
+            {
+              "type": "FILL_IN_THE_BLANK",
+              "order": 3,
+              "prompt": "苯環的氫化熱比預期少了約150 kJ/mol，這個差異被稱為苯的芳香______能。",
+              "blankAnswer": "穩定化",
+              "blankHint": "描述額外增加的穩定性",
+              "explanation": "這個穩定化能量的大小，是衡量一個芳香系統「有多芳香」的常見指標之一。",
+              "difficulty": 3,
+              "sourceInfo": "第7章·苯與環辛四烯的氫化熱"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "第八章：酸鹼性與pKa",
+      "description": "理解pKa如何決定酸鹼強度，以及共軛鹼穩定性的影響因素",
+      "order": 8,
+      "color": "#ce82ff",
+      "iconEmoji": "🧫",
+      "lessons": [
+        {
+          "title": "pKa的定義與酸鹼強度",
+          "type": "READING",
+          "order": 1,
+          "xpReward": 15,
+          "estimatedMinutes": 6,
+          "conceptIds": ["pka_concept"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "什麼是pKa？",
+              "content": "**pKa**是酸解離平衡常數Ka的負對數（pKa = −log Ka），代表酸與其共軛鹼濃度相等時的**pH值**。pKa越小，代表這個酸越強、越容易解離出質子；反之pKa越大，酸性越弱。每一種酸都有一個對應的**共軛鹼**，每一種鹼也都有對應的**共軛酸**。"
+            },
+            {
+              "order": 2,
+              "title": "常見的pKa範圍",
+              "content": "醇的質子化（ROH2+/ROH）約在pKa 0；羧酸解離（RCO2H/RCO2−）約在pKa 5；酚解離（ArOH/ArO−）約在pKa 10；醇解離（ROH/RO−）約在pKa 15。這些數值告訴我們：羧酸是弱酸、酚酸性略弱、而醇的共軛鹼（烷氧基）則是相當強的鹼。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "pKa值越小，代表這個酸的性質是？",
+              "explanation": "pKa是Ka的負對數，Ka越大（越容易解離）pKa越小，所以pKa小代表酸性強。",
+              "difficulty": 2,
+              "sourceInfo": "第8章·pKa的定義",
+              "options": [
+                { "id": "a", "text": "酸性越強" },
+                { "id": "b", "text": "酸性越弱" },
+                { "id": "c", "text": "鹼性越強" },
+                { "id": "d", "text": "與酸鹼性無關" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "pKa代表的是酸與其共軛鹼濃度相等時的pH值。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "這是pKa最直觀的定義：在pH等於pKa時，酸形式與共軛鹼形式各佔50%。",
+              "difficulty": 2,
+              "sourceInfo": "第8章·pKa的定義"
+            },
+            {
+              "type": "FLASHCARD",
+              "order": 3,
+              "front": "羧酸、酚、醇這三類官能基的典型pKa大約各是多少？",
+              "back": "羧酸約5、酚約10、醇約15。可以記成「5、10、15」的規律，方便快速判斷相對酸性強弱。",
+              "explanation": "這組近似值在估算未知化合物的酸鹼性質時非常實用。",
+              "difficulty": 3,
+              "sourceInfo": "第8章·建立pKa量表"
+            }
+          ]
+        },
+        {
+          "title": "共軛鹼的穩定性決定酸的強度",
+          "type": "READING",
+          "order": 2,
+          "xpReward": 15,
+          "estimatedMinutes": 6,
+          "conceptIds": ["conjugate_base_stability"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "越穩定的共軛鹼，酸性越強",
+              "content": "決定酸強度最重要的因素，是它的**共軛鹼有多穩定**。負電荷落在電負度越大的原子上越穩定（例如O比N穩定）；負電荷若能透過**共軛（離域）**分散到多個原子上，也會更穩定——例如乙酸的共軛鹼（乙酸根）電荷分散在兩個氧上，酸性比乙醇（電荷侷限在一個氧上）強了約10^10倍。"
+            },
+            {
+              "order": 2,
+              "title": "誘導效應也會提高酸性",
+              "content": "鄰近的電負度大的原子，也能透過**誘導效應**（σ鍵極化）穩定負電荷，即使沒有直接共軛。例如把乙酸的甲基逐步換成氟，酸性依序增強：乙酸（pKa 4.76）→氟乙酸（2.59）→二氟乙酸（1.34）→三氟乙酸（約−1，三氟乙酸是很強的酸）。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "決定一個酸強度最重要的因素是什麼？",
+              "explanation": "共軛鹼越穩定，代表這個酸越容易解離出質子，酸性就越強。",
+              "difficulty": 3,
+              "sourceInfo": "第8章·酸的強度",
+              "options": [
+                { "id": "a", "text": "共軛鹼的穩定性" },
+                { "id": "b", "text": "分子的顏色" },
+                { "id": "c", "text": "分子量的大小" },
+                { "id": "d", "text": "熔點的高低" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "FILL_IN_THE_BLANK",
+              "order": 2,
+              "prompt": "把乙酸的甲基逐步取代為氟原子，酸性會逐漸______，這是因為氟的誘導（拉電子）效應穩定了共軛鹼。",
+              "blankAnswer": "增強",
+              "blankHint": "越多氟，pKa越小",
+              "explanation": "三氟乙酸（TFA）的pKa約為−1，是常用的強酸試劑，原因正是三個氟的強拉電子誘導效應。",
+              "difficulty": 3,
+              "sourceInfo": "第8章·取代基對pKa的影響"
+            }
+          ]
+        },
+        {
+          "title": "酸鹼萃取與路易士酸鹼",
+          "type": "PRACTICE",
+          "order": 3,
+          "xpReward": 18,
+          "estimatedMinutes": 7,
+          "conceptIds": ["acid_base_extraction", "lewis_acid_base"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "用pH調整來分離化合物",
+              "content": "大多數有機化合物不溶於水，但把有機酸轉換成鹽（離子形式）就會變得可溶於水。這個原理可用來做**酸鹼萃取**：例如把苯甲酸與甲苯的混合物溶在二氯甲烷中，加入氫氧化鈉水溶液振盪，苯甲酸會變成可溶於水的鈉鹽進入水層，甲苯則留在有機層，兩者因此被分離。"
+            },
+            {
+              "order": 2,
+              "title": "路易士酸與路易士鹼",
+              "content": "除了「提供/接受質子」的布忍斯特酸鹼定義之外，還有更廣義的**路易士酸鹼**：**路易士酸**是電子對的接受者（如BF3、AlCl3，常見於金屬鹵化物），**路易士鹼**是電子對的提供者。路易士酸常作為有機反應的催化劑，例如BF3可以和醚形成穩定的四配位錯合物。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "在酸鹼萃取中，加入氫氧化鈉後，原本不溶於水的羧酸會發生什麼變化？",
+              "explanation": "氫氧化鈉把羧酸去質子化成為羧酸鹽，鹽類是離子化合物，因此變得可溶於水，進入水層。",
+              "difficulty": 3,
+              "sourceInfo": "第8章·帶電化合物可以用酸鹼萃取分離",
+              "options": [
+                { "id": "a", "text": "變成鈉鹽，可溶於水" },
+                { "id": "b", "text": "分解成二氧化碳" },
+                { "id": "c", "text": "完全不受影響" },
+                { "id": "d", "text": "變成更難溶於水的固體" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "路易士酸的定義是「電子對的接受者」，路易士鹼則是「電子對的提供者」。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "這是比布忍斯特酸鹼（質子的提供/接受）更廣義的定義，能涵蓋沒有可轉移質子的金屬鹵化物等催化劑。",
+              "difficulty": 2,
+              "sourceInfo": "第8章·路易士酸鹼"
+            },
+            {
+              "type": "MATCHING",
+              "order": 3,
+              "prompt": "請將酸鹼類型與範例配對。",
+              "matchPairs": [
+                { "left": "布忍斯特酸", "right": "提供質子的化合物，如乙酸" },
+                { "left": "路易士酸", "right": "接受電子對的化合物，如BF3" },
+                { "left": "路易士鹼", "right": "提供電子對的化合物，如乙醚" }
+              ],
+              "explanation": "布忍斯特酸鹼專注於質子的轉移，路易士酸鹼則專注於電子對的轉移，兩者是互補的觀點。",
+              "difficulty": 3,
+              "sourceInfo": "第8章·路易士酸鹼"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "第九章：用有機金屬試劑形成碳碳鍵",
+      "description": "格林納試劑與有機鋰試劑的製備，以及如何用它們合成醇與酸",
+      "order": 9,
+      "color": "#ff4b4b",
+      "iconEmoji": "🔬",
+      "lessons": [
+        {
+          "title": "格林納試劑與有機鋰試劑的製備",
+          "type": "READING",
+          "order": 1,
+          "xpReward": 15,
+          "estimatedMinutes": 6,
+          "conceptIds": ["grignard_organolithium", "making_organometallics"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "碳金屬鍵：碳是親核基",
+              "content": "格林納試劑（R–MgX）與有機鋰試劑（R–Li）都含有碳與金屬的鍵結。由於鎂、鋰的電負度遠低於碳，這個鍵被強烈極化朝向碳，使碳帶部分負電，成為強力的**親核基**（也因此是強**鹼**——甲基鋰之類的有機鋰試劑幾乎能去質子化任何東西）。"
+            },
+            {
+              "order": 2,
+              "title": "如何製備格林納試劑與有機鋰試劑",
+              "content": "格林納試劑由**鎂金屬氧化插入**鹵烷的C–X鍵製成（在乙醚或THF溶劑中）；有機鋰試劑則由**鋰金屬插入**鹵烷製成。兩者也能透過**去質子化炔類**（炔類C–H的pKa約25，可被BuLi等強鹼去質子化）或**鹵素-金屬交換**（有機鋰與鹵烷交換金屬與鹵素）來製備。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "格林納試劑（R–MgX）中的碳金屬鍵，電子密度偏向哪一邊？",
+              "explanation": "鎂的電負度遠低於碳，所以C–Mg鍵被極化朝向碳，使碳帶部分負電、具親核性。",
+              "difficulty": 3,
+              "sourceInfo": "第9章·有機金屬化合物含有碳金屬鍵",
+              "options": [
+                { "id": "a", "text": "偏向碳" },
+                { "id": "b", "text": "偏向鎂" },
+                { "id": "c", "text": "均勻分布，沒有極化" },
+                { "id": "d", "text": "無法判斷" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "有機鋰試劑（如BuLi）可以透過去質子化pKa約25的炔類C–H鍵來製備新的有機金屬化合物。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "炔類的C–H鍵因為碳採sp混成、s特性較高，酸性比一般碳氫鍵強得多，可以被BuLi等強鹼去質子化形成炔化物。",
+              "difficulty": 3,
+              "sourceInfo": "第9章·用去質子化炔類製備有機金屬"
+            },
+            {
+              "type": "FLASHCARD",
+              "order": 3,
+              "front": "格林納試劑與有機鋰試劑最基本的兩種製備方法各是什麼？",
+              "back": "格林納試劑：鎂金屬氧化插入鹵烷的C–X鍵。有機鋰試劑：鋰金屬插入鹵烷的C–X鍵（需要兩個鋰原子，一個進入產物、一個形成鋰鹽）。",
+              "explanation": "兩者都屬於「氧化插入」機制，是製備有機金屬試劑最基礎、最常見的方法。",
+              "difficulty": 3,
+              "sourceInfo": "第9章·製備格林納試劑與有機鋰試劑"
+            }
+          ]
+        },
+        {
+          "title": "用有機金屬試劑製造醇與酸",
+          "type": "READING",
+          "order": 2,
+          "xpReward": 15,
+          "estimatedMinutes": 6,
+          "conceptIds": ["cc_bond_formation"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "四種羰基親電基，四種產物",
+              "content": "格林納或有機鋰試劑加成到不同的羰基親電基上，會產生不同的產物：加成到**二氧化碳**得到羧酸（多一個碳）；加成到**甲醛**得到一級醇；加成到**其他醛**得到二級醇；加成到**酮**得到三級醇。反應結束後必須用酸性水溶液（H3O+）進行「淬滅」，使產物質子化並破壞多餘的有機金屬試劑。"
+            },
+            {
+              "order": 2,
+              "title": "反應順序很重要：水不能太早出現",
+              "content": "整個反應分成三個階段：（1）製備有機金屬試劑，（2）與親電基反應，（3）酸性淬滅。水必須在有機金屬試劑完全消耗之後才能加入，因為水會立即且劇烈地破壞任何殘留的有機金屬試劑（生成烷類與氫氧化物）。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "格林納試劑加成到二氧化碳（CO2），經過酸性淬滅後會得到什麼產物？",
+              "explanation": "CO2加成後形成羧酸鹽，經過酸淬滅後質子化成為羧酸，碳數比原本的格林納試劑多一個。",
+              "difficulty": 3,
+              "sourceInfo": "第9章·從有機金屬與二氧化碳製造羧酸",
+              "options": [
+                { "id": "a", "text": "羧酸" },
+                { "id": "b", "text": "一級醇" },
+                { "id": "c", "text": "酮" },
+                { "id": "d", "text": "醯胺" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "FILL_IN_THE_BLANK",
+              "order": 2,
+              "prompt": "有機金屬試劑加成到甲醛（CH2O），會得到______醇（碳數比甲醛多一個取代基）。",
+              "blankAnswer": "一級",
+              "blankHint": "primary的中文",
+              "explanation": "甲醛是最簡單的醛，加成後只多了一個取代基，因此產物是一級醇；加成到其他醛則得到二級醇，加成到酮則得到三級醇。",
+              "difficulty": 3,
+              "sourceInfo": "第9章·從有機金屬與甲醛製造一級醇"
+            },
+            {
+              "type": "MATCHING",
+              "order": 3,
+              "prompt": "請將親電基與有機金屬試劑加成後的產物類型配對。",
+              "matchPairs": [
+                { "left": "二氧化碳 CO2", "right": "羧酸" },
+                { "left": "甲醛 CH2O", "right": "一級醇" },
+                { "left": "酮", "right": "三級醇" }
+              ],
+              "explanation": "熟記這張對照表，就能快速判斷用哪一種親電基加上有機金屬試劑，能合成出目標的醇或酸。",
+              "difficulty": 3,
+              "sourceInfo": "第9章·用有機金屬試劑製造有機分子"
+            }
+          ]
+        },
+        {
+          "title": "鹵素-金屬交換與醇的氧化",
+          "type": "CHALLENGE",
+          "order": 3,
+          "xpReward": 20,
+          "estimatedMinutes": 8,
+          "conceptIds": ["cc_bond_formation", "alcohol_oxidation"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "鹵素-金屬交換：用pKa解釋反應方向",
+              "content": "有機鋰試劑可以和芳香或乙烯基鹵化物發生**鹵素-金屬交換**，鋰與鹵素互換位置。這個反應可以看成是碳陰離子與鋰離子形成的錯合物之間的競爭：反應會朝向能形成**更穩定的碳陰離子**（pKa較高的碳氫化合物對應的共軛鹼）那一側進行。例如苯基（pKa約43）比丁基（pKa約50）更穩定，所以BuLi可以把溴苯轉換成苯基鋰。"
+            },
+            {
+              "order": 2,
+              "title": "用鉻(VI)試劑氧化醇",
+              "content": "有機金屬加成反應做出的醇，可以用鉻(VI)試劑（如PCC吡啶氯鉻酸鹽）氧化：**一級醇**氧化成醛（更強的氧化劑可繼續氧化成羧酸）；**二級醇**氧化成酮；**三級醇**則無法被氧化（除非打斷C–C鍵）。這讓化學家可以在醇、醛/酮之間反覆轉換，搭配格林納或有機鋰試劑合成更複雜的分子。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "鹵素-金屬交換反應的方向，主要由什麼因素決定？",
+              "explanation": "反應會朝向形成更穩定（pKa較高的共軛酸對應）的碳陰離子那一側進行。",
+              "difficulty": 4,
+              "sourceInfo": "第9章·鹵素-金屬交換",
+              "options": [
+                { "id": "a", "text": "哪一側能形成更穩定的碳陰離子" },
+                { "id": "b", "text": "反應溫度的高低" },
+                { "id": "c", "text": "溶劑的顏色" },
+                { "id": "d", "text": "分子量的大小" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "三級醇可以直接被鉻(VI)試劑氧化成酮。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "false",
+              "explanation": "三級醇的碳上沒有可以移除的C–H鍵，因此無法被氧化（除非打斷C–C鍵）；只有一級和二級醇能被鉻(VI)試劑氧化。",
+              "difficulty": 3,
+              "sourceInfo": "第9章·醇的氧化"
+            },
+            {
+              "type": "FILL_IN_THE_BLANK",
+              "order": 3,
+              "prompt": "二級醇被鉻(VI)試劑（如PCC）氧化後，會得到______。",
+              "blankAnswer": "酮",
+              "blankHint": "二級醇氧化的產物",
+              "explanation": "一級醇氧化成醛（可再氧化成羧酸），二級醇氧化成酮，三級醇則無法被氧化。",
+              "difficulty": 3,
+              "sourceInfo": "第9章·醇的氧化"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

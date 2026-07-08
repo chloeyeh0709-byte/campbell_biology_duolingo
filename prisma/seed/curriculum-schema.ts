@@ -92,6 +92,10 @@ export interface SeedConcept {
 
 export interface SeedCourse {
   title: string;
+  /** If set, an existing course is looked up by this title instead of `title` —
+   * letting you rename a course (e.g. drop a chapter range from the title as
+   * more chapters are added) while still merging into the same existing row. */
+  matchTitle?: string;
   description?: string;
   subject?: string;
   concepts: SeedConcept[];

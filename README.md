@@ -4,7 +4,12 @@
 
 系統支援**多學科、多教科書**：首頁會列出所有已匯入的課程，依 `Course.subject` 分組（例如 Chemistry、Biology），每本教科書是一個 `Course`，底下的每一章是一個 `Unit`。
 
-目前已匯入的課程：`prisma/seed/organic-chemistry-ch1-4.json` —— 改編自 Clayden《Organic Chemistry》第 1–4 章（有機化學導論、有機結構、測定有機結構、分子結構），翻譯成繁體中文，共 4 個單元、11 堂課、19 個知識圖譜概念、35 道題目。
+目前已匯入的課程：**Clayden 有機化學**（改編自 Clayden《Organic Chemistry》，翻譯成繁體中文），涵蓋第 1–9 章，共 9 個單元、25 堂課、38 個知識圖譜概念、超過 70 道題目：
+
+- `prisma/seed/organic-chemistry-ch1-4.json`：第 1–4 章（有機化學導論、有機結構、測定有機結構、分子結構）——這份檔案原本把課程命名為「有機化學導論（第 1–4 章）」
+- `prisma/seed/organic-chemistry-ch5-9.json`：第 5–9 章（有機反應、羰基的親核加成、離域與共軛、酸鹼性與pKa、有機金屬試劑形成碳碳鍵）——這份檔案用 `matchTitle` 指向舊標題，把課程合併進同一門課並重新命名為「Clayden 有機化學」
+
+這是「同一本書陸續加新章節」的實際範例：兩份 JSON 依序執行 `db:seed`，第二次執行不會刪除第一次匯入的內容，而是重用既有概念、把新章節接在後面。
 
 ## 技術棧
 
@@ -23,6 +28,7 @@ npm install
 cp .env.example .env        # 填入 DATABASE_URL、DIRECT_URL 與 JWT_SECRET
 npx prisma migrate dev      # 建立資料表
 npm run db:seed -- prisma/seed/organic-chemistry-ch1-4.json
+npm run db:seed -- prisma/seed/organic-chemistry-ch5-9.json
 npm run dev
 ```
 
@@ -56,10 +62,11 @@ npm run dev
 
 ### 3. 匯入課程內容（部署完成後，只需執行一次）
 
-在本機，把 `.env` 的 `DATABASE_URL` 暫時換成 Vercel 專案用的那組正式資料庫連線字串（連線池版本即可，已經有 `pgbouncer=true`），然後執行：
+在本機，把 `.env` 的 `DATABASE_URL` 暫時換成 Vercel 專案用的那組正式資料庫連線字串（連線池版本即可，已經有 `pgbouncer=true`），然後依序執行：
 
 ```bash
 npm run db:seed -- prisma/seed/organic-chemistry-ch1-4.json
+npm run db:seed -- prisma/seed/organic-chemistry-ch5-9.json
 ```
 
 跑完後記得把 `.env` 的 `DATABASE_URL` 換回本機開發用的資料庫。如果你手邊沒有能跑 `npm` 指令的環境，也可以請 Claude 幫你在專案裡臨時加一個受密碼保護的匯入 API route，從瀏覽器觸發匯入，完成後記得請它移除該 route。
@@ -87,6 +94,18 @@ npm run db:seed -- path/to/your-chapter.json --replace
 ```
 
 新增一本全新的教科書、或全新的學科，就準備一份新的 JSON、換一個 `title`（`subject` 也可以換成新學科名稱），一樣執行 `npm run db:seed -- path/to/new-book.json`，首頁會自動列出來，不需要額外設定。
+
+**如果想幫既有課程改名**（例如原本叫「有機化學導論（第 1–4 章）」，之後涵蓋的章節變多，想改名成單純的「Clayden 有機化學」），在新的 JSON 裡加上 `matchTitle` 欄位指向舊標題，`title` 則放新名稱：
+
+```json
+{
+  "title": "Clayden 有機化學",
+  "matchTitle": "有機化學導論（第 1–4 章）",
+  ...
+}
+```
+
+系統會先用新標題找課程，找不到才退而用 `matchTitle` 找（這樣同一份檔案重複執行也不會因為課程已經改過名而誤判成新課程、建出重複的一筆）。實際範例見 `prisma/seed/organic-chemistry-ch5-9.json`。
 
 ## 資料模型重點
 
