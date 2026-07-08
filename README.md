@@ -4,12 +4,13 @@
 
 系統支援**多學科、多教科書**：首頁會列出所有已匯入的課程，依 `Course.subject` 分組（例如 Chemistry、Biology），每本教科書是一個 `Course`，底下的每一章是一個 `Unit`。
 
-目前已匯入的課程：**Clayden 有機化學**（改編自 Clayden《Organic Chemistry》，翻譯成繁體中文），涵蓋第 1–9 章，共 9 個單元、25 堂課、38 個知識圖譜概念、超過 70 道題目：
+目前已匯入的課程：**Clayden 有機化學**（改編自 Clayden《Organic Chemistry》，翻譯成繁體中文），涵蓋第 1–14 章，共 14 個單元、40 堂課、63 個知識圖譜概念、超過 120 道題目：
 
 - `prisma/seed/organic-chemistry-ch1-4.json`：第 1–4 章（有機化學導論、有機結構、測定有機結構、分子結構）——這份檔案原本把課程命名為「有機化學導論（第 1–4 章）」
 - `prisma/seed/organic-chemistry-ch5-9.json`：第 5–9 章（有機反應、羰基的親核加成、離域與共軛、酸鹼性與pKa、有機金屬試劑形成碳碳鍵）——這份檔案用 `matchTitle` 指向舊標題，把課程合併進同一門課並重新命名為「Clayden 有機化學」
+- `prisma/seed/organic-chemistry-ch10-14.json`：第 10–14 章（羰基的親核取代、羰基氧的置換、平衡速率與反應機構、氫核磁共振、立體化學）——標題已經是「Clayden 有機化學」，不需要 `matchTitle`
 
-這是「同一本書陸續加新章節」的實際範例：兩份 JSON 依序執行 `db:seed`，第二次執行不會刪除第一次匯入的內容，而是重用既有概念、把新章節接在後面。
+這是「同一本書陸續加新章節」的實際範例：三份 JSON 依序執行 `db:seed`，後面執行的不會刪除先前匯入的內容，而是重用既有概念、把新章節接在後面。
 
 ## 技術棧
 
@@ -29,6 +30,7 @@ cp .env.example .env        # 填入 DATABASE_URL、DIRECT_URL 與 JWT_SECRET
 npx prisma migrate dev      # 建立資料表
 npm run db:seed -- prisma/seed/organic-chemistry-ch1-4.json
 npm run db:seed -- prisma/seed/organic-chemistry-ch5-9.json
+npm run db:seed -- prisma/seed/organic-chemistry-ch10-14.json
 npm run dev
 ```
 
@@ -67,6 +69,7 @@ npm run dev
 ```bash
 npm run db:seed -- prisma/seed/organic-chemistry-ch1-4.json
 npm run db:seed -- prisma/seed/organic-chemistry-ch5-9.json
+npm run db:seed -- prisma/seed/organic-chemistry-ch10-14.json
 ```
 
 跑完後記得把 `.env` 的 `DATABASE_URL` 換回本機開發用的資料庫。如果你手邊沒有能跑 `npm` 指令的環境，也可以請 Claude 幫你在專案裡臨時加一個受密碼保護的匯入 API route，從瀏覽器觸發匯入，完成後記得請它移除該 route。

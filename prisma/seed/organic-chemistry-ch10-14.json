@@ -1,0 +1,1023 @@
+{
+  "title": "Clayden 有機化學",
+  "description": "改編自 Clayden《Organic Chemistry》，翻譯成繁體中文。目前涵蓋第 1–14 章：有機化學導論、有機結構、測定有機結構、分子結構、有機反應、羰基的親核加成、離域與共軛、酸鹼性與pKa、有機金屬試劑形成碳碳鍵、羰基的親核取代、羰基氧的置換（半縮醛與亞胺）、平衡速率與反應機構、氫核磁共振、立體化學。",
+  "subject": "Chemistry",
+  "concepts": [
+    { "id": "carbonyl_addition", "name": "羰基的親核加成", "summary": "親核基攻擊羰基的sp2碳，電子流入C=O的π*反鍵軌域，碳由sp2變成sp3，形成新的四面體中心；接著氧陰離子被質子化。", "importance": 1.0, "difficulty": 3, "tags": ["羰基", "加成反應"], "posX": 300, "posY": 800 },
+    { "id": "curly_arrows", "name": "彎箭頭與反應機構", "summary": "彎箭頭代表一對電子的移動，箭尾在電子對（孤對電子、負電荷或鍵）上，箭頭指向新鍵形成的位置；反應中電荷必須守恆。", "importance": 0.9, "difficulty": 3, "tags": ["機構", "彎箭頭"], "posX": 240, "posY": 800 },
+    { "id": "grignard_organolithium", "name": "格林納試劑與有機鋰試劑", "summary": "格林納試劑（R-MgX）與有機鋰試劑（R-Li）的碳金屬鍵極化朝向碳，使碳帶負電、成為強力的親核基，也是強鹼。", "importance": 0.9, "difficulty": 3, "tags": ["格林納", "有機鋰"], "posX": 360, "posY": 800 },
+    { "id": "hemiacetal_acetal", "name": "半縮醛與縮醛、水合物", "summary": "醇加成到醛酮的羰基上形成半縮醛（更進一步反應成縮醛）；水加成則形成水合物。這些反應都是可逆的，並受酸鹼催化。", "importance": 0.6, "difficulty": 4, "tags": ["半縮醛", "水合物"], "posX": 300, "posY": 830 },
+    { "id": "functional_groups", "name": "官能基", "summary": "官能基是分子中含有碳、氫以外元素（如 N、O、S）的原子團，決定分子的化學與生物性質，例如胺基（NH2）與羧酸基（CO2H）。", "importance": 1.0, "difficulty": 2, "tags": ["結構", "反應性"], "posX": 360, "posY": 860 },
+
+    { "id": "carbonyl_substitution", "name": "羰基的親核取代（加成-消去機構）", "summary": "當羰基碳連接離去基時，親核基加成形成的四面體中間體會塌陷、踢出離去基，重新形成C=O，整體是取代反應。", "importance": 1.0, "difficulty": 3, "tags": ["取代反應", "四面體中間體"], "posX": 420, "posY": 800 },
+    { "id": "acyl_derivative_reactivity", "name": "醯基衍生物的相對反應性", "summary": "羧酸衍生物依親核取代反應性排序：醯氯 > 酸酐 > 酯 > 醯胺，由離去基能力與氮/氧孤對電子與羰基共軛的程度決定。", "importance": 0.9, "difficulty": 3, "tags": ["反應性", "醯基"], "posX": 480, "posY": 830 },
+    { "id": "making_ketones_from_esters", "name": "從酯類製造酮：控制中間體穩定性", "summary": "利用Weinreb醯胺的鉗合作用、或腈類加成形成沒有離去基的中間體，可以讓反應停在酮這一階段，避免過度加成成三級醇。", "importance": 0.6, "difficulty": 4, "tags": ["合成策略", "Weinreb醯胺"], "posX": 540, "posY": 860 },
+    { "id": "nitrile_addition", "name": "腈類與亞胺離子的加成反應", "summary": "有機鋰或格林納試劑加成到腈（R-C≡N）形成亞胺負離子中間體，沒有離去基可踢出，酸性水解後可得到酮。", "importance": 0.5, "difficulty": 3, "tags": ["腈", "亞胺負離子"], "posX": 480, "posY": 890 },
+
+    { "id": "acetal_formation", "name": "縮醛的形成、水解與保護基應用", "summary": "半縮醛經酸催化脫水形成氧鎓離子，再與第二分子醇反應成縮醛；縮醛對鹼與親核基穩定，只在酸性條件下水解，常用作保護基。", "importance": 0.8, "difficulty": 4, "tags": ["縮醛", "保護基", "氧鎓離子"], "posX": 300, "posY": 890 },
+    { "id": "imine_formation", "name": "亞胺的形成與酸鹼催化", "summary": "一級胺與醛酮經半胺醛中間體脫水形成亞胺（C=N）；反應需要酸幫助OH離去，但酸太多會使胺質子化，速率在pH 4–6最快。", "importance": 0.8, "difficulty": 3, "tags": ["亞胺", "pH-速率"], "posX": 180, "posY": 830 },
+    { "id": "enamine_formation", "name": "烯胺的形成", "summary": "二級胺與醛酮反應形成的亞胺鎓離子沒有N-H可失去，改為失去鄰位C-H，形成含C=C雙鍵的烯胺。", "importance": 0.6, "difficulty": 4, "tags": ["烯胺"], "posX": 120, "posY": 860 },
+    { "id": "reductive_amination", "name": "還原胺化", "summary": "醛酮與胺形成亞胺鎓離子後，用NaBH3CN選擇性還原，得到胺；是合成二級、三級胺最實用的方法之一。", "importance": 0.8, "difficulty": 3, "tags": ["還原胺化", "NaBH3CN"], "posX": 180, "posY": 890 },
+    { "id": "wittig_reaction", "name": "維狄希反應：以C=C取代C=O", "summary": "醛酮與磷鎓ylide反應，經四員環氧磷丁環中間體分解，生成烯烴與氧化三苯基膦；由P=O鍵能驅動，幾乎不可逆。", "importance": 0.7, "difficulty": 4, "tags": ["Wittig", "磷鎓ylide"], "posX": 120, "posY": 800 },
+
+    { "id": "free_energy_equilibrium", "name": "自由能與平衡常數（ΔG = −RTlnK）", "summary": "反應物與產物之間的自由能差ΔG，透過ΔG = −RTlnK決定平衡常數K；即使ΔG很小，也可能造成K的巨大差異。", "importance": 1.0, "difficulty": 3, "tags": ["熱力學", "平衡常數"], "posX": 600, "posY": 800 },
+    { "id": "enthalpy_entropy", "name": "焓與熵：ΔG = ΔH − TΔS", "summary": "自由能由焓變（鍵能強弱差異）與熵變（混亂度差異）共同決定；分子數減少的反應通常熵不利，溫度越高熵項影響越大。", "importance": 0.8, "difficulty": 4, "tags": ["焓", "熵"], "posX": 660, "posY": 830 },
+    { "id": "activation_energy_transition_state", "name": "活化能與過渡態", "summary": "反應物要變成產物必須跨過活化能障礙，其能量最高點稱為過渡態；動力學穩定但熱力學不穩定的分子需要外部能量才能反應。", "importance": 1.0, "difficulty": 3, "tags": ["活化能", "過渡態"], "posX": 600, "posY": 860 },
+    { "id": "catalysis_mechanism", "name": "催化劑如何加速反應", "summary": "催化劑透過降低活化能來加快反應速率，不改變反應的平衡常數；可以降低過渡態能量或提高起始物能量。", "importance": 0.7, "difficulty": 3, "tags": ["催化"], "posX": 660, "posY": 890 },
+    { "id": "rate_equation_rds", "name": "速率方程式與決速步驟", "summary": "速率方程式顯示哪些物種涉及決速步驟；多步驟反應的整體速率完全由活化能最高的決速步驟決定。", "importance": 0.9, "difficulty": 4, "tags": ["速率方程式", "決速步驟"], "posX": 720, "posY": 830 },
+    { "id": "kinetic_vs_thermodynamic_control", "name": "動力學控制 vs 熱力學控制", "summary": "動力學產物形成較快但不一定最穩定；熱力學產物需要較長時間或較高溫度才能形成，但最終能量最低、最穩定。", "importance": 0.7, "difficulty": 4, "tags": ["動力學控制", "熱力學控制"], "posX": 720, "posY": 860 },
+
+    { "id": "nmr_chemical_shift_regions", "name": "1H NMR的化學位移區域", "summary": "1H NMR化學位移範圍約0–10 ppm，依飽和碳氫、靠近氧的氫、烯氫、芳香氫、醛氫等大致分區；拉電子基使鄰近氫訊號往低場移動。", "importance": 1.0, "difficulty": 3, "tags": ["NMR", "化學位移"], "posX": 780, "posY": 800 },
+    { "id": "nmr_integration", "name": "積分：氫原子的數量", "summary": "1H NMR訊號底下的面積正比於產生訊號的氫原子數量，搭配分子式可推算出每個訊號代表幾個氫。", "importance": 0.7, "difficulty": 2, "tags": ["NMR", "積分"], "posX": 840, "posY": 830 },
+    { "id": "nmr_coupling_constant", "name": "偶合與偶合常數J", "summary": "鄰近的氫核透過鍵傳遞磁場交互作用，使訊號分裂成多重峰；分裂間距稱為偶合常數J，以Hz為單位，不隨儀器磁場強度改變。", "importance": 1.0, "difficulty": 4, "tags": ["NMR", "偶合"], "posX": 780, "posY": 860 },
+    { "id": "nmr_splitting_patterns", "name": "分裂圖形與帕斯卡三角形", "summary": "若氫原子有n個等同鄰居，訊號會分裂成n+1條線，強度比例可由帕斯卡三角形讀出；相同的氫原子彼此不會偶合。", "importance": 0.7, "difficulty": 3, "tags": ["NMR", "n+1規則"], "posX": 840, "posY": 890 },
+    { "id": "nmr_coupling_geometry", "name": "偶合常數反映的立體與電子效應", "summary": "偶合是透過鍵傳遞的效應；trans雙鍵偶合常數通常比cis大，長程偶合（meta、allylic）需特殊幾何排列才可觀察到，拉電子基會使偶合常數變小。", "importance": 0.6, "difficulty": 4, "tags": ["NMR", "立體效應"], "posX": 780, "posY": 920 },
+
+    { "id": "chirality_enantiomers", "name": "掌性與鏡像異構物（對映異構物）", "summary": "互為鏡像卻無法透過旋轉疊合的一對結構稱為鏡像異構物；這樣的分子稱為掌性分子，物理化學性質完全相同但旋光方向相反。", "importance": 1.0, "difficulty": 3, "tags": ["掌性", "鏡像異構物"], "posX": 900, "posY": 800 },
+    { "id": "symmetry_plane_chirality", "name": "對稱面、對稱軸與掌性的判斷", "summary": "分子若存在對稱面或對稱中心即為非掌性；只有對稱軸而無對稱面/中心的分子仍可為掌性，是判斷掌性最快的方法。", "importance": 0.8, "difficulty": 3, "tags": ["對稱面", "掌性判斷"], "posX": 960, "posY": 830 },
+    { "id": "stereogenic_centre_rs", "name": "立體中心與R/S命名法", "summary": "連接四個不同取代基的sp3碳是立體中心；依原子序排優先順序、把最低優先取代基指向後方，依1→2→3方向判斷順時鐘（R）或逆時鐘（S）。", "importance": 0.9, "difficulty": 3, "tags": ["立體中心", "R/S"], "posX": 900, "posY": 860 },
+    { "id": "diastereoisomers_meso", "name": "非鏡像立體異構物與内消旋化合物", "summary": "含多個立體中心的分子除鏡像異構物外還有非鏡像立體異構物（物理性質不同）；內部對稱可使含立體中心的分子仍為非掌性（meso化合物）。", "importance": 0.8, "difficulty": 4, "tags": ["非鏡像立體異構物", "内消旋"], "posX": 960, "posY": 890 },
+    { "id": "resolution_technique", "name": "掌性拆分（resolution）", "summary": "利用單一鏡像異構物的天然掌性化合物，與消旋物形成一對物理性質不同的非鏡像立體異構物（鹽或酯），再分離、游離出兩個鏡像異構物。", "importance": 0.6, "difficulty": 4, "tags": ["拆分", "非鏡像立體異構物鹽"], "posX": 900, "posY": 920 }
+  ],
+  "edges": [
+    { "sourceId": "carbonyl_substitution", "targetId": "carbonyl_addition", "relationshipType": "EXTENDS" },
+    { "sourceId": "carbonyl_substitution", "targetId": "curly_arrows", "relationshipType": "PREREQUISITE" },
+    { "sourceId": "acyl_derivative_reactivity", "targetId": "carbonyl_substitution", "relationshipType": "PART_OF" },
+    { "sourceId": "making_ketones_from_esters", "targetId": "acyl_derivative_reactivity", "relationshipType": "EXTENDS" },
+    { "sourceId": "nitrile_addition", "targetId": "carbonyl_substitution", "relationshipType": "RELATED" },
+    { "sourceId": "nitrile_addition", "targetId": "grignard_organolithium", "relationshipType": "PREREQUISITE" },
+
+    { "sourceId": "acetal_formation", "targetId": "hemiacetal_acetal", "relationshipType": "EXTENDS" },
+    { "sourceId": "imine_formation", "targetId": "carbonyl_addition", "relationshipType": "RELATED" },
+    { "sourceId": "imine_formation", "targetId": "curly_arrows", "relationshipType": "PREREQUISITE" },
+    { "sourceId": "enamine_formation", "targetId": "imine_formation", "relationshipType": "EXTENDS" },
+    { "sourceId": "reductive_amination", "targetId": "imine_formation", "relationshipType": "EXTENDS" },
+    { "sourceId": "wittig_reaction", "targetId": "carbonyl_addition", "relationshipType": "CONTRASTS" },
+
+    { "sourceId": "enthalpy_entropy", "targetId": "free_energy_equilibrium", "relationshipType": "PART_OF" },
+    { "sourceId": "activation_energy_transition_state", "targetId": "free_energy_equilibrium", "relationshipType": "PREREQUISITE" },
+    { "sourceId": "rate_equation_rds", "targetId": "activation_energy_transition_state", "relationshipType": "EXTENDS" },
+    { "sourceId": "catalysis_mechanism", "targetId": "activation_energy_transition_state", "relationshipType": "PART_OF" },
+    { "sourceId": "kinetic_vs_thermodynamic_control", "targetId": "rate_equation_rds", "relationshipType": "EXTENDS" },
+    { "sourceId": "kinetic_vs_thermodynamic_control", "targetId": "free_energy_equilibrium", "relationshipType": "RELATED" },
+    { "sourceId": "rate_equation_rds", "targetId": "carbonyl_substitution", "relationshipType": "RELATED" },
+
+    { "sourceId": "nmr_integration", "targetId": "nmr_chemical_shift_regions", "relationshipType": "RELATED" },
+    { "sourceId": "nmr_coupling_constant", "targetId": "nmr_chemical_shift_regions", "relationshipType": "EXTENDS" },
+    { "sourceId": "nmr_splitting_patterns", "targetId": "nmr_coupling_constant", "relationshipType": "PART_OF" },
+    { "sourceId": "nmr_coupling_geometry", "targetId": "nmr_coupling_constant", "relationshipType": "EXTENDS" },
+    { "sourceId": "nmr_chemical_shift_regions", "targetId": "functional_groups", "relationshipType": "RELATED" },
+
+    { "sourceId": "symmetry_plane_chirality", "targetId": "chirality_enantiomers", "relationshipType": "PART_OF" },
+    { "sourceId": "stereogenic_centre_rs", "targetId": "chirality_enantiomers", "relationshipType": "EXTENDS" },
+    { "sourceId": "diastereoisomers_meso", "targetId": "stereogenic_centre_rs", "relationshipType": "EXTENDS" },
+    { "sourceId": "resolution_technique", "targetId": "diastereoisomers_meso", "relationshipType": "EXTENDS" },
+    { "sourceId": "chirality_enantiomers", "targetId": "carbonyl_addition", "relationshipType": "RELATED" }
+  ],
+  "units": [
+    {
+      "title": "第十章：羰基的親核取代",
+      "description": "四面體中間體如何塌陷成取代反應、羧酸衍生物的相對反應性，以及如何從酯與腈類製造酮",
+      "order": 10,
+      "color": "#2b70c9",
+      "iconEmoji": "🧪",
+      "lessons": [
+        {
+          "title": "四面體中間體的形成與塌陷",
+          "type": "READING",
+          "order": 1,
+          "xpReward": 15,
+          "estimatedMinutes": 6,
+          "conceptIds": ["carbonyl_substitution"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "加成 vs 取代：羰基化合物含有離去基時會發生什麼？",
+              "content": "當羰基碳上除了親核基能加成的位置，還連接著一個**離去基**（如Cl、OR、NH2）時，親核基加成後形成的四面體中間體並不穩定：它會塌陷，重新形成C=O雙鍵，同時把離去基踢出去。整體結果是離去基被親核基**取代**，這就是羧酸衍生物（醯氯、酸酐、酯、醯胺）最主要的反應模式。"
+            },
+            {
+              "order": 2,
+              "title": "誰是比較好的離去基，決定反應能否進行",
+              "content": "四面體中間體塌陷時，會優先踢出**比較穩定的陰離子**（即pKa較小的共軛酸對應的離去基）。因此Cl⁻（醯氯的離去基）比OR⁻（酯的離去基）更容易離去，而OR⁻又比NH2⁻（醯胺的離去基，pKa高達~35）容易離去得多。這也是為什麼醯胺很難水解，而醯氯遇水就會迅速反應。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "當羰基碳上帶有離去基時，親核基加成後形成的四面體中間體最終會發生什麼？",
+              "explanation": "四面體中間體若含有可離去的基團，就會塌陷並釋出離去基，整體形成取代反應而非單純加成。",
+              "difficulty": 3,
+              "sourceInfo": "第10章·加成-消去機構",
+              "options": [
+                { "id": "a", "text": "塌陷並踢出離去基，重新形成C=O" },
+                { "id": "b", "text": "保持穩定，不再變化" },
+                { "id": "c", "text": "進一步加成第二個親核基" },
+                { "id": "d", "text": "自動變成環狀化合物" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "醯氯（acyl chloride）比醯胺（amide）更容易發生親核取代反應，因為Cl⁻是比NH2⁻更穩定、更容易離去的離去基。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "NH2⁻對應的共軛酸NH3的pKa高達約35，是很差的離去基；Cl⁻對應HCl的pKa約−7，是非常好的離去基。",
+              "difficulty": 3,
+              "sourceInfo": "第10章·離去基的能力"
+            },
+            {
+              "type": "FLASHCARD",
+              "order": 3,
+              "front": "羧酸衍生物的親核取代反應，整體可以分成哪兩個步驟？",
+              "back": "第一步：親核基加成到羰基碳，形成四面體中間體；第二步：四面體中間體塌陷，踢出離去基，重新形成C=O雙鍵。這與單純的羰基加成（如氫化物還原）的差別，就在於多了「離去基被踢出」這一步。",
+              "explanation": "這個「加成-消去」兩步驟模式，是理解所有羧酸衍生物反應的核心架構。",
+              "difficulty": 2,
+              "sourceInfo": "第10章·加成-消去機構"
+            }
+          ]
+        },
+        {
+          "title": "醯基衍生物的相對反應性",
+          "type": "READING",
+          "order": 2,
+          "xpReward": 15,
+          "estimatedMinutes": 6,
+          "conceptIds": ["acyl_derivative_reactivity"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "羧酸衍生物的反應性順序",
+              "content": "羧酸衍生物依親核取代反應性由強到弱排序：**醯氯 > 酸酐 > 酯 > 醯胺**。這個順序主要由兩個因素決定：（1）離去基的離去能力（Cl⁻ 最好，NH2⁻最差）；（2）取代基透過孤對電子與羰基共軛、降低羰基碳親電性的程度（N的孤對電子比O更容易與羰基共軛，所以醯胺的羰基最不活潑）。"
+            },
+            {
+              "order": 2,
+              "title": "反應性順序的實務意義：更活潑的可以轉換成較不活潑的",
+              "content": "由於反應性醯氯 > 酸酐 > 酯 > 醯胺，我們可以用**較活潑的衍生物合成較不活潑的衍生物**（例如醯氯加胺可直接做出醯胺），但反過來（用醯胺做醯氯）就很困難。這個「單向合成」的原則，是設計羧酸衍生物合成路徑時最重要的準則。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "下列羧酸衍生物中，對親核取代反應最活潑的是？",
+              "explanation": "醯氯的離去基Cl⁻最穩定、最容易離去，且氯的孤對電子難以與羰基有效共軛，所以醯氯是反應性最高的羧酸衍生物。",
+              "difficulty": 2,
+              "sourceInfo": "第10章·醯基衍生物的反應性順序",
+              "options": [
+                { "id": "a", "text": "醯氯" },
+                { "id": "b", "text": "酯" },
+                { "id": "c", "text": "醯胺" },
+                { "id": "d", "text": "酸酐" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "FILL_IN_THE_BLANK",
+              "order": 2,
+              "prompt": "羧酸衍生物的反應性順序由強到弱依序為：醯氯 > 酸酐 > 酯 > ______。",
+              "blankAnswer": "醯胺",
+              "blankHint": "反應性最低的羧酸衍生物，氮的孤對電子與羰基共軛最強",
+              "explanation": "醯胺的氮孤對電子與羰基強烈共軛，使羰基碳親電性最低，加上NH2⁻是很差的離去基，所以反應性最低。",
+              "difficulty": 3,
+              "sourceInfo": "第10章·醯基衍生物的反應性順序"
+            },
+            {
+              "type": "MATCHING",
+              "order": 3,
+              "prompt": "請將羧酸衍生物與其離去基/反應性配對。",
+              "matchPairs": [
+                { "left": "醯氯", "right": "離去基Cl⁻，反應性最高" },
+                { "left": "酯", "right": "離去基OR⁻，反應性中等" },
+                { "left": "醯胺", "right": "離去基NH2⁻，反應性最低，氮孤對電子與羰基強烈共軛" }
+              ],
+              "explanation": "反應性順序與離去基的穩定性、以及取代基和羰基的共軛程度直接相關。",
+              "difficulty": 3,
+              "sourceInfo": "第10章·醯基衍生物的相對反應性"
+            }
+          ]
+        },
+        {
+          "title": "從酯與腈類製造酮",
+          "type": "PRACTICE",
+          "order": 3,
+          "xpReward": 18,
+          "estimatedMinutes": 7,
+          "conceptIds": ["making_ketones_from_esters", "nitrile_addition"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "問題：格林納試劑加到酯上，為什麼很難停在酮？",
+              "content": "格林納試劑加到酯，形成的四面體中間體塌陷後會生成酮；但酮通常比酯更活潑，會立刻被過量的格林納試劑進一步加成，最後得到三級醇（兩個相同R基）。要在酮這一步停下來，必須讓四面體中間體**不塌陷**（穩定），直到最後加酸淬滅時才一次性生成酮，並同時破壞多餘的格林納試劑。"
+            },
+            {
+              "order": 2,
+              "title": "穩定四面體中間體的策略：Weinreb醯胺與腈",
+              "content": "**Weinreb醯胺**（N-甲氧基-N-甲基醯胺）與格林納或有機鋰試劑加成後，因**鉗合（chelation）**作用形成穩定的四面體中間體，只有在最後加酸時才塌陷成酮。**腈（R–C≡N）**則是另一種替代方案：有機鋰加成到腈形成亞胺負離子中間體，這個中間體沒有離去基可以踢出，一樣要等到加酸淬滅才水解成酮。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "直接用過量格林納試劑加到酯上，最終最可能得到的產物是什麼？",
+              "explanation": "酯先變成酮，但酮比酯更活潑，會被過量的格林納試劑繼續加成，最後得到帶有兩個相同R基的三級醇。",
+              "difficulty": 3,
+              "sourceInfo": "第10章·從酯製造酮的問題",
+              "options": [
+                { "id": "a", "text": "三級醇（兩個相同R基）" },
+                { "id": "b", "text": "剛好停在酮" },
+                { "id": "c", "text": "完全不反應" },
+                { "id": "d", "text": "羧酸" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "Weinreb醯胺之所以能讓反應停在酮的階段，是因為加成後形成的四面體中間體透過鉗合作用而特別穩定，只有加酸才會塌陷。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "N-甲氧基上的氧與鎂形成鉗合，穩定了四面體中間體，讓它在反應過程中不會提早塌陷。",
+              "difficulty": 4,
+              "sourceInfo": "第10章·Weinreb醯胺"
+            },
+            {
+              "type": "FLASHCARD",
+              "order": 3,
+              "front": "為什麼用腈（R-C≡N）加上有機鋰試劑，也能用來合成酮？",
+              "back": "有機鋰加成到腈的碳上，形成的亞胺負離子中間體沒有可離去的基團，因此不會像酯那樣繼續反應；直到最後加水/酸淬滅時，這個中間體才水解成酮（並釋出氨）。",
+              "explanation": "這與Weinreb醯胺的策略相同：讓中間體在反應過程中保持穩定，只在淬滅時才一次性生成產物。",
+              "difficulty": 4,
+              "sourceInfo": "第10章·腈類的加成反應"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "第十一章：羰基氧的置換",
+      "description": "縮醛、亞胺、烯胺的形成，以及還原胺化與維狄希反應",
+      "order": 11,
+      "color": "#ff86d0",
+      "iconEmoji": "💧",
+      "lessons": [
+        {
+          "title": "縮醛的形成、水解與保護基",
+          "type": "READING",
+          "order": 1,
+          "xpReward": 15,
+          "estimatedMinutes": 6,
+          "conceptIds": ["acetal_formation"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "從半縮醛到縮醛：氧鎓離子中間體",
+              "content": "醛酮先與一分子醇形成半縮醛，接著在**酸催化**下，半縮醛的OH被質子化並以水的形式離去，形成不穩定的**氧鎓離子**中間體；第二分子醇加成到這個氧鎓離子上，最後去質子化，就形成**縮醛**。縮醛的形成必須用過量的醇或設法移除反應中生成的水（如共沸蒸餾），才能把平衡推向縮醛那一側。"
+            },
+            {
+              "order": 2,
+              "title": "縮醛作為保護基：對鹼和親核基穩定，只怕酸",
+              "content": "縮醛最重要的應用是作為**保護基**：縮醛對鹼、對格林納試劑等強親核基都很穩定，只有在**酸性水溶液**中才會水解回醛酮。這讓化學家可以先把容易被親核基攻擊的羰基「保護」成縮醛，等其他反應（例如格林納試劑加成到分子的另一部分）完成後，再用稀酸把縮醛水解、恢復原本的羰基。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "縮醛的形成機構中，半縮醛失去水之後會形成什麼不穩定的中間體？",
+              "explanation": "半縮醛的OH被質子化後以水的形式離去，留下的正電荷由氧與相鄰碳共同分擔，形成氧鎓離子。",
+              "difficulty": 4,
+              "sourceInfo": "第11章·縮醛的形成機構",
+              "options": [
+                { "id": "a", "text": "氧鎓離子" },
+                { "id": "b", "text": "碳陽離子的芳香環" },
+                { "id": "c", "text": "自由基" },
+                { "id": "d", "text": "內鎓鹽" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "縮醛對鹼和格林納試劑等強親核基很穩定，只有在酸性條件下才會水解。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "縮醛的水解需要酸催化才能形成好的離去基（質子化的醇），鹼性條件下縮醛不會反應，這也是它能作為保護基的原因。",
+              "difficulty": 3,
+              "sourceInfo": "第11章·縮醛只能被酸水解"
+            },
+            {
+              "type": "FILL_IN_THE_BLANK",
+              "order": 3,
+              "prompt": "縮醛常被用作______基，先保護羰基不被親核基攻擊，等其他反應完成後再用酸水解回原本的羰基。",
+              "blankAnswer": "保護",
+              "blankHint": "protecting group的中文",
+              "explanation": "縮醛保護基是有機合成中最經典的例子之一，讓化學家能在分子的其他部分進行反應而不影響羰基。",
+              "difficulty": 3,
+              "sourceInfo": "第11章·用縮醛保護酮"
+            }
+          ]
+        },
+        {
+          "title": "亞胺與烯胺的形成",
+          "type": "READING",
+          "order": 2,
+          "xpReward": 15,
+          "estimatedMinutes": 6,
+          "conceptIds": ["imine_formation", "enamine_formation"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "一級胺 + 羰基 → 亞胺；反應速率在中性pH最快",
+              "content": "一級胺與醛酮反應，經半胺醛（hemiaminal）中間體脫水，形成含C=N雙鍵的**亞胺**。這個反應需要酸催化幫助OH以水的形式離去，但酸太多又會把胺質子化、減少親核基的濃度，所以亞胺形成速率在**pH 4–6附近**達到最大值，兩側都會變慢。"
+            },
+            {
+              "order": 2,
+              "title": "二級胺 + 羰基 → 烯胺",
+              "content": "二級胺（如吡咯啶）與醛酮反應時，形成的亞胺鎓離子沒有N–H可以失去，只能改為失去**鄰位碳上的C–H**，形成含C=C雙鍵的**烯胺**（enamine，結合ene+amine）。烯胺和亞胺一樣，對水解很敏感，也需要用共沸方式移除水以驅動反應完成。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "一級胺與醛酮反應，脫水後形成的產物含有什麼官能基？",
+              "explanation": "一級胺加成到羰基後，經半胺醛脫水，形成含C=N雙鍵的亞胺。",
+              "difficulty": 2,
+              "sourceInfo": "第11章·亞胺的形成",
+              "options": [
+                { "id": "a", "text": "C=N雙鍵（亞胺）" },
+                { "id": "b", "text": "C=C雙鍵" },
+                { "id": "c", "text": "C≡C參鍵" },
+                { "id": "d", "text": "環氧基" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "亞胺形成的反應速率，在很低的pH或很高的pH都會變慢，在pH 4-6附近達到最快。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "低pH時胺被過度質子化、親核性下降；高pH時脫水步驟缺乏酸催化而變慢，兩者的平衡點在pH 4-6附近。",
+              "difficulty": 4,
+              "sourceInfo": "第11章·亞胺形成的pH-速率關係"
+            },
+            {
+              "type": "MATCHING",
+              "order": 3,
+              "prompt": "請將胺的種類與其反應產物配對。",
+              "matchPairs": [
+                { "left": "一級胺 + 醛酮", "right": "形成亞胺（C=N）" },
+                { "left": "二級胺 + 醛酮", "right": "形成烯胺（C=C）" },
+                { "left": "亞胺鎓離子失去C-H而非N-H", "right": "因為二級胺形成的亞胺鎓沒有N-H可失去" }
+              ],
+              "explanation": "一級胺與二級胺因為N-H數量不同，脫水後產生的最終產物也不同：一個保留C=N，一個變成C=C。",
+              "difficulty": 3,
+              "sourceInfo": "第11章·亞胺與烯胺"
+            }
+          ]
+        },
+        {
+          "title": "還原胺化與維狄希反應",
+          "type": "CHALLENGE",
+          "order": 3,
+          "xpReward": 20,
+          "estimatedMinutes": 8,
+          "conceptIds": ["reductive_amination", "wittig_reaction"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "還原胺化：從羰基直接做出胺",
+              "content": "**還原胺化**是把醛酮轉換成胺最實用的方法：先讓醛酮與胺反應形成亞胺（或亞胺鎓離子），再用溫和的還原劑**氰基氫化硼鈉（NaBH3CN）**選擇性地還原亞胺鎓離子，而不會還原還沒反應的羰基化合物。這讓整個反應可以在同一個反應瓶中一步完成。"
+            },
+            {
+              "order": 2,
+              "title": "維狄希反應：把C=O換成C=C",
+              "content": "**維狄希反應（Wittig reaction）**是醛酮與**磷鎓ylide**（由三苯基膦與鹵烷反應、再用強鹼去質子化製成）反應，形成四員環的氧磷丁環（oxaphosphetane）中間體，接著分解成烯烴與氧化三苯基膦。這個反應由P=O鍵極強的鍵能驅動、幾乎不可逆，整體效果是把羰基的**C=O取代成C=C**。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "還原胺化中，NaBH3CN選擇性還原的是什麼？",
+              "explanation": "NaBH3CN是溫和的還原劑，能選擇性地還原反應性較高的亞胺鎓離子，而幾乎不會還原還沒反應的羰基化合物。",
+              "difficulty": 3,
+              "sourceInfo": "第11章·還原胺化",
+              "options": [
+                { "id": "a", "text": "亞胺鎓離子，而非還沒反應的羰基化合物" },
+                { "id": "b", "text": "只還原羧酸" },
+                { "id": "c", "text": "同時還原羰基與亞胺" },
+                { "id": "d", "text": "只還原烯烴" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "維狄希反應的整體效果，是把羰基化合物的C=O雙鍵置換成C=C雙鍵。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "磷鎓ylide的碳與羰基碳形成新的C=C雙鍵，同時氧轉移到磷上形成氧化三苯基膦離開分子。",
+              "difficulty": 3,
+              "sourceInfo": "第11章·維狄希反應"
+            },
+            {
+              "type": "FLASHCARD",
+              "order": 3,
+              "front": "維狄希反應為什麼幾乎是不可逆的？是什麼驅動了這個反應？",
+              "back": "反應的驅動力來自P=O鍵極高的鍵能（約575 kJ/mol，是化學中最強的雙鍵之一）；四員環中間體分解形成穩定的三苯基氧化膦與烯烴後，能量大幅下降，使反應幾乎不可逆。",
+              "explanation": "這說明了維狄希反應之所以在有機合成中如此可靠、被廣泛使用的原因。",
+              "difficulty": 4,
+              "sourceInfo": "第11章·維狄希反應的驅動力"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "第十二章：平衡、速率與反應機構",
+      "description": "自由能、焓與熵如何決定平衡，活化能與過渡態如何決定速率，以及動力學控制與熱力學控制的差別",
+      "order": 12,
+      "color": "#ffc800",
+      "iconEmoji": "⚖️",
+      "lessons": [
+        {
+          "title": "自由能、焓與熵決定平衡",
+          "type": "READING",
+          "order": 1,
+          "xpReward": 15,
+          "estimatedMinutes": 6,
+          "conceptIds": ["free_energy_equilibrium", "enthalpy_entropy"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "ΔG = −RTlnK：自由能差決定平衡常數",
+              "content": "任何達成平衡的反應，平衡常數K與反應物、產物之間的自由能差ΔG，遵循**ΔG = −RTlnK**這個關係式。ΔG為負，代表產物在平衡時比較多（K>1）；ΔG為正，代表反應物比較多（K<1）；即使能量差很小（例如只有10 kJ/mol），也能造成K高達50以上、產物佔98%的巨大平衡差異。"
+            },
+            {
+              "order": 2,
+              "title": "ΔG = ΔH − TΔS：焓與熵的貢獻",
+              "content": "自由能ΔG由**焓變ΔH**（鍵能強弱的差異，放熱為負）與**熵變ΔS**（混亂度的差異，越亂越正）共同決定：ΔG = ΔH − TΔS。分子數減少的反應（如縮醛形成，3個分子變2個）通常熵不利；但分子內反應、或像原酸酯/環狀縮醛這種「進去幾個分子、出來幾個分子一樣多」的反應，就能避開熵的不利效應。溫度越高，熵項（TΔS）的影響力越大。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "根據ΔG = −RTlnK，當ΔG為負值時，代表什麼？",
+              "explanation": "ΔG為負對應lnK為正，也就是K大於1，代表平衡時產物比反應物多。",
+              "difficulty": 3,
+              "sourceInfo": "第12章·自由能與平衡常數",
+              "options": [
+                { "id": "a", "text": "平衡常數K大於1，產物較多" },
+                { "id": "b", "text": "平衡常數K小於1" },
+                { "id": "c", "text": "反應不會達到平衡" },
+                { "id": "d", "text": "反應一定是吸熱反應" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "即使反應物與產物之間的自由能差只有10 kJ/mol左右，也可能造成平衡組成中產物佔98%以上。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "因為ΔG與lnK呈對數關係，很小的能量差就能造成平衡常數的巨大變化，10 kJ/mol大約對應K為57左右。",
+              "difficulty": 4,
+              "sourceInfo": "第12章·小差異、大影響"
+            },
+            {
+              "type": "FILL_IN_THE_BLANK",
+              "order": 3,
+              "prompt": "自由能的公式ΔG = ΔH − TΔS中，ΔH代表______變化，ΔS代表反應中混亂度（disorder）的變化。",
+              "blankAnswer": "焓",
+              "blankHint": "反應放出或吸收的熱量，與鍵能強弱有關",
+              "explanation": "ΔH是焓變，反映反應物與產物鍵能強弱的差異；放熱反應ΔH為負，吸熱反應ΔH為正。",
+              "difficulty": 2,
+              "sourceInfo": "第12章·焓與熵"
+            }
+          ]
+        },
+        {
+          "title": "活化能、過渡態與催化",
+          "type": "READING",
+          "order": 2,
+          "xpReward": 15,
+          "estimatedMinutes": 6,
+          "conceptIds": ["activation_energy_transition_state", "catalysis_mechanism"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "動力學穩定但熱力學不穩定：活化能的角色",
+              "content": "即使ΔG顯示反應非常有利（如汽油燃燒，ΔG約−1000 kJ/mol），反應也不會自己發生，因為反應物與產物之間隔著一道**活化能**（Ea或ΔG‡）的能量障礙，稱為**過渡態**。汽油在氧氣中「動力學穩定」（kinetically stable），需要外部能量（火星塞）才能跨過活化能障礙、開始燃燒。"
+            },
+            {
+              "order": 2,
+              "title": "催化劑如何加速反應？降低活化能",
+              "content": "**催化劑**透過降低反應的活化能來加快反應速率，可以是降低過渡態的能量，或提高起始物的能量；催化劑不會改變反應的平衡常數（不影響ΔG）。多步驟反應中，速率最慢的一步稱為**決速步驟（rate-determining step）**，整體反應速率完全由這一步的活化能決定，就像清空體育場時，速度取決於閘門的通行速度，而非離場後走路的快慢。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "汽油在空氣中可以穩定存放而不自燃，這種現象稱為？",
+              "explanation": "汽油與氧氣的混合物雖然熱力學上非常不穩定（燃燒的ΔG極負），但因為活化能障礙很高，動力學上是穩定的。",
+              "difficulty": 3,
+              "sourceInfo": "第12章·動力學穩定與熱力學不穩定",
+              "options": [
+                { "id": "a", "text": "動力學穩定（kinetically stable）" },
+                { "id": "b", "text": "熱力學穩定" },
+                { "id": "c", "text": "化學不活潑" },
+                { "id": "d", "text": "平衡穩定" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "催化劑會改變反應的平衡常數K，使反應更偏向產物那一側。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "false",
+              "explanation": "催化劑只會加快到達平衡的速度（降低活化能），並不會改變反應物與產物之間的自由能差，因此平衡常數K維持不變。",
+              "difficulty": 3,
+              "sourceInfo": "第12章·催化劑的作用"
+            },
+            {
+              "type": "FLASHCARD",
+              "order": 3,
+              "front": "什麼是「決速步驟」（rate-determining step）？它如何影響整體反應速率？",
+              "back": "決速步驟是多步驟反應中活化能最高、速率最慢的一步；無論其他步驟多快，整體反應速率都完全由這一步決定，就像體育場散場的速度取決於閘門通行的速度，而非離場後走路快慢。",
+              "explanation": "理解決速步驟，是連結反應機構與實驗觀察到的速率方程式之間最關鍵的橋樑。",
+              "difficulty": 3,
+              "sourceInfo": "第12章·決速步驟"
+            }
+          ]
+        },
+        {
+          "title": "速率方程式與動力學/熱力學控制",
+          "type": "CHALLENGE",
+          "order": 3,
+          "xpReward": 20,
+          "estimatedMinutes": 8,
+          "conceptIds": ["rate_equation_rds", "kinetic_vs_thermodynamic_control"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "速率方程式告訴我們決速步驟涉及哪些分子",
+              "content": "**速率方程式**（例如rate = k[親核基][親電基]）告訴我們哪些物種參與了決速步驟：兩者都出現，代表決速步驟是雙分子反應（例如四面體中間體的形成）。醯胺鹼性水解的速率方程式是三級（rate = k3[醯胺][OH⁻]²），這代表決速步驟之前，有兩次平衡涉及氫氧根離子，但決速步驟本身其實是單分子的（雙陰離子塌陷）。"
+            },
+            {
+              "order": 2,
+              "title": "動力學產物 vs 熱力學產物",
+              "content": "有些反應會先快速生成一個較不穩定的**動力學產物**（活化能障礙較低、形成較快），隨著時間拉長或溫度升高，再轉換成更穩定的**熱力學產物**（活化能障礙較高但最終能量較低）。要分離出動力學產物，該在低溫、短時間內停止反應；要得到熱力學產物，則要延長反應時間、拉高溫度，讓系統有機會跨過較高的能量障礙、找到真正的平衡位置。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "如果一個反應的速率方程式是rate = k[A][B]，這告訴我們什麼？",
+              "explanation": "速率方程式中出現的物種，代表它們涉及決速步驟（或決速步驟之前的平衡）；兩者同時出現代表決速步驟是雙分子反應。",
+              "difficulty": 3,
+              "sourceInfo": "第12章·速率方程式與機構",
+              "options": [
+                { "id": "a", "text": "決速步驟涉及A和B兩種分子的碰撞" },
+                { "id": "b", "text": "反應只跟A有關" },
+                { "id": "c", "text": "反應是零級反應" },
+                { "id": "d", "text": "反應一定是放熱反應" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "動力學產物指的是活化能障礙較低、形成速率較快的產物，但不一定是最終熱力學上最穩定的產物。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "動力學產物與熱力學產物可能是不同的化合物；哪一個先形成取決於形成該產物的過渡態能量高低，而非最終產物的穩定性。",
+              "difficulty": 3,
+              "sourceInfo": "第12章·動力學控制與熱力學控制"
+            },
+            {
+              "type": "FILL_IN_THE_BLANK",
+              "order": 3,
+              "prompt": "如果想要分離出反應中的動力學控制產物，通常應該在______溫度、較短的反應時間內就把反應停止。",
+              "blankAnswer": "低",
+              "blankHint": "與熱力學控制（高溫、長時間）相反的條件",
+              "explanation": "低溫、短時間可以避免動力學產物有機會跨過較高的能量障礙轉換成熱力學產物。",
+              "difficulty": 3,
+              "sourceInfo": "第12章·如何分離動力學產物"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "第十三章：氫核磁共振",
+      "description": "1H NMR的化學位移區域、積分、偶合與分裂圖形，以及偶合常數反映的立體與電子效應",
+      "order": 13,
+      "color": "#00cd9c",
+      "iconEmoji": "🧲",
+      "lessons": [
+        {
+          "title": "化學位移的區域與積分",
+          "type": "READING",
+          "order": 1,
+          "xpReward": 15,
+          "estimatedMinutes": 6,
+          "conceptIds": ["nmr_chemical_shift_regions", "nmr_integration"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "1H NMR的化學位移區域",
+              "content": "1H NMR的化學位移範圍約0–10 ppm，可粗略分區：接近0–3 ppm是不靠近拉電子基的飽和碳氫（CH3、CH2、CH）；3–4.5 ppm是靠近氧的飽和碳氫；4.5–6.5 ppm是烯烴氫；6.5–8.5 ppm是苯環等芳香氫；8.5–10.5 ppm是醛氫。拉電子基（如鹵素、氧、羰基、硝基）都會使鄰近氫的訊號往低場（更大的ppm）移動。"
+            },
+            {
+              "order": 2,
+              "title": "積分：訊號底下的面積代表氫原子數量",
+              "content": "1H NMR最重要的特色是**積分**：訊號底下的面積直接正比於產生這個訊號的氫原子數量（這一點和13C NMR不同，13C的訊號強弱不能直接拿來數碳原子數）。搭配分子式（來自質譜），積分比例就能推算出每個訊號各代表幾個氫原子。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "在1H NMR中，醛基（CHO）氫的訊號通常出現在什麼位置？",
+              "explanation": "醛氫直接連接在羰基上，是電子密度最低的C-H之一，訊號通常出現在9-10 ppm的最低場區域。",
+              "difficulty": 3,
+              "sourceInfo": "第13章·1H NMR的化學位移區域",
+              "options": [
+                { "id": "a", "text": "9–10 ppm，是所有C-H訊號中最低場的" },
+                { "id": "b", "text": "0–1 ppm" },
+                { "id": "c", "text": "3–4 ppm，和靠近氧的氫類似" },
+                { "id": "d", "text": "完全不會出現訊號" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "在1H NMR中，訊號底下的積分面積直接正比於產生這個訊號的氫原子數量。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "這是1H NMR最重要的定量特性，讓我們可以直接從積分比例推算出各訊號代表的氫原子數目。",
+              "difficulty": 2,
+              "sourceInfo": "第13章·積分"
+            },
+            {
+              "type": "FILL_IN_THE_BLANK",
+              "order": 3,
+              "prompt": "在1H NMR光譜中，氫原子鄰近的拉電子基越強，訊號就會往______場移動（ppm值越大）。",
+              "blankAnswer": "低",
+              "blankHint": "去屏蔽（deshielding）的方向",
+              "explanation": "拉電子基會降低鄰近氫周圍的電子密度，減少屏蔽效果，使訊號往低場（去屏蔽方向）移動。",
+              "difficulty": 3,
+              "sourceInfo": "第13章·電負度與化學位移"
+            }
+          ]
+        },
+        {
+          "title": "偶合與分裂圖形",
+          "type": "READING",
+          "order": 2,
+          "xpReward": 15,
+          "estimatedMinutes": 6,
+          "conceptIds": ["nmr_coupling_constant", "nmr_splitting_patterns"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "鄰近的氫核會互相偶合，把訊號分裂成多重峰",
+              "content": "當一個氫原子的鄰近碳上也有氫原子時，兩者的核自旋磁場會互相影響，稱為**偶合（coupling）**，使原本單一的訊號分裂成多條線。分裂的間距稱為**偶合常數J**，以赫茲（Hz）為單位測量（不隨儀器的磁場強度而改變，這點與以ppm為單位、隨儀器改變的化學位移不同）。"
+            },
+            {
+              "order": 2,
+              "title": "n+1規則與帕斯卡三角形",
+              "content": "如果一個氫原子有n個等同的鄰居氫，訊號就會分裂成**n+1條**線，強度比例可以從**帕斯卡三角形**讀出：1個鄰居→二重峰（1:1）；2個鄰居→三重峰（1:2:1）；3個鄰居→四重峰（1:3:3:1）。相同的氫原子彼此之間不會偶合——例如CH2基團裡的兩個氫是等同的，不會互相分裂。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "如果一個氫原子有三個等同的鄰居氫原子（例如乙基中的CH2旁邊的CH3），它的訊號會被分裂成幾條線？",
+              "explanation": "依n+1規則，3個等同鄰居會產生3+1=4條線，強度比例為1:3:3:1（四重峰）。",
+              "difficulty": 3,
+              "sourceInfo": "第13章·n+1規則",
+              "options": [
+                { "id": "a", "text": "四條（四重峰，1:3:3:1）" },
+                { "id": "b", "text": "三條" },
+                { "id": "c", "text": "兩條" },
+                { "id": "d", "text": "不會分裂" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "偶合常數J是以赫茲（Hz）為單位測量，不會因為NMR儀器的磁場強度（MHz）不同而改變數值。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "偶合常數反映的是分子內在的磁性交互作用，與外加磁場強度無關，所以用Hz表示時在不同儀器上數值相同；而化學位移以ppm表示才能保持跨儀器一致。",
+              "difficulty": 3,
+              "sourceInfo": "第13章·偶合常數的單位"
+            },
+            {
+              "type": "MATCHING",
+              "order": 3,
+              "prompt": "請將鄰居氫的數量與訊號的分裂圖形配對。",
+              "matchPairs": [
+                { "left": "1個鄰居氫", "right": "二重峰，1:1" },
+                { "left": "2個鄰居氫", "right": "三重峰，1:2:1" },
+                { "left": "3個鄰居氫", "right": "四重峰，1:3:3:1" }
+              ],
+              "explanation": "這些比例都可以直接從帕斯卡三角形讀出，是解讀NMR圖譜最基本的工具。",
+              "difficulty": 2,
+              "sourceInfo": "第13章·分裂圖形與帕斯卡三角形"
+            }
+          ]
+        },
+        {
+          "title": "偶合常數反映的立體與電子效應",
+          "type": "PRACTICE",
+          "order": 3,
+          "xpReward": 18,
+          "estimatedMinutes": 7,
+          "conceptIds": ["nmr_coupling_geometry"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "偶合是透過鍵傳遞的效應，且受幾何形狀影響",
+              "content": "偶合是**透過化學鍵**傳遞的效應（而非透過空間），最常見的是相隔三個鍵的**同碳鄰位偶合（³J）**。雙鍵兩端氫原子的偶合常數受幾何形狀影響很大：**trans**排列的偶合常數通常較大（約14–18 Hz），**cis**排列較小（約10–12 Hz），因為trans排列時兩個C–H鍵之間的夾角讓軌域重疊更完整。"
+            },
+            {
+              "order": 2,
+              "title": "長程偶合與電負度的影響",
+              "content": "一般來說，相隔超過三個鍵（4J以上）的偶合非常微弱或觀察不到，但在特殊的幾何排列下（如芳香環的間位偶合、烯烴的烯丙基偶合），4J偶合仍可達到1–3 Hz。此外，鄰近的拉電子取代基（如氧）會透過誘導效應，讓偶合常數變小——例如烯醇醚的雙鍵偶合常數就比一般烯烴小。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "在烯烴的雙鍵上，trans（反式）排列的兩個氫原子，偶合常數與cis（順式）排列相比通常是？",
+              "explanation": "trans排列的兩個C-H鍵之間軌域重疊較好，偶合常數通常較大（約14-18 Hz），比cis排列（約10-12 Hz）大。",
+              "difficulty": 4,
+              "sourceInfo": "第13章·雙鍵偶合常數",
+              "options": [
+                { "id": "a", "text": "trans比cis大（約14-18 Hz vs 10-12 Hz）" },
+                { "id": "b", "text": "trans比cis小" },
+                { "id": "c", "text": "兩者完全相同" },
+                { "id": "d", "text": "無法比較" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "偶合是透過化學鍵傳遞的效應，而不是透過空間直接傳遞的效應。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "這可從順反氯代丙烯酸的例子驗證：距離較近的cis氫反而偶合較小，證明偶合是透過鍵而非空間傳遞。",
+              "difficulty": 3,
+              "sourceInfo": "第13章·偶合是透過鍵的效應"
+            },
+            {
+              "type": "FLASHCARD",
+              "order": 3,
+              "front": "為什麼芳香環上的間位偶合（meta coupling，4J）雖然距離較遠，卻仍能被觀察到？",
+              "back": "因為間位偶合的軌域排列呈現類似字母「W」的鋸齒形狀（W-coupling），這種特殊幾何排列讓相隔四個鍵的氫核仍能有效地透過鍵傳遞交互作用，雖然偶合常數通常很小（約1-3 Hz）。",
+              "explanation": "長程偶合雖然少見，但了解它的成因有助於解讀更複雜的芳香化合物NMR圖譜。",
+              "difficulty": 4,
+              "sourceInfo": "第13章·長程偶合"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "第十四章：立體化學",
+      "description": "掌性與鏡像異構物、R/S命名法、非鏡像立體異構物與内消旋化合物，以及掌性拆分",
+      "order": 14,
+      "color": "#8549ba",
+      "iconEmoji": "🪞",
+      "lessons": [
+        {
+          "title": "掌性、鏡像異構物與對稱面",
+          "type": "READING",
+          "order": 1,
+          "xpReward": 15,
+          "estimatedMinutes": 6,
+          "conceptIds": ["chirality_enantiomers", "symmetry_plane_chirality"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "什麼是鏡像異構物？氰化物加成到醛的兩個面",
+              "content": "氰離子可以從羰基的前面或後面攻擊醛，生成兩個立體結構不同的產物：把兩者疊在一起、旋轉任何角度都無法重合，但把其中一個放到鏡子前，鏡中影像卻與另一個完全相同。這種互為鏡像、卻不能疊合的一對結構稱為**鏡像異構物（enantiomers）**，這種分子則稱為**掌性（chiral）**分子。"
+            },
+            {
+              "order": 2,
+              "title": "用對稱面快速判斷掌性",
+              "content": "判斷一個結構是否為掌性，最快的方法是找**對稱面**：如果分子存在一個能把它切成兩個鏡像對稱部分的平面，這個分子就是**非掌性（achiral）**，不可能有鏡像異構物（例如丙酮的氰醇加成產物，中心碳連接兩個相同的甲基）。如果分子完全沒有對稱面，就是掌性的，會有兩個鏡像異構物（例如乙醛的氰醇加成產物，中心碳上四個取代基都不同）。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "一對鏡像異構物（enantiomers）的關係是？",
+              "explanation": "鏡像異構物是互為鏡像、但無法透過旋轉重疊的一對立體結構。",
+              "difficulty": 2,
+              "sourceInfo": "第14章·鏡像異構物",
+              "options": [
+                { "id": "a", "text": "互為鏡像，且無法透過旋轉疊合" },
+                { "id": "b", "text": "完全相同的同一個分子" },
+                { "id": "c", "text": "連接方式不同的結構異構物" },
+                { "id": "d", "text": "物理性質完全不同的化合物" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "如果一個分子含有對稱面，這個分子就不可能是掌性的（achiral）。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "有對稱面的分子必定能與自己的鏡像疊合，因此是非掌性的，不可能存在鏡像異構物。",
+              "difficulty": 3,
+              "sourceInfo": "第14章·對稱面與掌性"
+            },
+            {
+              "type": "FLASHCARD",
+              "order": 3,
+              "front": "怎麼判斷一個碳原子是不是「立體中心」（stereogenic centre）？",
+              "back": "如果一個sp3碳原子連接四個彼此都不同的取代基，這個碳就是立體中心（也稱掌性中心）；只要中心上有任兩個取代基相同，這個碳就不是立體中心，分子也不會因為這個碳而具有掌性。",
+              "explanation": "這是判斷分子是否具有掌性最常用、最直接的結構特徵。",
+              "difficulty": 3,
+              "sourceInfo": "第14章·立體中心"
+            }
+          ]
+        },
+        {
+          "title": "R/S命名法與非鏡像立體異構物",
+          "type": "READING",
+          "order": 2,
+          "xpReward": 15,
+          "estimatedMinutes": 6,
+          "conceptIds": ["stereogenic_centre_rs", "diastereoisomers_meso"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "用R/S描述立體中心的組態",
+              "content": "為立體中心指定R或S的步驟：（1）依原子序給四個取代基排優先順序（1最高、4最低）；（2）將分子轉向，讓優先順序最低的取代基（4）指向紙面後方；（3）觀察1→2→3的方向：順時鐘為**R**，逆時鐘為**S**。R/S只描述分子的組態（configuration），與旋光方向的（+）／（−）標示（optical rotation）之間沒有簡單的對應關係。"
+            },
+            {
+              "order": 2,
+              "title": "非鏡像立體異構物與内消旋化合物",
+              "content": "當分子有兩個以上的立體中心時，除了鏡像異構物之外，還會出現**非鏡像立體異構物（diastereoisomers）**：兩個立體異構物、彼此不是鏡像關係，物理性質（如熔點、NMR訊號）會不同。特殊情況下，一個分子雖然有立體中心，整個分子卻因為內部對稱而是非掌性的，稱為**内消旋化合物（meso compound）**，例如酒石酸的(1R,2S)異構物。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "在指定R/S組態時，第一步要做的是？",
+              "explanation": "R/S命名法的第一步是依原子序給立體中心上的四個取代基排出優先順序，之後才能判斷順時鐘或逆時鐘。",
+              "difficulty": 3,
+              "sourceInfo": "第14章·R/S命名法",
+              "options": [
+                { "id": "a", "text": "依原子序給四個取代基排優先順序" },
+                { "id": "b", "text": "直接看分子的旋光方向" },
+                { "id": "c", "text": "測量分子的熔點" },
+                { "id": "d", "text": "計算分子量" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "非鏡像立體異構物（diastereoisomers）之間的物理性質（如熔點）通常是不同的，這點與鏡像異構物（物理性質完全相同）不同。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "非鏡像立體異構物是不同的化合物（不是鏡像關係），因此物理與化學性質可以不同；鏡像異構物則除了旋光方向以外性質完全相同。",
+              "difficulty": 3,
+              "sourceInfo": "第14章·非鏡像立體異構物"
+            },
+            {
+              "type": "FILL_IN_THE_BLANK",
+              "order": 3,
+              "prompt": "内消旋（meso）化合物雖然含有立體中心，但因為分子內部具有對稱性（例如對稱面），整個分子仍然是______的。",
+              "blankAnswer": "非掌性",
+              "blankHint": "achiral的中文，也可以說沒有旋光性",
+              "explanation": "meso化合物是一個重要的例外：即使含有立體中心，只要分子內部有對稱面把R組態和S組態的部分互相抵銷，整個分子仍然是非掌性的。",
+              "difficulty": 4,
+              "sourceInfo": "第14章·内消旋化合物"
+            }
+          ]
+        },
+        {
+          "title": "掌性拆分（resolution）",
+          "type": "PRACTICE",
+          "order": 3,
+          "xpReward": 18,
+          "estimatedMinutes": 7,
+          "conceptIds": ["resolution_technique"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "為什麼鏡像異構物不能直接用一般方法分離？",
+              "content": "一對鏡像異構物的物理性質（熔點、沸點、NMR、層析滯留時間）完全相同，因此無法用一般的蒸餾或層析方法分離。要把消旋混合物（racemic mixture）拆分成純的兩個鏡像異構物，必須借助一個**已經是單一鏡像異構物的天然掌性化合物**，讓它與消旋物形成一對**非鏡像立體異構物**（性質不同），才能被分離。"
+            },
+            {
+              "order": 2,
+              "title": "拆分的實務：形成非鏡像異構物鹽或衍生物",
+              "content": "常見做法是讓消旋的酸與一個單一鏡像異構物的鹼形成鹽（或消旋的醇與單一鏡像異構物的酸形成酯），產生兩個物理性質不同的非鏡像立體異構物鹽，可以用結晶或層析分離；分離後，再用酸或鹼把兩個鏡像異構物個別游離出來。掌性層析管柱（用單一鏡像異構物固定相）則是另一種常見、不需要形成鹽類的拆分方法。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "為什麼一對鏡像異構物無法直接用一般的蒸餾或層析方法分離？",
+              "explanation": "鏡像異構物的物理性質（熔點、沸點、層析滯留時間等）完全相同，因此一般的物理分離方法無法區分它們。",
+              "difficulty": 3,
+              "sourceInfo": "第14章·鏡像異構物無法直接分離",
+              "options": [
+                { "id": "a", "text": "因為兩者的物理性質（熔點、沸點等）完全相同" },
+                { "id": "b", "text": "因為兩者的分子式不同" },
+                { "id": "c", "text": "因為鏡像異構物會自動互相轉換" },
+                { "id": "d", "text": "因為鏡像異構物不穩定" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "掌性拆分（resolution）必須借助一個已經是單一鏡像異構物的天然掌性化合物，才能把消旋混合物分開。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "沒有單一鏡像異構物的參考物，消旋混合物中的兩個鏡像異構物無法產生性質上的差異，也就無法被分離。",
+              "difficulty": 3,
+              "sourceInfo": "第14章·掌性拆分需要天然掌性化合物"
+            },
+            {
+              "type": "FLASHCARD",
+              "order": 3,
+              "front": "掌性拆分的核心原理是什麼？",
+              "back": "把消旋（兩個鏡像異構物的等量混合物）與一個單一鏡像異構物的掌性化合物結合，形成一對非鏡像立體異構物；因為非鏡像立體異構物的物理性質不同，就能用結晶或層析分離，分離後再把原本的鏡像異構物個別游離出來。",
+              "explanation": "這個原理不只用於實驗室拆分，也是理解藥物對映異構物如何被純化的基礎。",
+              "difficulty": 4,
+              "sourceInfo": "第14章·掌性拆分的原理"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
