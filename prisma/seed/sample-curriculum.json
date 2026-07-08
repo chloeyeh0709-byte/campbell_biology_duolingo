@@ -1,0 +1,168 @@
+{
+  "title": "Campbell Biology（試用範例章節）",
+  "description": "這是用來驗證系統運作的範例內容，之後會被你上傳的教科書章節取代。",
+  "subject": "Biology",
+  "concepts": [
+    {
+      "id": "levels_of_organization",
+      "name": "生命的層級組織",
+      "summary": "從分子、細胞、組織、器官到生物圈，生命呈現出層層堆疊的組織層級，每一層都會出現前一層沒有的突現性質 (emergent properties)。",
+      "importance": 0.9,
+      "difficulty": 2,
+      "tags": ["組織層級", "突現性質"],
+      "posX": 0,
+      "posY": 0
+    },
+    {
+      "id": "emergent_properties",
+      "name": "突現性質",
+      "summary": "當組成部分以特定方式組織、互動時，整體會出現各部分單獨存在時沒有的新性質。",
+      "importance": 0.6,
+      "difficulty": 3,
+      "tags": ["組織層級"],
+      "posX": 60,
+      "posY": -40,
+      "parentId": "levels_of_organization"
+    },
+    {
+      "id": "evolution",
+      "name": "演化：生物學的核心主題",
+      "summary": "天擇 (natural selection) 使族群中適應環境的個體有更高存活與繁殖成功率，長期下來造成物種的演化改變。演化解釋了生命的統一性與多樣性。",
+      "importance": 1.0,
+      "difficulty": 3,
+      "tags": ["天擇", "統一性", "多樣性"],
+      "posX": -120,
+      "posY": 100
+    },
+    {
+      "id": "scientific_method",
+      "name": "科學方法",
+      "summary": "科學家透過觀察提出問題，形成可被檢驗的假說，並設計對照實驗來驗證或否證假說。",
+      "importance": 0.8,
+      "difficulty": 2,
+      "tags": ["假說", "對照實驗"],
+      "posX": 150,
+      "posY": 150
+    }
+  ],
+  "edges": [
+    { "sourceId": "levels_of_organization", "targetId": "emergent_properties", "relationshipType": "PART_OF" },
+    { "sourceId": "evolution", "targetId": "levels_of_organization", "relationshipType": "RELATED" },
+    { "sourceId": "scientific_method", "targetId": "evolution", "relationshipType": "RELATED" }
+  ],
+  "units": [
+    {
+      "title": "第一章：生命的研究主題",
+      "description": "認識生命層級組織與貫穿生物學的核心主題",
+      "order": 1,
+      "color": "#58cc02",
+      "iconEmoji": "🧬",
+      "lessons": [
+        {
+          "title": "生命的層級與突現性質",
+          "type": "READING",
+          "order": 1,
+          "xpReward": 15,
+          "estimatedMinutes": 6,
+          "conceptIds": ["levels_of_organization", "emergent_properties"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "生命的層級組織",
+              "content": "生物學研究橫跨許多尺度：\n\n- **分子** → **細胞** → **組織** → **器官** → **個體** → **族群** → **群落** → **生態系** → **生物圈**\n\n每往上一層，都會出現**突現性質 (emergent properties)**：整體展現出各部分單獨存在時沒有的新特性。"
+            },
+            {
+              "order": 2,
+              "title": "為什麼突現性質重要？",
+              "content": "例如，單一神經元無法產生「思考」，但數十億個神經元以特定方式連結、互動後，大腦就能出現思考、記憶這類突現性質。這說明**系統的組織方式**與**組成成分本身**同樣重要。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "下列何者最能描述「突現性質 (emergent properties)」？",
+              "explanation": "突現性質來自於組成部分的特定排列與交互作用，而非部分本身。",
+              "difficulty": 2,
+              "sourceInfo": "第一章 · 生命的層級組織",
+              "options": [
+                { "id": "a", "text": "整體各部分性質的總和" },
+                { "id": "b", "text": "組成部分以特定方式組織、互動後才出現的新性質" },
+                { "id": "c", "text": "只存在於分子層級的性質" },
+                { "id": "d", "text": "與組織層級無關的隨機現象" }
+              ],
+              "correctOptionId": "b"
+            },
+            {
+              "type": "FLASHCARD",
+              "order": 2,
+              "front": "請說出生命層級組織由小到大排列的其中六個層級。",
+              "back": "分子 → 細胞 → 組織 → 器官 → 個體 → 族群（也可繼續到群落、生態系、生物圈）",
+              "explanation": "熟記層級順序有助於理解「突現性質」發生的位置。",
+              "difficulty": 2,
+              "sourceInfo": "第一章 · 生命的層級組織"
+            }
+          ]
+        },
+        {
+          "title": "演化與科學方法",
+          "type": "PRACTICE",
+          "order": 2,
+          "xpReward": 15,
+          "estimatedMinutes": 6,
+          "conceptIds": ["evolution", "scientific_method"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "演化：貫穿生物學的核心主題",
+              "content": "**天擇 (natural selection)** 是演化的重要機制：族群中帶有適應環境性狀的個體，存活與繁殖成功率較高，這些性狀因此在族群中變得更普遍。長期累積，造就了地球生命的**統一性**（共同祖先）與**多樣性**（不同環境的適應）。"
+            },
+            {
+              "order": 2,
+              "title": "科學方法",
+              "content": "典型的科學探究流程：**觀察 → 提出問題 → 形成可檢驗的假說 → 設計對照實驗 → 蒐集數據 → 得出結論**。對照實驗中，除了要測試的變因外，其餘條件應盡量保持一致。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "FILL_IN_THE_BLANK",
+              "order": 1,
+              "prompt": "天擇使得族群中適應環境的個體有更高的存活與 ___ 成功率。",
+              "blankAnswer": "繁殖",
+              "blankHint": "與產生後代有關的詞",
+              "explanation": "天擇作用於存活率與繁殖成功率兩方面。",
+              "difficulty": 2,
+              "sourceInfo": "第一章 · 演化"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "在對照實驗中，實驗組與對照組除了要測試的變因外，其餘條件應盡量保持一致。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "這樣才能確保觀察到的差異是來自被測試的變因，而非其他干擾因素。",
+              "difficulty": 1,
+              "sourceInfo": "第一章 · 科學方法"
+            },
+            {
+              "type": "MATCHING",
+              "order": 3,
+              "prompt": "請將科學方法的步驟與其說明配對。",
+              "matchPairs": [
+                { "left": "假說", "right": "可被檢驗、可能被否證的暫時性解釋" },
+                { "left": "對照實驗", "right": "只改變一個變因，其餘條件保持一致的實驗設計" },
+                { "left": "天擇", "right": "適應環境的個體有更高存活繁殖率的機制" }
+              ],
+              "explanation": "掌握這些關鍵詞有助於理解後續章節的實驗設計內容。",
+              "difficulty": 2,
+              "sourceInfo": "第一章 · 科學方法與演化"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

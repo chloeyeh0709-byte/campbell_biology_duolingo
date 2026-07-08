@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #f7f9fc;
+  --fg: #1b1b1d;
+  --card: #ffffff;
+  --border: #e5e7eb;
+  --green: #58cc02;
+  --green-dark: #4caf00;
+  --blue: #1cb0f6;
+  --gold: #ffc800;
+  --red: #ff4b4b;
+  --gray: #afafaf;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1115;
+    --fg: #f1f1f3;
+    --card: #171a21;
+    --border: #262a33;
+  }
+}
+
+body {
+  color: var(--fg);
+  background: var(--bg);
+  font-family: "Segoe UI", ui-rounded, "Helvetica Neue", Arial, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer components {
+  .btn-duo {
+    @apply inline-flex items-center justify-center rounded-2xl border-b-4 px-6 py-3 font-bold uppercase tracking-wide transition-transform active:translate-y-0.5 active:border-b-2 disabled:opacity-50 disabled:pointer-events-none;
+  }
+  .btn-duo-green {
+    @apply btn-duo bg-[var(--green)] border-[var(--green-dark)] text-white hover:brightness-105;
+  }
+  .btn-duo-blue {
+    @apply btn-duo bg-[var(--blue)] border-[#1899d6] text-white hover:brightness-105;
+  }
+  .card-duo {
+    @apply rounded-2xl border-2 border-[var(--border)] bg-[var(--card)] shadow-sm;
+  }
+}
