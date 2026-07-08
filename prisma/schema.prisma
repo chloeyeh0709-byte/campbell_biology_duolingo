@@ -3,13 +3,13 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
-// SQLite has no native enum type, so enum-like fields below are typed as
-// String in the schema and constrained to the union types defined in
-// src/lib/enums.ts at the application layer.
+// Enum-like fields below are typed as String in the schema (this project
+// started on SQLite, which has no native enum type) and constrained to the
+// union types defined in src/lib/enums.ts at the application layer.
 
 // ---------- User & auth ----------
 

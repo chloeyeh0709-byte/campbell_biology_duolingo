@@ -7,22 +7,57 @@
 ## 技術棧
 
 - **Next.js 14**（App Router）+ TypeScript + Tailwind CSS
-- **Prisma ORM** + SQLite（開發用；正式部署時把 `DATABASE_URL` 換成 Postgres 即可）
+- **Prisma ORM** + **PostgreSQL**
 - 自製輕量 email/password 認證（bcrypt + JWT cookie，無第三方 auth 服務）
 - **Cytoscape.js** 呈現知識圖譜
 - 課程內容以 JSON 檔匯入，不需要背景佇列或即時呼叫 AI API
 
-## 開始使用
+## 本機開發
+
+需要一個可連線的 PostgreSQL（本機安裝，或直接用下面部署章節申請的免費雲端資料庫）。
 
 ```bash
 npm install
-cp .env.example .env        # 視需要調整 JWT_SECRET
-npx prisma migrate dev      # 建立本地 SQLite 資料庫
+cp .env.example .env        # 填入 DATABASE_URL 與 JWT_SECRET
+npx prisma migrate dev      # 建立資料表
 npm run db:seed -- prisma/seed/organic-chemistry-ch1-4.json
 npm run dev
 ```
 
 開啟 http://localhost:3000，註冊帳號後就會進入學習路徑。
+
+## 部署到正式環境（Vercel + Postgres）
+
+這是一個完整全端應用（有登入、資料庫、伺服器端 API），**不能部署到 GitHub Pages**——GitHub Pages 只能放靜態網頁，跑不動 API routes 跟資料庫。以下是免費、最簡單的正式部署方式。
+
+### 1. 申請一個免費的 PostgreSQL（擇一）
+
+- [Supabase](https://supabase.com)：新增 Project，在 Settings → Database 找到 Connection string（選 "URI" 格式，記得把 `[YOUR-PASSWORD]` 換成你設定的密碼）
+- [Neon](https://neon.tech)：新增 Project 後直接會給你一組 `postgresql://...` 連線字串
+
+拿到形如 `postgresql://user:password@host:5432/dbname` 的連線字串備用。
+
+### 2. 建立 Vercel 專案
+
+1. 到 [vercel.com](https://vercel.com) 用 GitHub 帳號登入
+2. 「Add New… → Project」，選擇 `chloeyeh0709-byte/campbell_biology_duolingo` 這個 repo
+3. Branch 選 `claude/athena-repo-review-hyuqw1`（或先把它合併到 `main`）
+4. 在 Environment Variables 設定：
+   - `DATABASE_URL`：上一步拿到的 Postgres 連線字串
+   - `JWT_SECRET`：隨便一段夠長的隨機字串（例如用 `openssl rand -base64 32` 產生）
+5. 按下 Deploy。建置時會自動執行 `prisma migrate deploy` 建立資料表（見 `package.json` 的 `build` 腳本）。
+
+### 3. 匯入課程內容（部署完成後，只需執行一次）
+
+在本機，把 `.env` 的 `DATABASE_URL` 暫時換成 Vercel 專案用的那組正式資料庫連線字串，然後執行：
+
+```bash
+npm run db:seed -- prisma/seed/organic-chemistry-ch1-4.json
+```
+
+跑完後記得把 `.env` 的 `DATABASE_URL` 換回本機開發用的資料庫。
+
+完成後，Vercel 給你的網址（例如 `https://campbell-biology-duolingo.vercel.app`）就是正式可用、任何人都能打開、帳號與進度會確實存起來的網站。
 
 ## 匯入教科書內容
 
@@ -42,4 +77,4 @@ npm run dev
 - 課程解鎖邏輯：下一堂課只有在前一堂課被標記為 `COMPLETED`/`PERFECT` 後才會解鎖（見 `src/lib/roadmap.ts`）
 - 遊戲化邏輯（等級曲線、連勝、生命值恢復、成就解鎖）集中在 `src/lib/gamification.ts`
 
-SQLite 不支援原生 enum，所有原本該用 enum 的欄位（`LessonType`、`QuestionType`、`MasteryStatus` 等）都存成字串，實際的合法值定義在 `src/lib/enums.ts`。
+原本該用 enum 的欄位（`LessonType`、`QuestionType`、`MasteryStatus` 等）目前都存成字串（這個專案一開始是先在 SQLite 上開發，SQLite 沒有原生 enum，後來才切到 Postgres，但沿用了字串設計以減少變動），實際的合法值定義在 `src/lib/enums.ts`。
