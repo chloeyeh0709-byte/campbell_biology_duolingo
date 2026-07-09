@@ -1,0 +1,1039 @@
+{
+  "title": "Clayden 有機化學",
+  "description": "改編自 Clayden《Organic Chemistry》，翻譯成繁體中文。目前涵蓋第 1–24 章：有機化學導論、有機結構、測定有機結構、分子結構、有機反應、羰基的親核加成、離域與共軛、酸鹼性與pKa、有機金屬試劑形成碳碳鍵、羰基的親核取代、羰基氧的置換（半縮醛與亞胺）、平衡速率與反應機構、氫核磁共振、立體化學、飽和碳上的親核取代、構形分析、消去反應、光譜方法總覽、烯烴的親電加成、烯醇與烯醇化物的形成與反應、芳香環的親電取代、共軛加成與親核芳香取代、化學選擇性與保護基、區域選擇性。",
+  "subject": "Chemistry",
+  "concepts": [
+    { "id": "tautomerism_keto_enol", "name": "互變異構：酮/醛與烯醇的動態平衡", "summary": "大部分含α氫的醛酮以酮式與烯醇式互變異構存在，兩者透過分子內質子從碳轉移到氧（或反向）而互相轉換；一般簡單酮的烯醇式平衡常數僅約10⁻⁶，但反應持續動態發生。", "importance": 1.0, "difficulty": 3, "tags": ["互變異構", "烯醇"], "posX": 100, "posY": 1150 },
+    { "id": "enolate_ion_formation", "name": "烯醇化物離子的形成", "summary": "烯醇化可被酸或鹼催化；鹼催化時，碳上質子先被移除，形成去域化的烯醇化物離子（三原子四電子系統），負電荷主要在氧，但HOMO在碳的係數較大，氧是硬親核中心、碳是軟親核中心。", "importance": 1.0, "difficulty": 3, "tags": ["烯醇化物", "酸鹼催化"], "posX": 160, "posY": 1150 },
+    { "id": "stable_enols_dicarbonyl", "name": "穩定的烯醇：1,3-二羰基化合物", "summary": "1,3-二羰基化合物（如dimedone、乙醯丙酮）的烯醇因與另一羰基共軛（部分還有分子內氫鍵）而格外穩定，含量可高達烯醇式為主；酚是最極端的穩定烯醇，芳香性使其幾乎完全以烯醇式存在。", "importance": 0.8, "difficulty": 3, "tags": ["1,3-二羰基", "穩定烯醇"], "posX": 100, "posY": 1180 },
+    { "id": "enol_alpha_halogenation", "name": "羰基化合物的α-鹵化：酸鹼條件的差異", "summary": "酸催化的α-鹵化經由烯醇，通常只鹵化一次（鹵素拉電子使進一步烯醇化變難）；鹼催化則經由更活潑的烯醇化物離子，且每次鹵化後產物更酸，導致連續多次鹵化（haloform反應）。", "importance": 0.8, "difficulty": 4, "tags": ["α-鹵化", "haloform反應"], "posX": 160, "posY": 1180 },
+    { "id": "lithium_enolates_silyl_enol_ethers", "name": "鋰烯醇化物與矽烯醇醚：穩定的烯醇化物替身", "summary": "強鹼但不親核的LDA能定量把羰基化合物轉成穩定的鋰烯醇化物；矽烯醇醚（如OSiMe3）則是把烯醇氧與矽鍵結、更穩定不活潑的烯醇衍生物，兩者可互相轉換。", "importance": 0.9, "difficulty": 3, "tags": ["LDA", "鋰烯醇化物", "矽烯醇醚"], "posX": 100, "posY": 1210 },
+    { "id": "enol_reactions_various_electrophiles", "name": "烯醇與烯醇化物跟各種親電基的反應", "summary": "烯醇/烯醇化物絕大多數在碳上與親電基反應（氘、鹵素、NO⁺、矽），只有極硬的親電基（如Me3O⁺）搭配特殊溶劑條件才會在氧上反應生成烯醇醚。", "importance": 0.7, "difficulty": 3, "tags": ["烯醇反應性", "區域選擇性"], "posX": 160, "posY": 1210 },
+
+    { "id": "eas_mechanism_general", "name": "親電芳香取代的一般機構", "summary": "苯與親電基反應時，形成一個去域化的環己二烯基陽離子中間體（暫時失去芳香性），接著失去質子重新形成芳香系統；因為中間體不芳香、能量高，形成它是決速步驟。", "importance": 1.0, "difficulty": 3, "tags": ["EAS", "芳香取代"], "posX": 300, "posY": 1150 },
+    { "id": "eas_main_reactions", "name": "苯環上的五大親電取代反應", "summary": "硝化（HNO3+H2SO4，NO2⁺）、磺化（SO3/H2SO4）、Friedel-Crafts烷化（RX+AlCl3）、Friedel-Crafts醯化（RCOCl+AlCl3）；醯化通常比烷化更可靠，因為不需碳陽離子夠穩定、且反應會停在一次取代。", "importance": 0.9, "difficulty": 3, "tags": ["硝化", "磺化", "Friedel-Crafts"], "posX": 360, "posY": 1150 },
+    { "id": "eas_activating_donating_groups", "name": "給電子基：活化苯環、指向ortho/para", "summary": "OH、NH2、OR等含孤對電子的取代基透過共軛把電子密度送進ortho與para位置，活化苯環並指向這兩個位置；烷基透過較弱的σ共軛有類似但較弱的效果。", "importance": 0.9, "difficulty": 3, "tags": ["活化基", "ortho/para指向"], "posX": 300, "posY": 1180 },
+    { "id": "eas_deactivating_meta_directors", "name": "拉電子基：去活化苯環、指向meta", "summary": "NO2、羰基系列、CF3、NMe3⁺等拉電子基會去活化苯環（使反應變慢），且因為ortho/para位置的去域化陽離子會被進一步去穩定，反應改為指向meta位置。", "importance": 0.9, "difficulty": 3, "tags": ["去活化基", "meta指向"], "posX": 360, "posY": 1180 },
+    { "id": "eas_halogens_special_case", "name": "鹵素的特例：去活化卻仍ortho/para指向", "summary": "鹵素兼具誘導拉電子（去活化整環）與共軛給電子（加強ortho/para相對電子密度）；前者主導反應性、後者主導區域選擇性，氟因軌域大小匹配佳而共軛效果最好。", "importance": 0.7, "difficulty": 4, "tags": ["鹵素", "誘導效應", "共軛效應"], "posX": 300, "posY": 1210 },
+    { "id": "eas_amide_protection_selectivity", "name": "用醯胺保護苯胺、控制取代反應", "summary": "苯胺太活潑難以只取代一次，先將NH2醯化成醯胺（氮孤對電子與羰基共軛減弱）可讓親電取代變得可控，主要生成單一para產物；位阻大的親電基也偏好para而非ortho。", "importance": 0.7, "difficulty": 3, "tags": ["化學選擇性", "醯胺保護"], "posX": 360, "posY": 1210 },
+
+    { "id": "conjugate_addition_electrophilic_alkenes", "name": "與羰基共軛的雙鍵：從親核變親電", "summary": "α,β-不飽和羰基化合物的C=C雙鍵因極化而變成親電基，LUMO在β碳係數最大，親核基進攻β碳形成共軛加成（1,4-加成）；IR與13C NMR都能偵測到這種極化。", "importance": 1.0, "difficulty": 3, "tags": ["共軛加成", "Michael加成"], "posX": 500, "posY": 1150 },
+    { "id": "conjugate_vs_direct_addition", "name": "共軛加成（1,4）vs 直接加成（1,2）", "summary": "反應條件（低溫短時間偏好直接加成/動力學；高溫長時間偏好共軛加成/熱力學）、羰基活性（活潑者偏好直接、不活潑者偏好共軛）、親核基軟硬（硬親核偏好直接、軟親核偏好共軛）共同決定選擇性。", "importance": 1.0, "difficulty": 4, "tags": ["動力學控制", "熱力學控制", "硬軟酸鹼"], "posX": 560, "posY": 1150 },
+    { "id": "organocuprate_conjugate_addition", "name": "有機銅試劑促進共軛加成", "summary": "格林納試劑偏好直接加成，但加入催化量銅(I)鹽後會transmetallate成較軟的有機銅試劑，使反應幾乎完全轉向共軛加成；鋰銅酸鹽（R2CuLi）是常用且效果良好的有機銅試劑。", "importance": 0.8, "difficulty": 3, "tags": ["有機銅", "transmetallation"], "posX": 500, "posY": 1180 },
+    { "id": "conjugate_substitution_addition_elimination", "name": "共軛取代：加成-消去機構", "summary": "當α,β-不飽和羰基化合物的β碳帶有離去基時，共軛加成的烯醇化物中間體能進一步踢出離去基，整體是加成-消去機構的共軛取代，廣泛用於藥物合成（如cimetidine、ranitidine）。", "importance": 0.7, "difficulty": 3, "tags": ["共軛取代", "加成-消去"], "posX": 560, "posY": 1180 },
+    { "id": "nucleophilic_aromatic_substitution_addition_elimination", "name": "親核芳香取代：加成-消去機構（SNAr）", "summary": "一般芳香鹵化物不發生SN1/SN2親核取代，但若離去基的ortho或para位置有拉電子基，親核基可先加成、形成穩定的去域化陰離子中間體，再讓離去基離去、恢復芳香性。", "importance": 0.9, "difficulty": 4, "tags": ["SNAr", "加成-消去"], "posX": 500, "posY": 1210 },
+    { "id": "nucleophilic_epoxidation", "name": "親核環氧化：氫過氧根對缺電子烯烴", "summary": "缺電子的α,β-不飽和羰基化合物需用親核性環氧化劑（如氫過氧根HOO⁻，因alpha效應而格外親核），先共軛加成再分子內踢出HO⁻形成環氧化合物；因兩步機構可自由旋轉，通常生成較穩定的trans環氧化物。", "importance": 0.6, "difficulty": 4, "tags": ["親核環氧化", "alpha效應"], "posX": 560, "posY": 1210 },
+
+    { "id": "chemoselectivity_reactivity_order", "name": "化學選擇性與羰基反應性順序", "summary": "選擇性分三種：化學（哪個官能基）、區域（哪個位置）、立體（何種立體化學）；羰基化合物對親核基的反應性順序為醛>酮>酯>醯胺>羧酸根，是化學選擇性最基本的應用。", "importance": 1.0, "difficulty": 2, "tags": ["化學選擇性", "反應性順序"], "posX": 700, "posY": 1150 },
+    { "id": "reducing_agent_chemoselectivity", "name": "還原劑的化學選擇性", "summary": "NaBH4溫和，只還原醛酮；LiAlH4強力，幾乎還原所有羰基官能基；BH3對電子豐富的羰基（羧酸、醯胺）特別有效但不碰醯氯；DIBAL低溫下能讓酯/腈停在醛的階段。", "importance": 0.9, "difficulty": 4, "tags": ["NaBH4", "LiAlH4", "DIBAL"], "posX": 760, "posY": 1150 },
+    { "id": "catalytic_hydrogenation_selectivity", "name": "催化氫化的化學選擇性", "summary": "催化氫化擅長還原C=C但通常不動C=O；Lindlar催化劑能把炔還原到烯就停下；鈀催化劑特別擅長氫解（hydrogenolysis），斷開苄基型C-O或C-N鍵，用於移除苄基保護基。", "importance": 0.8, "difficulty": 3, "tags": ["催化氫化", "Lindlar催化劑", "氫解"], "posX": 700, "posY": 1180 },
+    { "id": "oxidation_chemoselectivity", "name": "氧化劑的化學選擇性", "summary": "Cr(VI)、Mn(VII)等金屬氧化劑對醇/醛的氧化具化學選擇性但不氧化雙鍵；過氧酸、OsO4、O3等則專一氧化C=C雙鍵、不影響OH基；PCC等溫和試劑能讓一級醇的氧化停在醛的階段。", "importance": 0.7, "difficulty": 3, "tags": ["氧化選擇性", "Cr(VI)"], "posX": 760, "posY": 1180 },
+    { "id": "protecting_groups_survey", "name": "保護基總覽", "summary": "常見保護基：縮醛（保護醛酮）、矽醚/THP（保護醇）、苄基醚（保護醇/酚，氫解移除）、t-丁酯（保護羧酸）、Cbz/Boc（保護胺，carbamate）、Fmoc（保護胺，鹼中E1cB脫除）。", "importance": 0.9, "difficulty": 3, "tags": ["保護基", "縮醛", "Boc", "Fmoc"], "posX": 700, "posY": 1210 },
+    { "id": "peptide_synthesis_protecting_strategy", "name": "胜肽合成的正交保護策略", "summary": "胜肽合成需在胺基酸的NH2與CO2H兩端裝上能在不同條件下脫除的保護基（正交保護，如Boc酸中脫除、Fmoc鹼中脫除），才能逐步偶合、延伸胜肽鏈而不互相干擾。", "importance": 0.7, "difficulty": 4, "tags": ["胜肽合成", "正交保護"], "posX": 760, "posY": 1210 },
+
+    { "id": "ortholithiation_directed_metalation", "name": "鄰位鋰化：配位導向的區域選擇性金屬化", "summary": "含孤對電子官能基（如OMe）能與丁基鋰的鋰原子形成配位錯合，把試劑導向緊鄰的ortho位置去質子化，稱為鄰位鋰化，讓化學家能在不需鹵素起始物下精準形成新的C-C鍵。", "importance": 0.8, "difficulty": 4, "tags": ["鄰位鋰化", "配位導向"], "posX": 900, "posY": 1150 },
+    { "id": "reversible_sulfonation_regiocontrol", "name": "磺化的可逆性與區域控制", "summary": "磺化反應可逆（加熱可脫去SO3），因此磺酸基可當作暫時的阻擋基；萘的磺化展現動力學（低溫，α位）與熱力學（高溫，β位）控制的對比。", "importance": 0.7, "difficulty": 4, "tags": ["磺化", "可逆反應", "動力學熱力學控制"], "posX": 960, "posY": 1150 },
+    { "id": "regiocontrol_by_route_choice", "name": "靠反應順序取得所有取代位置組合", "summary": "透過安排硝化、鹵化、還原（硝基變胺基）與重氮鹽化學的順序，可以精準佈局苯環上多個取代基的相對位置；重氮鹽不需活化即可進行多種親核取代。", "importance": 0.7, "difficulty": 4, "tags": ["合成路徑設計", "重氮鹽"], "posX": 900, "posY": 1180 },
+    { "id": "allylic_sn2_sn2prime", "name": "烯丙基親電基的SN2 vs SN2'", "summary": "烯丙基鹵化物因π*(C=C)與σ*(C-X)組合成更低能量的LUMO而對SN2特別活潑；親核基可直接攻擊離去基所在碳（SN2）或雙鍵遠端（SN2'），通常偏好位阻較小的一端。", "importance": 0.8, "difficulty": 4, "tags": ["SN2'", "烯丙基"], "posX": 960, "posY": 1180 },
+    { "id": "radical_regioselectivity", "name": "自由基反應的區域選擇性：反馬可尼可夫加成", "summary": "過氧化物起始的HBr自由基鏈反應中，溴自由基加到位阻較小的一端生成最穩定的碳自由基，區域選擇性與離子機構（馬可尼可夫）相反；溴自由基也能從烯丙位奪取氫，生成去域化allylic自由基。", "importance": 0.7, "difficulty": 4, "tags": ["自由基", "反馬可尼可夫", "NBS"], "posX": 900, "posY": 1210 },
+    { "id": "conjugate_addition_regioselectivity_revisited", "name": "化學選擇性與區域選擇性的交織", "summary": "多步驟合成常需同時考慮哪個官能基先反應（化學選擇性）與在哪個位置反應（區域選擇性），如thiophenesaccharin合成中硫醇的區域選擇性共軛加成，以及分子內烯醇化物形成的位置選擇。", "importance": 0.6, "difficulty": 4, "tags": ["化學選擇性", "區域選擇性", "全合成"], "posX": 960, "posY": 1210 },
+
+    { "id": "ref_carbonyl_addition", "name": "羰基的親核加成", "summary": "（沿用第6章已建立的概念，供本檔案的知識圖譜連結使用）親核基攻擊羰基的sp2碳，電子流入C=O的π*反鍵軌域，碳由sp2變成sp3。", "importance": 1.0, "difficulty": 3, "tags": ["羰基", "加成反應"], "posX": 1100, "posY": 1150 },
+    { "id": "ref_acyl_derivative_reactivity", "name": "醯基衍生物的相對反應性", "summary": "（沿用第10章已建立的概念，供本檔案的知識圖譜連結使用）羧酸衍生物依親核取代反應性排序：醯氯 > 酸酐 > 酯 > 醯胺。", "importance": 0.9, "difficulty": 3, "tags": ["反應性", "醯基"], "posX": 1150, "posY": 1150 },
+    { "id": "ref_acetal_formation", "name": "縮醛的形成、水解與保護基應用", "summary": "（沿用第11章已建立的概念，供本檔案的知識圖譜連結使用）半縮醛經酸催化脫水形成氧鎓離子，再與第二分子醇反應成縮醛，常用作保護基。", "importance": 0.8, "difficulty": 4, "tags": ["縮醛", "保護基"], "posX": 1100, "posY": 1180 },
+    { "id": "ref_carbocation_stability", "name": "碳陽離子的穩定性", "summary": "（沿用第15章已建立的概念，供本檔案的知識圖譜連結使用）碳陽離子穩定性隨取代基增加而提升，鄰接π系統或孤對電子能大幅穩定正電荷。", "importance": 1.0, "difficulty": 3, "tags": ["碳陽離子", "穩定性"], "posX": 1150, "posY": 1180 },
+    { "id": "ref_sn1_sn2_overview", "name": "SN1與SN2：兩種取代機構", "summary": "（沿用第15章已建立的概念，供本檔案的知識圖譜連結使用）飽和碳上的親核取代分為SN1（離去基先離去）與SN2（一步完成）兩種機構。", "importance": 1.0, "difficulty": 3, "tags": ["SN1", "SN2"], "posX": 1100, "posY": 1210 },
+    { "id": "ref_bromonium_ion", "name": "溴鎓離子：Br2對雙鍵的親電加成", "summary": "（沿用第19章已建立的概念，供本檔案的知識圖譜連結使用）烯烴的π鍵進攻Br-Br的σ*軌域，形成三員環的溴鎓離子中間體。", "importance": 1.0, "difficulty": 3, "tags": ["溴鎓離子", "親電加成"], "posX": 1150, "posY": 1210 },
+    { "id": "ref_epoxidation_peracid", "name": "過氧酸環氧化反應", "summary": "（沿用第19章已建立的概念，供本檔案的知識圖譜連結使用）過氧酸的O-O鍵是弱的親電位置，烯烴π鍵直接進攻氧原子，一步形成環氧化合物。", "importance": 0.9, "difficulty": 3, "tags": ["環氧化", "m-CPBA"], "posX": 1200, "posY": 1150 },
+    { "id": "ref_markovnikov_regioselectivity", "name": "馬可尼可夫規則的機構解釋", "summary": "（沿用第19章已建立的概念，供本檔案的知識圖譜連結使用）H-X對不對稱烯烴加成時，質子加到能形成較穩定碳陽離子的那一端。", "importance": 0.9, "difficulty": 3, "tags": ["馬可尼可夫規則", "區域選擇性"], "posX": 1200, "posY": 1180 }
+  ],
+  "edges": [
+    { "sourceId": "enolate_ion_formation", "targetId": "tautomerism_keto_enol", "relationshipType": "EXTENDS" },
+    { "sourceId": "stable_enols_dicarbonyl", "targetId": "tautomerism_keto_enol", "relationshipType": "EXTENDS" },
+    { "sourceId": "enol_alpha_halogenation", "targetId": "enolate_ion_formation", "relationshipType": "RELATED" },
+    { "sourceId": "lithium_enolates_silyl_enol_ethers", "targetId": "enolate_ion_formation", "relationshipType": "EXTENDS" },
+    { "sourceId": "enol_reactions_various_electrophiles", "targetId": "lithium_enolates_silyl_enol_ethers", "relationshipType": "RELATED" },
+    { "sourceId": "tautomerism_keto_enol", "targetId": "ref_carbonyl_addition", "relationshipType": "RELATED" },
+
+    { "sourceId": "eas_main_reactions", "targetId": "eas_mechanism_general", "relationshipType": "PART_OF" },
+    { "sourceId": "eas_activating_donating_groups", "targetId": "eas_mechanism_general", "relationshipType": "EXTENDS" },
+    { "sourceId": "eas_deactivating_meta_directors", "targetId": "eas_activating_donating_groups", "relationshipType": "CONTRASTS" },
+    { "sourceId": "eas_halogens_special_case", "targetId": "eas_activating_donating_groups", "relationshipType": "RELATED" },
+    { "sourceId": "eas_halogens_special_case", "targetId": "eas_deactivating_meta_directors", "relationshipType": "RELATED" },
+    { "sourceId": "eas_amide_protection_selectivity", "targetId": "eas_activating_donating_groups", "relationshipType": "EXTENDS" },
+    { "sourceId": "eas_mechanism_general", "targetId": "ref_bromonium_ion", "relationshipType": "CONTRASTS" },
+    { "sourceId": "eas_deactivating_meta_directors", "targetId": "ref_carbocation_stability", "relationshipType": "PREREQUISITE" },
+
+    { "sourceId": "conjugate_vs_direct_addition", "targetId": "conjugate_addition_electrophilic_alkenes", "relationshipType": "EXTENDS" },
+    { "sourceId": "organocuprate_conjugate_addition", "targetId": "conjugate_vs_direct_addition", "relationshipType": "EXTENDS" },
+    { "sourceId": "conjugate_substitution_addition_elimination", "targetId": "conjugate_addition_electrophilic_alkenes", "relationshipType": "EXTENDS" },
+    { "sourceId": "nucleophilic_aromatic_substitution_addition_elimination", "targetId": "conjugate_substitution_addition_elimination", "relationshipType": "RELATED" },
+    { "sourceId": "nucleophilic_epoxidation", "targetId": "conjugate_addition_electrophilic_alkenes", "relationshipType": "RELATED" },
+    { "sourceId": "nucleophilic_aromatic_substitution_addition_elimination", "targetId": "ref_sn1_sn2_overview", "relationshipType": "CONTRASTS" },
+    { "sourceId": "nucleophilic_epoxidation", "targetId": "ref_epoxidation_peracid", "relationshipType": "RELATED" },
+    { "sourceId": "conjugate_addition_electrophilic_alkenes", "targetId": "ref_carbonyl_addition", "relationshipType": "RELATED" },
+
+    { "sourceId": "reducing_agent_chemoselectivity", "targetId": "chemoselectivity_reactivity_order", "relationshipType": "EXTENDS" },
+    { "sourceId": "catalytic_hydrogenation_selectivity", "targetId": "reducing_agent_chemoselectivity", "relationshipType": "RELATED" },
+    { "sourceId": "oxidation_chemoselectivity", "targetId": "catalytic_hydrogenation_selectivity", "relationshipType": "CONTRASTS" },
+    { "sourceId": "protecting_groups_survey", "targetId": "chemoselectivity_reactivity_order", "relationshipType": "RELATED" },
+    { "sourceId": "peptide_synthesis_protecting_strategy", "targetId": "protecting_groups_survey", "relationshipType": "EXTENDS" },
+    { "sourceId": "protecting_groups_survey", "targetId": "ref_acetal_formation", "relationshipType": "EXTENDS" },
+    { "sourceId": "chemoselectivity_reactivity_order", "targetId": "ref_acyl_derivative_reactivity", "relationshipType": "RELATED" },
+
+    { "sourceId": "reversible_sulfonation_regiocontrol", "targetId": "ortholithiation_directed_metalation", "relationshipType": "RELATED" },
+    { "sourceId": "regiocontrol_by_route_choice", "targetId": "reversible_sulfonation_regiocontrol", "relationshipType": "RELATED" },
+    { "sourceId": "ortholithiation_directed_metalation", "targetId": "eas_activating_donating_groups", "relationshipType": "RELATED" },
+    { "sourceId": "reversible_sulfonation_regiocontrol", "targetId": "eas_main_reactions", "relationshipType": "EXTENDS" },
+    { "sourceId": "regiocontrol_by_route_choice", "targetId": "eas_deactivating_meta_directors", "relationshipType": "RELATED" },
+    { "sourceId": "allylic_sn2_sn2prime", "targetId": "ref_sn1_sn2_overview", "relationshipType": "PREREQUISITE" },
+    { "sourceId": "radical_regioselectivity", "targetId": "ref_markovnikov_regioselectivity", "relationshipType": "CONTRASTS" },
+    { "sourceId": "conjugate_addition_regioselectivity_revisited", "targetId": "conjugate_vs_direct_addition", "relationshipType": "EXTENDS" },
+    { "sourceId": "conjugate_addition_regioselectivity_revisited", "targetId": "chemoselectivity_reactivity_order", "relationshipType": "RELATED" }
+  ],
+  "units": [
+    {
+      "title": "第二十章：烯醇與烯醇化物的形成與反應",
+      "description": "酮式與烯醇式的互變異構、烯醇化物離子的形成、穩定烯醇、α-鹵化，以及鋰烯醇化物與矽烯醇醚等穩定的烯醇化物替身",
+      "order": 20,
+      "color": "#c0392b",
+      "iconEmoji": "🌗",
+      "lessons": [
+        {
+          "title": "互變異構：酮式與烯醇式的動態平衡",
+          "type": "READING",
+          "order": 1,
+          "xpReward": 15,
+          "estimatedMinutes": 6,
+          "conceptIds": ["tautomerism_keto_enol", "enolate_ion_formation"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "互變異構：酮/醛與烯醇的動態平衡",
+              "content": "大部分含α氫的醛酮，實際上都是酮式（keto）與烯醇式（enol）兩種結構的動態混合物：烯醇式具有C=C雙鍵與直接相連的OH基。兩者透過質子從碳轉移到氧（或反向）而互相轉換，這種只涉及分子內質子轉移的反應稱為**互變異構**（tautomerism），與電子離域（共振）不同——互變異構的兩個結構是真實存在、可分別偵測的化合物，之間用平衡箭頭連接，而非共振箭頭。一般簡單酮的烯醇式平衡常數K約10⁻⁶，含量極低，但反應仍持續發生（可用D2O交換α氫來偵測）。"
+            },
+            {
+              "order": 2,
+              "title": "烯醇化的酸鹼催化與烯醇化物離子",
+              "content": "烯醇化可被酸或鹼催化：酸催化先質子化氧、再從碳上移除質子；鹼催化則先移除碳上的質子，質子再加到氧上，中間體是**烯醇化物離子**（enolate）。烯醇化物是三原子四電子的去域化系統（與allyl陰離子類似），負電荷主要在氧上（較穩定的表示方式），但HOMO在碳原子上係數較大——這代表氧是硬親核中心、碳是軟親核中心，兩者在不同反應中都可能被進攻。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "「互變異構」（tautomerism）與「共軛/離域」最主要的差別是？",
+              "explanation": "互變異構牽涉質子的實際移動與鍵的形成/斷裂，產生兩個不同的分子；共軛（離域）只是用不同共振結構描述同一個分子的電子分布，沒有原子真正移動。",
+              "difficulty": 3,
+              "sourceInfo": "第20章·互變異構",
+              "options": [
+                { "id": "a", "text": "互變異構的兩個結構是可分別偵測的真實化合物，共軛則是同一結構的不同電子分布表示" },
+                { "id": "b", "text": "兩者完全相同" },
+                { "id": "c", "text": "互變異構只發生在芳香環上" },
+                { "id": "d", "text": "共軛需要打斷共價鍵" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "簡單酮（如環己酮）的烯醇式平衡常數雖然很小（約10⁻⁶），但烯醇化反應仍持續在發生，可以用D2O交換α氫的實驗證明。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "即使偵測不到烯醇的訊號，α氫與D2O緩慢交換成氘的現象證明烯醇化持續發生。",
+              "difficulty": 3,
+              "sourceInfo": "第20章·烯醇化的證據"
+            },
+            {
+              "type": "FLASHCARD",
+              "order": 3,
+              "front": "烯醇化物離子（enolate）的負電荷主要分布在哪裡？它的HOMO呢？",
+              "back": "負電荷主要在氧原子上（氧是較穩定、電負度較高的原子，是硬親核中心）；但HOMO（最高占據分子軌域）在碳原子上係數較大，使碳成為軟親核中心。這個差異解釋了為什麼硬親電基（如醯氯）傾向與烯醇化物的氧反應，軟親電基（如烷基鹵化物）傾向與碳反應。",
+              "explanation": "氧與碳的雙重反應性，是理解後續烯醇化物反應區域選擇性的關鍵。",
+              "difficulty": 4,
+              "sourceInfo": "第20章·烯醇化物的結構"
+            }
+          ]
+        },
+        {
+          "title": "穩定的烯醇與羰基化合物的α-鹵化",
+          "type": "READING",
+          "order": 2,
+          "xpReward": 15,
+          "estimatedMinutes": 6,
+          "conceptIds": ["stable_enols_dicarbonyl", "enol_alpha_halogenation"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "1,3-二羰基化合物：穩定到可觀察的烯醇",
+              "content": "少數化合物的烯醇式格外穩定，甚至比酮式更多——最典型的是**1,3-二羰基化合物**（β-二羰基化合物），如dimedone、乙醯丙酮。這是因為它們的烯醇同時與另一個羰基共軛（像羧酸的OH一樣穩定），有些還有分子內氫鍵進一步穩定。要注意：對稱的1,3-二酮（如dimedone）雖然烯醇結構看似不對稱，但因為兩個互變異構的烯醇快速交換（互變異構，不是離域），NMR上仍會看到平均訊號。酚也是一種極端穩定的烯醇——芳香性帶來的穩定遠勝過C=O，因此酚幾乎完全以烯醇式存在。"
+            },
+            {
+              "order": 2,
+              "title": "羰基化合物的α-鹵化：酸與鹼催化結果大不同",
+              "content": "α-鹵化在酸中經由烯醇進行，親電的鹵素（如Br2）攻擊烯醇的親核碳；反應完成後酸催化劑再生，通常**只鹵化一次**，因為鹵素取代基是拉電子基，會讓烯醇化的中間體（正電荷）更不穩定，減緩第二次鹵化。但在鹼中，反應經由更活潑的烯醇化物離子，且鹵化後的產物因鹵素拉電子而更容易再次去質子化、形成新的烯醇化物，導致**連續多次鹵化**，直到形成CX3基團（可作為離去基被親核基取代，稱為haloform反應）。因此，鹵化羰基化合物最好在酸性條件下進行。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "為什麼dimedone等1,3-二羰基化合物的烯醇式特別穩定？",
+              "explanation": "1,3-二羰基化合物的烯醇結構讓C=C雙鍵與剩下的羰基共軛，就像羧酸的OH與C=O共軛一樣穩定，額外的分子內氫鍵（如乙醯丙酮）更進一步穩定烯醇式。",
+              "difficulty": 3,
+              "sourceInfo": "第20章·穩定的烯醇",
+              "options": [
+                { "id": "a", "text": "烯醇的C=C雙鍵與另一個羰基共軛，部分還有分子內氫鍵穩定" },
+                { "id": "b", "text": "因為分子中沒有α氫" },
+                { "id": "c", "text": "因為它們是芳香化合物" },
+                { "id": "d", "text": "因為烯醇式的分子量比較小" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "羰基化合物在鹼性條件下鹵化，通常會一次只加上一個鹵素原子，反應在單鹵化後就會自然停止。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "false",
+              "explanation": "鹼性條件下鹵化容易連續進行，因為每次鹵化後的產物更酸、更容易形成下一個烯醇化物，直到形成CX3並被親核基取代（haloform反應）；要控制在單鹵化，應在酸性條件下進行。",
+              "difficulty": 3,
+              "sourceInfo": "第20章·鹼促進的鹵化"
+            },
+            {
+              "type": "FILL_IN_THE_BLANK",
+              "order": 3,
+              "prompt": "羰基化合物在鹼中連續鹵化到CX3基團、最後被親核基取代、切斷C-C鍵的反應，俗稱______反應。",
+              "blankAnswer": "碘仿",
+              "blankHint": "這個反應最早以碘為鹵素觀察到，CHI3俗稱碘仿",
+              "explanation": "haloform反應以碘的版本最早被命名，CHI3俗稱iodoform（碘仿）。",
+              "difficulty": 3,
+              "sourceInfo": "第20章·碘仿反應"
+            }
+          ]
+        },
+        {
+          "title": "鋰烯醇化物、矽烯醇醚與烯醇的反應",
+          "type": "PRACTICE",
+          "order": 3,
+          "xpReward": 18,
+          "estimatedMinutes": 7,
+          "conceptIds": ["lithium_enolates_silyl_enol_ethers", "enol_reactions_various_electrophiles"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "鋰烯醇化物與矽烯醇醚：穩定的烯醇化物「替身」",
+              "content": "用強鹼LDA（鋰二異丙基醯胺，體積大、鹼性強但不親核）可以把幾乎任何可烯醇化的羰基化合物**定量**轉成穩定的鋰烯醇化物（低溫下可分離、保存）。矽烯醇醚則是把烯醇化物的氧與矽（如Me3SiCl）鍵結，形成更穩定、更不活潑的烯醇衍生物；矽烯醇醚可由鋰烯醇化物與Me3SiCl反應製得，也能反過來用MeLi把矽移除、還原成鋰烯醇化物。"
+            },
+            {
+              "order": 2,
+              "title": "烯醇與烯醇化物跟各種親電基的反應總覽",
+              "content": "烯醇/烯醇化物可與多種親電基在**碳**上反應：氘（D2O，交換）、鹵素（Br2/I2，α-鹵化）、亞硝鎓離子NO⁺（亞硝化，生成肟）、矽親電基（形成矽烯醇醚）。少數情況下（如強鹼在DMSO中搭配Me3O⁺等極硬的親電基）才會在**氧**上反應，生成烯醇醚。矽烯醇醚本身也可作為穩定的「烯醇」，與Br2、PhSCl等親電基在α碳位置反應，生成α-鹵化或α-硫化的羰基化合物，且能精準控制在較不擁擠的一側反應。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "為什麼LDA（而不是BuLi）是形成鋰烯醇化物的常用鹼？",
+              "explanation": "BuLi的碳負離子有強親核性，幾乎必定直接加成到羰基碳上；LDA的氮上有兩個異丙基，位阻大到無法親核加成，只能發揮鹼的作用移除較不擁擠的α氫。",
+              "difficulty": 3,
+              "sourceInfo": "第20章·LDA形成鋰烯醇化物",
+              "options": [
+                { "id": "a", "text": "LDA體積龐大、鹼性強，去質子化α氫但不會親核加成到羰基上" },
+                { "id": "b", "text": "LDA比BuLi便宜" },
+                { "id": "c", "text": "LDA是親核性最強的鹼" },
+                { "id": "d", "text": "LDA只能在高溫下使用" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "烯醇與烯醇化物絕大多數情況下都是在碳原子上與親電基反應，只有在特殊條件（如非常硬的親電基、無法溶劑化氧陰離子的極性非質子溶劑）下才會在氧原子上反應。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "碳是烯醇化物HOMO係數較大之處，也是軟親核中心，一般親電基傾向攻擊碳；只有Me3O⁺、Me2SO4這類硬親電基在DMSO等溶劑中才會在氧上反應生成烯醇醚。",
+              "difficulty": 3,
+              "sourceInfo": "第20章·烯醇化物的區域選擇性"
+            },
+            {
+              "type": "MATCHING",
+              "order": 3,
+              "prompt": "請將試劑/條件與其在烯醇化學中的角色配對。",
+              "matchPairs": [
+                { "left": "LDA", "right": "強鹼但不親核，定量形成鋰烯醇化物" },
+                { "left": "Me3SiCl", "right": "使烯醇化物的氧矽化，形成穩定的矽烯醇醚" },
+                { "left": "NO⁺（由NaNO2/HCl產生）", "right": "親電進攻烯醇的碳，生成亞硝基化合物（互變異構成肟）" }
+              ],
+              "explanation": "這三種試劑分別代表烯醇化學中形成穩定衍生物與進一步反應的典型手法。",
+              "difficulty": 4,
+              "sourceInfo": "第20章·烯醇化學工具箱"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "第二十一章：芳香環的親電取代",
+      "description": "親電芳香取代的一般機構、給電子基與拉電子基如何決定活化/去活化與ortho/para/meta選擇性、鹵素的特殊行為，以及用醯胺控制苯胺的反應性",
+      "order": 21,
+      "color": "#16a085",
+      "iconEmoji": "💍",
+      "lessons": [
+        {
+          "title": "親電芳香取代的機構與五大反應",
+          "type": "READING",
+          "order": 1,
+          "xpReward": 15,
+          "estimatedMinutes": 6,
+          "conceptIds": ["eas_mechanism_general", "eas_main_reactions"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "苯與親電基反應：取代而非加成",
+              "content": "苯雖然是六個π電子的富電子系統，卻只跟非常活潑的（通常是陽離子型）親電基反應，且產物是**取代**而非（像烯烴一樣的）加成——因為加成產物會失去芳香穩定性。機構分兩步：親電基進攻形成一個**去域化的環己二烯基陽離子**中間體（此時環上有一個sp3碳，已不再芳香），接著失去該sp3碳上的質子，重新形成芳香系統。第一步（形成陽離子）破壞了芳香性，能障最高，是決速步驟。"
+            },
+            {
+              "order": 2,
+              "title": "苯環上的五大親電取代反應",
+              "content": "本章介紹的主要親電取代反應：**硝化**（HNO3+H2SO4，親電基NO2⁺）生成硝基苯；**磺化**（濃H2SO4或H2SO4+SO3，親電基SO3或SO3H⁺）生成磺酸；**Friedel-Crafts烷化**（RX+Lewis酸如AlCl3，親電基R⁺）生成烷基苯；**Friedel-Crafts醯化**（RCOCl+Lewis酸，親電基醯基鎓離子）生成芳香酮——醯化通常優於烷化，因為醯化反應停在一次取代、不需要碳陽離子夠穩定就能進行，而烷化容易重排或多次取代。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "苯與親電基反應的最終產物，通常是取代產物而不是加成產物，最主要原因是？",
+              "explanation": "若發生加成，最終產物會保留一個sp3碳、失去完整的芳香π系統，能量上很不利；取代反應則透過去質子化重新形成芳香系統，是熱力學上有利的路徑。",
+              "difficulty": 2,
+              "sourceInfo": "第21章·EAS的取代本質",
+              "options": [
+                { "id": "a", "text": "加成產物會失去苯環的芳香穩定性，取代反應則能重新形成芳香系統" },
+                { "id": "b", "text": "苯環沒有π電子可以進攻親電基" },
+                { "id": "c", "text": "親電基太大無法加成" },
+                { "id": "d", "text": "苯環是sp3雜化" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "親電芳香取代反應中，決速步驟是親電基進攻苯環、形成去域化陽離子中間體的那一步，因為這一步暫時破壞了芳香性、能障最高。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "中間體陽離子不具芳香性、能量高，形成它所需跨越的過渡態能量也最高，是整個反應的決速步驟。",
+              "difficulty": 3,
+              "sourceInfo": "第21章·EAS的決速步驟"
+            },
+            {
+              "type": "FILL_IN_THE_BLANK",
+              "order": 3,
+              "prompt": "Friedel-Crafts醯化反應使用醯氯與Lewis酸（如AlCl3），通常比Friedel-Crafts______反應更可靠，因為前者不需要形成不穩定的碳陽離子、且反應會在一次取代後自然停止。",
+              "blankAnswer": "烷化",
+              "blankHint": "這種反應的親電基是碳陽離子R⁺，容易重排或多次取代",
+              "explanation": "醯化反應中間體是穩定的醯基鎓離子，且產物酮的羰基會去活化苯環，讓反應自然停在一次取代；烷化則常有重排與多次取代的問題。",
+              "difficulty": 3,
+              "sourceInfo": "第21章·Friedel-Crafts反應比較"
+            }
+          ]
+        },
+        {
+          "title": "給電子基與拉電子基如何決定選擇性",
+          "type": "READING",
+          "order": 2,
+          "xpReward": 15,
+          "estimatedMinutes": 6,
+          "conceptIds": ["eas_activating_donating_groups", "eas_deactivating_meta_directors"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "給電子基活化苯環、指向ortho/para",
+              "content": "帶有孤對電子的取代基（如OH、NH2、OR）能透過共軛把電子密度送進苯環，尤其加強**ortho與para**位置的電子密度——這些位置在去域化陽離子中間體裡能直接由取代基的孤對電子穩定正電荷。這類基團因此**活化**苯環（讓反應變快）並指向ortho/para。烷基（如甲苯的甲基）透過較弱的σ共軛也有類似（但較弱）的效果。活化程度大致為：NR2 > OR ≈ O⁻ > 烷基，胺基是所有基團中活化能力最強的。"
+            },
+            {
+              "order": 2,
+              "title": "拉電子基去活化苯環、指向meta",
+              "content": "帶正電或透過共軛拉走電子的取代基（如NO2、C=O系列、CF3、NMe3⁺）會讓苯環對親電基更不親核，**去活化**苯環（讓反應變慢）。這些基團在ortho/para位置去穩定正電荷（因為去域化陽離子的正電荷若落在取代基旁邊的碳上，會被拉電子基進一步破壞穩定），因此反應改為走向較不壞的**meta**位置。整體原則：反應變慢是因為苯環真的不想反應，但一旦反應，就會選擇讓正電荷離拉電子基最遠的位置——也就是meta。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "苯胺（NH2取代的苯環）之所以比苯反應快很多、且主要生成ortho/para產物，最主要原因是？",
+              "explanation": "氮的孤對電子能量較高、比氧更容易與苯環π系統共軛，強力活化ortho與para位置，使苯胺對親電基異常活潑。",
+              "difficulty": 3,
+              "sourceInfo": "第21章·給電子基的活化",
+              "options": [
+                { "id": "a", "text": "NH2的孤對電子透過共軛把電子密度送進苯環的ortho與para位置" },
+                { "id": "b", "text": "NH2是拉電子基" },
+                { "id": "c", "text": "氮原子的電負度比氧高" },
+                { "id": "d", "text": "NH2使苯環變成非芳香" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "硝基（NO2）等拉電子基會去活化苯環，且傾向讓親電取代反應發生在meta位置，因為meta位置的去域化陽離子中間體受到的去穩定化效果最小。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "若攻擊發生在ortho或para，正電荷會被迫出現在緊鄰NO2的碳上，被進一步去穩定；meta位置可以避開這個效應，是相對「傷害最小」的選擇。",
+              "difficulty": 3,
+              "sourceInfo": "第21章·拉電子基與meta指向"
+            },
+            {
+              "type": "FILL_IN_THE_BLANK",
+              "order": 3,
+              "prompt": "活化基的活化程度大致排序為：NR2 > OR ≈ O⁻ > ______。",
+              "blankAnswer": "烷基",
+              "blankHint": "透過較弱的σ共軛給電子的基團",
+              "explanation": "烷基只能透過較弱的σ共軛給電子，活化能力比含孤對電子的含氧、含氮基團弱得多。",
+              "difficulty": 3,
+              "sourceInfo": "第21章·活化基強弱排序"
+            }
+          ]
+        },
+        {
+          "title": "鹵素的特例與用醯胺控制苯胺的反應",
+          "type": "PRACTICE",
+          "order": 3,
+          "xpReward": 18,
+          "estimatedMinutes": 7,
+          "conceptIds": ["eas_halogens_special_case", "eas_amide_protection_selectivity"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "鹵素是特例：去活化但仍ortho/para指向",
+              "content": "鹵苯（PhX）都比苯反應慢（去活化），但都是ortho/para指向——這是因為鹵素同時具有誘導拉電子（透過σ鍵，去活化整個環）與共軛給電子（透過孤對電子，加強ortho/para的相對電子密度）兩種效應，前者主導反應性，後者主導區域選擇性。氟因孤對電子軌域能量與碳的2p軌域相近，共軛效果最好，是四個鹵素中反應性最高（但仍比苯慢）的一個；氯、溴則因軌域大小不匹配、重疊差，共軛效果較弱。"
+            },
+            {
+              "order": 2,
+              "title": "用醯胺保護苯胺、控制取代反應",
+              "content": "苯胺對親電基太過活潑，很難只取代一次（通常會一次三取代）。解決辦法是先把胺基**醯化成醯胺**：醯胺氮上的孤對電子與羰基共軛，delocalization程度比游離胺弱，讓芳香親電取代變得可控，主要生成單一para取代產物。這也是選擇性的另一種展現——先降低反應性、再進行想要的單一取代，事後可再水解移除醯基。同理，ortho與para之間的選擇也受立體因素影響：位阻大的親電基（如醯化試劑）偏好para，因為ortho位置離鄰近取代基太近。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "四個鹵苯（F、Cl、Br、I）中，硝化反應速率最快的是哪一個（雖然仍比苯慢）？",
+              "explanation": "氟的2p孤對電子軌域大小與碳的2p軌域最匹配、共軛（給電子）效果最好，雖然誘導拉電子效應仍使其比苯慢，但在四個鹵苯中氟苯反應性最高。",
+              "difficulty": 4,
+              "sourceInfo": "第21章·鹵苯的反應性比較",
+              "options": [
+                { "id": "a", "text": "氟苯（PhF）" },
+                { "id": "b", "text": "氯苯（PhCl）" },
+                { "id": "c", "text": "溴苯（PhBr）" },
+                { "id": "d", "text": "碘苯（PhI）" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "要讓苯胺只進行一次親電取代（而非直接三取代），常見做法是先把NH2醯化成醯胺，降低氮的孤對電子與苯環的共軛程度。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "醯胺化後氮的孤對電子被拉去和羰基共軛，能送進苯環的電子密度變少，讓反應變得可控、主要停在單一para取代。",
+              "difficulty": 3,
+              "sourceInfo": "第21章·苯胺的化學選擇性保護"
+            },
+            {
+              "type": "FILL_IN_THE_BLANK",
+              "order": 3,
+              "prompt": "鹵素取代的苯環雖然去活化苯環，但這主要是透過σ鍵拉電子的______效應；鹵素同時保有較弱、透過孤對電子π共軛給電子的效應，使ortho/para位置仍相對有利。",
+              "blankAnswer": "誘導",
+              "blankHint": "透過σ骨架傳遞、與距離有關，和π共軛效應相對",
+              "explanation": "這兩種效應的拉鋸，正是鹵素「去活化卻仍ortho/para指向」這個特例的根本原因：誘導效應主導反應性（去活化），共軛效應主導區域選擇性（ortho/para指向）。",
+              "difficulty": 3,
+              "sourceInfo": "第21章·鹵素的雙重效應"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "第二十二章：共軛加成與親核芳香取代",
+      "description": "α,β-不飽和羰基化合物的極化、共軛加成vs直接加成的競爭、有機銅試劑、共軛取代，以及親核芳香取代與親核環氧化",
+      "order": 22,
+      "color": "#8e44ad",
+      "iconEmoji": "➕",
+      "lessons": [
+        {
+          "title": "共軛加成：從親核烯烴到親電烯烴",
+          "type": "READING",
+          "order": 1,
+          "xpReward": 15,
+          "estimatedMinutes": 6,
+          "conceptIds": ["conjugate_addition_electrophilic_alkenes", "conjugate_vs_direct_addition"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "與羰基共軛的雙鍵：從親核變親電",
+              "content": "簡單、未共軛的烯烴幾乎都是親核基。但如果C=C雙鍵與羰基共軛（形成α,β-不飽和羰基化合物，如烯酮），這個雙鍵會因為極化而變成**親電基**：LUMO在β碳（離羰基較遠的那個雙鍵碳）上係數最大，因此親核基會進攻β碳，這種反應稱為**共軛加成**（或1,4-加成、Michael加成）。IR與13C NMR都能偵測到這種極化：C=O與C=C的伸縮頻率都往低頻移動（各約40 cm⁻¹），β碳的13C位移也明顯往低場移動（約140 ppm，比未共軛的119 ppm高很多）。"
+            },
+            {
+              "order": 2,
+              "title": "共軛加成（1,4）vs 直接加成（1,2）：哪一個會發生？",
+              "content": "同一個α,β-不飽和羰基化合物，親核基可能直接加成到C=O（1,2-加成，得到烯丙醇），也可能共軛加成到C=C（1,4-加成，經過烯醇化物中間體，最終質子化回羰基）。決定哪一種發生的三大因素：（1）反應條件——低溫、短時間有利直接加成（動力學產物），高溫、長時間有利共軛加成（熱力學產物，因為C=O π鍵比C=C π鍵強，共軛加成產物更穩定）；（2）羰基本身的活性——活潑的醛/醯氯偏好直接加成，不活潑的酯/醯胺偏好共軛加成；（3）親核基的軟硬——硬親核基（格林納、有機鋰）偏好進攻硬的羰基碳，軟親核基（硫醇）偏好進攻軟的β碳。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "α,β-不飽和羰基化合物中，親核基進行共軛加成時，會優先進攻哪個碳原子？為什麼？",
+              "explanation": "分子軌域計算顯示，α,β-不飽和羰基化合物的LUMO最大係數落在β碳上，這是親核基進攻的位置。",
+              "difficulty": 3,
+              "sourceInfo": "第22章·共軛加成的區域選擇性",
+              "options": [
+                { "id": "a", "text": "β碳，因為LUMO在此處係數最大" },
+                { "id": "b", "text": "α碳，因為它離羰基最近" },
+                { "id": "c", "text": "羰基碳，因為它電負度最高" },
+                { "id": "d", "text": "隨機，沒有偏好" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "共軛加成產物通常是熱力學產物（更穩定），因為它保留了較強的C=O π鍵，只失去較弱的C=C π鍵；直接加成產物則是動力學產物，因為羰基碳帶有較多正電荷，靜電吸引力使反應較快。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "共軛加成保留C=O、形成新C-C σ鍵；直接加成則失去C=O π鍵。C=O π鍵比C=C π鍵強，所以共軛加成的產物更穩定，是熱力學控制下的最終產物。",
+              "difficulty": 4,
+              "sourceInfo": "第22章·動力學vs熱力學產物"
+            },
+            {
+              "type": "FLASHCARD",
+              "order": 3,
+              "front": "為什麼「軟」親核基（如硫醇）特別容易進行共軛加成，而「硬」親核基（如格林納試劑）偏好直接加成到C=O？",
+              "back": "α,β-不飽和羰基化合物有兩個親電位置：羰基碳（電荷主導、硬）與β碳（軌域/LUMO係數主導、軟）。硬親核基與硬親電基（羰基碳）之間的靜電吸引力主導反應，因此偏好直接加成；軟親核基與軟親電基（β碳）之間的軌域重疊主導反應，因此偏好共軛加成。",
+              "explanation": "硬軟酸鹼原則同樣適用於解釋這裡的區域選擇性競爭。",
+              "difficulty": 4,
+              "sourceInfo": "第22章·硬軟親核基與加成方式"
+            }
+          ]
+        },
+        {
+          "title": "有機銅試劑與共軛取代反應",
+          "type": "READING",
+          "order": 2,
+          "xpReward": 15,
+          "estimatedMinutes": 6,
+          "conceptIds": ["organocuprate_conjugate_addition", "conjugate_substitution_addition_elimination"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "用銅鹽把格林納試劑「轉性」成共軛加成",
+              "content": "格林納試劑與有機鋰通常偏好直接加成到α,β-不飽和酮/醛的羰基上（生成烯丙醇）。但只要加入催化量（甚至1 mol%）的銅(I)鹽，格林納試劑會先與銅發生**transmetallation**，生成較軟的**有機銅試劑**，這種較軟的碳親核基改為進攻較軟的β碳，使反應幾乎完全轉向共軛加成。鋰銅酸鹽（R2CuLi，由RLi與CuBr以2:1反應製得）是更常用、了解更透徹的有機銅試劑，其共軛加成效果特別好，尤其搭配Me3SiCl使用時。"
+            },
+            {
+              "order": 2,
+              "title": "共軛取代反應：當β碳上有離去基時",
+              "content": "如果α,β-不飽和羰基化合物的β碳上帶有離去基（如Cl），共軛加成的中間體（烯醇化物）可以進一步把這個離去基踢出去，整體效果是**共軛取代**（β碳上的離去基被親核基取代），機構稱為**加成-消去**（addition-elimination），與親核芳香取代的機構相同。這類反應在藥物合成中很重要，例如抗潰瘍藥cimetidine與ranitidine的合成，都利用連續的共軛取代把不同的胺基依序裝到分子上。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "在α,β-不飽和酮的反應中，加入少量CuCl催化劑後，格林納試劑的反應選擇性會如何改變？",
+              "explanation": "銅使格林納試劑transmetallate成較軟的有機銅試劑，軟的碳親核基偏好進攻軟的β碳（共軛加成），而不是硬的羰基碳。",
+              "difficulty": 3,
+              "sourceInfo": "第22章·有機銅試劑",
+              "options": [
+                { "id": "a", "text": "從直接加成（1,2）轉向共軛加成（1,4）" },
+                { "id": "b", "text": "從共軛加成轉向直接加成" },
+                { "id": "c", "text": "完全不反應" },
+                { "id": "d", "text": "反應性不變，只是速率變快" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "共軛取代反應（β碳上的離去基被親核基取代）的機構，本質上就是「加成」後再「消去」，與親核芳香取代的加成-消去機構相同。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "兩者機構相同：親核基先加成形成帶負電的中間體（烯醇化物或環狀陰離子），再讓離去基離去、重新形成雙鍵（或芳香性）。",
+              "difficulty": 3,
+              "sourceInfo": "第22章·共軛取代的機構"
+            },
+            {
+              "type": "FILL_IN_THE_BLANK",
+              "order": 3,
+              "prompt": "格林納試劑或有機鋰與α,β-不飽和酮反應時，加入催化量的銅(I)鹽會使其先進行______，生成較軟的有機銅試劑，再進行共軛加成。",
+              "blankAnswer": "transmetallation",
+              "blankHint": "鎂被銅取代的過程",
+              "explanation": "transmetallation（金屬交換）把格林納試劑的鎂換成銅，改變了親核基的軟硬性質。",
+              "difficulty": 3,
+              "sourceInfo": "第22章·transmetallation"
+            }
+          ]
+        },
+        {
+          "title": "親核芳香取代與親核環氧化",
+          "type": "CHALLENGE",
+          "order": 3,
+          "xpReward": 20,
+          "estimatedMinutes": 8,
+          "conceptIds": ["nucleophilic_aromatic_substitution_addition_elimination", "nucleophilic_epoxidation"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "親核芳香取代：加成-消去機構",
+              "content": "一般芳香鹵化物不會發生親核取代——SN2在sp2碳上不可能（背面攻擊角度不對），SN1也極不利（需要形成極不穩定的芳香碳陽離子）。但如果離去基的**ortho或para位置有拉電子基**（如硝基），親核基可以先加成到帶離去基的碳上，形成一個由拉電子基穩定的去域化陰離子中間體，接著離去基離去，恢復芳香性——這就是**加成-消去機構**，也稱SNAr。典型的親核芳香取代需要：氧、氮或氰根等好的親核基；鹵素當離去基；以及ortho/para位置上至少一個拉電子基（羰基、硝基或氰基）來穩定加成中間體。"
+            },
+            {
+              "order": 2,
+              "title": "親核環氧化：當雙鍵是親電的時候",
+              "content": "m-CPBA這類親電性環氧化劑，只對親核的（一般）烯烴有效；面對共軛、缺電子的α,β-不飽和羰基化合物，則需要改用**親核性**的環氧化劑——最常見的是**氫過氧根**（HOO⁻，由H2O2與NaOH形成）。氫過氧根因為alpha效應（相鄰氧原子的孤對電子提升HOMO能量）而格外親核、但鹼性又較弱，是理想的軟性親核基。它對烯酮的β碳進行共軛加成，接著分子內的氧陰離子把HO⁻踢出去，形成環氧化合物；因為這是兩步機構（中間體可自由旋轉），不像m-CPBA的一步機構那樣立體專一，通常會生成較穩定的trans環氧化物。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "典型的親核芳香取代反應（加成-消去機構）需要具備哪些條件？",
+              "explanation": "拉電子基（如硝基）在ortho或para位置能穩定加成中間體的負電荷，是SNAr反應能夠進行的關鍵條件，缺一不可。",
+              "difficulty": 3,
+              "sourceInfo": "第22章·親核芳香取代的條件",
+              "options": [
+                { "id": "a", "text": "好的親核基、鹵素離去基、以及ortho或para位置至少一個拉電子基" },
+                { "id": "b", "text": "只需要一個好的親核基即可" },
+                { "id": "c", "text": "芳香環必須先被還原成非芳香" },
+                { "id": "d", "text": "離去基必須是烷基" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "一般的芳香鹵化物不會發生SN2或SN1親核取代，因為SN2需要背面攻擊sp3碳（芳香環的碳是sp2、平面），而SN1需要形成極不穩定的芳香碳陽離子。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "SN2的背面攻擊角度在sp2平面環上不可能達成；SN1若發生會生成一個非常不穩定、缺乏孤對電子的芳基陽離子，能量太高不利。",
+              "difficulty": 3,
+              "sourceInfo": "第22章·為什麼一般芳香鹵化物不反應"
+            },
+            {
+              "type": "FILL_IN_THE_BLANK",
+              "order": 3,
+              "prompt": "氫過氧根（HOO⁻）比氫氧根更親核、但更弱鹼，這個現象稱為______效應，源自相鄰氧原子的孤對電子提升了HOMO能量。",
+              "blankAnswer": "alpha",
+              "blankHint": "也用來解釋NH2OH和N2H4比NH3更親核",
+              "explanation": "alpha效應是解釋一系列「相鄰孤對電子提升親核性」現象的通稱。",
+              "difficulty": 4,
+              "sourceInfo": "第22章·alpha效應"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "第二十三章：化學選擇性與保護基",
+      "description": "選擇性的三種類型、羰基反應性順序、還原劑與氧化劑的化學選擇性、催化氫化、保護基總覽，以及胜肽合成的正交保護策略",
+      "order": 23,
+      "color": "#2980b9",
+      "iconEmoji": "🛡️",
+      "lessons": [
+        {
+          "title": "選擇性的種類與羰基反應性順序",
+          "type": "READING",
+          "order": 1,
+          "xpReward": 15,
+          "estimatedMinutes": 6,
+          "conceptIds": ["chemoselectivity_reactivity_order"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "選擇性的三種類型",
+              "content": "有機化學的選擇性可分三種：**化學選擇性**（chemoselectivity，哪個官能基反應）、**區域選擇性**（regioselectivity，在哪裡反應）、**立體選擇性**（stereoselectivity，以什麼立體化學方式反應）。本章專注化學選擇性——當分子中有兩個以上官能基，如何讓試劑只跟其中一個反應。最基本的例子：對胺基酚（4-aminophenol）同時有NH2與OH，用一當量的乙酸酐（在鹼中）只會醯化NH2（生成paracetamol），因為胺基的親核性比醇基強。"
+            },
+            {
+              "order": 2,
+              "title": "羰基化合物對親核基的反應性順序",
+              "content": "羰基化合物對親核基（如格林納、有機鋰、氫化物）的反應性排序為：**醛 > 酮 > 酯 > 醯胺 > 羧酸根**。這個順序讓化學家可以選擇性地讓較活潑的官能基先反應，而讓較不活潑的先「按兵不動」——例如把炔基鋰加到同時含酮與酯的分子上，會優先加成到酮，留下酯完好無缺。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "下列哪一組排序，正確反映羰基化合物對親核基的一般反應性（由高到低）？",
+              "explanation": "醛因位阻最小、無孤對電子競爭共軛而反應性最高；醯胺與羧酸根因氮/氧孤對電子與羰基強烈共軛（或帶負電荷），反應性最低。",
+              "difficulty": 2,
+              "sourceInfo": "第23章·羰基反應性順序",
+              "options": [
+                { "id": "a", "text": "醛 > 酮 > 酯 > 醯胺 > 羧酸根" },
+                { "id": "b", "text": "醯胺 > 酯 > 酮 > 醛" },
+                { "id": "c", "text": "羧酸根 > 醯胺 > 酯 > 酮 > 醛" },
+                { "id": "d", "text": "全部一樣活潑" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "化學選擇性（chemoselectivity）處理的問題是「哪一個官能基反應」，而區域選擇性處理的是「在哪個位置反應」。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "這是選擇性分類的核心定義：化學選擇性關乎「哪個官能基」，區域選擇性關乎同一官能基內「哪個位置」，立體選擇性關乎「產物的立體化學」。",
+              "difficulty": 2,
+              "sourceInfo": "第23章·選擇性的分類"
+            },
+            {
+              "type": "FLASHCARD",
+              "order": 3,
+              "front": "對胺基酚（同時有NH2與OH）加入一當量乙酸酐，主要產物是什麼？為什麼？",
+              "back": "主要產物是paracetamol（乙醯化在NH2上生成醯胺）。因為胺基的親核性比醇基強，一當量的乙酸酐會優先選擇性地與較親核的NH2反應，而不是OH。",
+              "explanation": "這是化學選擇性最直接的實例：兩個官能基競爭同一個親電基，較親核的一方勝出。",
+              "difficulty": 2,
+              "sourceInfo": "第23章·paracetamol的合成"
+            }
+          ]
+        },
+        {
+          "title": "還原劑、催化氫化與氧化劑的化學選擇性",
+          "type": "READING",
+          "order": 2,
+          "xpReward": 15,
+          "estimatedMinutes": 6,
+          "conceptIds": ["reducing_agent_chemoselectivity", "catalytic_hydrogenation_selectivity", "oxidation_chemoselectivity"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "還原劑的化學選擇性：從NaBH4到DIBAL",
+              "content": "不同的氫化物還原劑對羰基化合物的選擇性差異很大：**NaBH4**溫和，只還原醛與酮成醇，通常不動酯或醯胺；**LiAlH4**強力，幾乎能還原所有羰基官能基（酯、醯胺、羧酸都能還原）成醇或胺；**BH3**（硼烷）因為是Lewis酸、偏好進攻電子豐富的羰基，對羧酸與醯胺特別有效，但幾乎不碰醯氯；**DIBAL**（二異丁基氫化鋁）在低溫（−70°C）下能讓酯或腈的四面體中間體停留、只還原到醛的階段，是少數能把酯還原成醛（而非醇）的試劑。"
+            },
+            {
+              "order": 2,
+              "title": "催化氫化與氧化劑：兩種互補的化學選擇性",
+              "content": "催化氫化（H2 + Pd/Pt/Ni等過渡金屬催化劑）擅長還原C=C雙鍵，但通常不會動到羰基（C=O），這使它成為區分兩者的絕佳工具——例如可以選擇性地把α,β-不飽和酮的雙鍵還原、留下羰基完好。**Lindlar催化劑**（Pd/CaCO3並用鉛毒化）能把炔還原到烯就停下，避免過度還原成烷；鈀催化劑還特別擅長進行**氫解**（hydrogenolysis），斷開苄基型的C-O或C-N鍵。氧化劑則展現互補的選擇性：Cr(VI)、Mn(VII)等金屬氧化劑對醇/羰基化學選擇性高，但不會氧化雙鍵；過氧酸、OsO4、O3等則專一氧化C=C雙鍵，對OH基毫無作用——選對氧化或還原劑，就能精準決定要動分子的哪個部分。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "想要把一個酯選擇性地只還原到醛（而不是繼續還原成醇），下列哪個試劑最合適？",
+              "explanation": "DIBAL在低溫下加成後形成的四面體中間體能穩定停留，直到水解後才塌陷成醛；NaBH4通常不太反應酯，LiAlH4和加熱的DIBAL則會持續還原到醇。",
+              "difficulty": 4,
+              "sourceInfo": "第23章·DIBAL的化學選擇性",
+              "options": [
+                { "id": "a", "text": "DIBAL（低溫，−70°C）" },
+                { "id": "b", "text": "NaBH4" },
+                { "id": "c", "text": "LiAlH4（室溫）" },
+                { "id": "d", "text": "H2, Pd/C" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "催化氫化（H2搭配Pd或Pt催化劑）通常能有效還原C=C雙鍵，但不容易還原羰基（C=O），因此常被用來化學選擇性地只還原烯烴部分。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "氫氣對羰基的親核性不夠，一般不會被還原；但C=C雙鍵在金屬表面能有效吸附氫，因此催化氫化對烯烴特別有效、對羰基相對惰性。",
+              "difficulty": 3,
+              "sourceInfo": "第23章·催化氫化的選擇性"
+            },
+            {
+              "type": "FILL_IN_THE_BLANK",
+              "order": 3,
+              "prompt": "Lindlar催化劑是被鉛毒化的Pd/CaCO3催化劑，用來把炔選擇性地還原到______，而不會過度還原成完全飽和的烷。",
+              "blankAnswer": "烯",
+              "blankHint": "這是控制氫化「停在半路」的經典例子",
+              "explanation": "鉛降低了催化劑的活性，使反應在生成順式烯烴後就明顯變慢，避免繼續氫化成烷。",
+              "difficulty": 3,
+              "sourceInfo": "第23章·Lindlar催化劑"
+            }
+          ]
+        },
+        {
+          "title": "保護基總覽與胜肽合成的正交保護",
+          "type": "PRACTICE",
+          "order": 3,
+          "xpReward": 18,
+          "estimatedMinutes": 7,
+          "conceptIds": ["protecting_groups_survey", "peptide_synthesis_protecting_strategy"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "保護基總覽：先「保護」再「反應」再「脫保護」",
+              "content": "當一個較活潑的官能基會干擾我們想在較不活潑官能基上進行的反應時，可以先用**保護基**把活潑官能基暫時「偽裝」起來。常見保護基包括：縮醛（dioxolane，保護醛酮）、矽醚（如TBDMS，保護醇）、THP（四氫哌喃基，保護醇，本身也是一種縮醛）、苄基醚（Bn，保護醇/酚，可用氫解移除）、t-丁酯（保護羧酸）、Cbz與Boc（保護胺，皆為胺甲酸酯carbamate）、Fmoc（保護胺，鹼性條件下以E1cB機構脫除）。選擇保護基的關鍵是：它要能耐受反應條件，但之後能在溫和、不傷害分子其他部位的條件下移除。"
+            },
+            {
+              "order": 2,
+              "title": "胜肽合成：正交保護基的實戰應用",
+              "content": "胜肽合成需要把一個胺基酸的NH2（親核基）跟另一個胺基酸的CO2H（先活化成好的離去基）偶合，同時避免其他官能基互相干擾。策略是幫兩端裝上能在**不同條件**下脫除的保護基（例如Boc在酸中脫除、Fmoc在鹼中脫除），這樣才能在每次偶合後選擇性地只移除下一步需要的那一端保護基，逐一延伸胜肽鏈，而不影響已經形成的醯胺鍵或其他保護基。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "下列哪一種保護基最適合用來保護醛/酮的羰基、使其在強鹼或親核基存在下不反應？",
+              "explanation": "縮醛（如dioxolane）對鹼與親核基穩定，但可在酸性水溶液中輕易水解回原本的羰基，是保護醛酮的標準選擇。",
+              "difficulty": 2,
+              "sourceInfo": "第23章·保護醛酮",
+              "options": [
+                { "id": "a", "text": "縮醛（dioxolane）" },
+                { "id": "b", "text": "苄基醚（Bn）" },
+                { "id": "c", "text": "Boc" },
+                { "id": "d", "text": "t-丁酯" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "Boc與Cbz都是保護胺基的胺甲酸酯（carbamate）類保護基，但Boc可用溫和的稀酸移除，而Cbz通常需要氫解（H2/Pd）或HBr/AcOH才能移除。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "Boc的t-丁基可在稀酸中形成穩定碳陽離子而脫除；Cbz的苄基則需要透過氫解切斷苄基C-O鍵，或用HBr提供親核性夠強的溴離子。",
+              "difficulty": 3,
+              "sourceInfo": "第23章·Boc與Cbz的脫除條件"
+            },
+            {
+              "type": "FLASHCARD",
+              "order": 3,
+              "front": "為什麼胜肽合成需要在胺基與羧酸端使用「不同條件」才能脫除的保護基（正交保護）？",
+              "back": "因為胜肽鏈是逐步延伸的：每次偶合後，需要選擇性地只移除鏈的一端（例如脫掉N端保護基以便接上下一個胺基酸），同時不能動到已經形成的醯胺鍵、也不能連帶脫除C端或側鏈的保護基。若兩端用相同條件脫除的保護基，就無法區分要脫哪一端。",
+              "explanation": "正交保護策略是複雜分子合成（尤其是胜肽、寡核苷酸）能夠可控進行的核心概念。",
+              "difficulty": 4,
+              "sourceInfo": "第23章·正交保護策略"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "第二十四章：區域選擇性",
+      "description": "鄰位鋰化、磺化的可逆性與區域控制、透過反應順序佈局取代基、烯丙基的SN2/SN2'、自由基反應的區域選擇性，以及化學選擇性與區域選擇性的交織",
+      "order": 24,
+      "color": "#d35400",
+      "iconEmoji": "🎯",
+      "lessons": [
+        {
+          "title": "鄰位鋰化與磺化的區域控制",
+          "type": "READING",
+          "order": 1,
+          "xpReward": 15,
+          "estimatedMinutes": 6,
+          "conceptIds": ["ortholithiation_directed_metalation", "reversible_sulfonation_regiocontrol"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "鄰位鋰化：用配位效應精準取代ortho位置",
+              "content": "丁基鋰能奪取苯環上sp2碳-氫的質子（雖然比烷基C-H酸得多，但仍比一般鹼弱），生成芳基鋰。若苯環上帶有含孤對電子的官能基（如OMe），丁基鋰會先與該官能基的孤對電子形成配位錯合（Li是Lewis酸），把丁基鋰「導向」緊鄰該官能基的位置，只移除**ortho**位置的質子——這稱為**鄰位鋰化**（ortholithiation）。它讓化學家可以在不需要鹵素起始物的情況下，精準地在ortho位置形成新的碳-金屬鍵，用來合成新的C-C鍵。"
+            },
+            {
+              "order": 2,
+              "title": "磺化是可逆的：暫時佔位、之後移除",
+              "content": "磺化反應（苯環+SO3/H2SO4生成磺酸）有一個獨特性質：它是**可逆**的——加熱磺酸可以脫去SO3、回到原本的芳香化合物。這讓磺酸基可以當作暫時的**阻擋基**：先把某個位置磺化佔住，讓其他親電基去該去的位置反應，事後再用加熱（或稀硫酸）把磺酸基移除，恢復原本的氫。萘的磺化也展現類似的動力學/熱力學控制：低溫時磺化α位置（動力學產物，位阻小），高溫下則轉為β位置（熱力學產物，位阻較小、更穩定，因為可逆磺化讓系統有機會找到最穩定的產物）。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "鄰位鋰化（ortholithiation）之所以能精準地在ortho位置去質子化，主要是因為？",
+              "explanation": "官能基上的孤對電子與鋰（Lewis酸）形成分子內配位錯合，把有機鋰試劑固定在鄰近該官能基的位置，因此只有ortho質子會被移除。",
+              "difficulty": 3,
+              "sourceInfo": "第24章·鄰位鋰化",
+              "options": [
+                { "id": "a", "text": "苯環上的官能基（如OMe）的孤對電子先與丁基鋰的鋰原子形成配位，把試劑導向鄰近位置" },
+                { "id": "b", "text": "ortho位置的氫本來就比其他位置酸" },
+                { "id": "c", "text": "鄰位鋰化只能在對稱分子上發生" },
+                { "id": "d", "text": "丁基鋰體積太大，只能碰到ortho位置" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "磺化反應是可逆的，這個性質可以被利用：先磺化佔住某個位置當作暫時的阻擋基，等其他反應完成後再把磺酸基移除。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "加熱磺酸（或用稀硫酸/水）可使SO3脫離、恢復原本的芳香氫，因此磺酸基常被當作可逆的位置阻擋基使用。",
+              "difficulty": 3,
+              "sourceInfo": "第24章·磺化的可逆性"
+            },
+            {
+              "type": "FILL_IN_THE_BLANK",
+              "order": 3,
+              "prompt": "萘的磺化在低溫下由動力學控制、生成α位產物；在高溫下則因磺化可逆，逐漸轉變成熱力學上更穩定的______位產物。",
+              "blankAnswer": "β",
+              "blankHint": "位置在較外側，位阻比α位置小",
+              "explanation": "這是動力學控制與熱力學控制在區域選擇性上的經典範例：低溫時反應快的α產物先形成，高溫、可逆條件下則逐漸轉為更穩定的β產物。",
+              "difficulty": 4,
+              "sourceInfo": "第24章·萘的磺化"
+            }
+          ]
+        },
+        {
+          "title": "透過路徑選擇佈局取代基與烯丙基的SN2/SN2'",
+          "type": "READING",
+          "order": 2,
+          "xpReward": 15,
+          "estimatedMinutes": 6,
+          "conceptIds": ["regiocontrol_by_route_choice", "allylic_sn2_sn2prime"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "靠反應順序取得所有可能的取代位置組合",
+              "content": "要在苯環上精準佈局多個取代基，往往需要巧妙安排反應**順序**。例如硝基是meta指向、拉電子基，鹵素是ortho/para指向、弱去活化基——要做出兩者間某種特定排列的溴硝基苯，可能需要先硝化再溴化，或先溴化再硝化，得到的異構物完全不同。此外，硝基還可以先透過還原（Sn/HCl或H2/Pd）轉成強力活化、ortho/para指向的胺基，再進行下一步取代或轉成重氮鹽——重氮鹽能不經活化就進行多種親核取代（如置換成鹵素、CN、OH），是解決許多區域選擇性難題的萬用工具。"
+            },
+            {
+              "order": 2,
+              "title": "烯丙基親電基的SN2 vs SN2'：親核基在哪裡進攻？",
+              "content": "烯丙基鹵化物（C=C-C-X）對SN2特別活潑，因為π*(C=C)與σ*(C-X)可以組合成一個更低能量的LUMO，讓親核基能從離去基正對面（**SN2**，直接取代）或從雙鍵的遠端（**SN2'**，允許基取代，取代基同時發生雙鍵位移）進攻，產物往往相同或為異構物。一般而言，親核基偏好進攻位阻較小的那一端：像prenyl bromide（三級端＋一級端的不對稱烯丙基溴）幾乎都從一級（不擁擠）碳的一端以SN2反應，生成取代基較多、較穩定的產物。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "重氮鹽（由芳香胺經NaNO2/HCl製得）在有機合成中特別有用，主要是因為？",
+              "explanation": "重氮基（N2⁺）是極好的離去基，不需要額外活化就能被多種親核基（Cu鹽介導的鹵化、CN取代等）置換，讓化學家能自由安排芳香環上的取代基。",
+              "difficulty": 3,
+              "sourceInfo": "第24章·重氮鹽的用途",
+              "options": [
+                { "id": "a", "text": "可以不需活化，直接進行多種親核取代，把N2置換成鹵素、CN、OH等基團" },
+                { "id": "b", "text": "重氮鹽非常穩定、可長期保存" },
+                { "id": "c", "text": "重氮鹽只能用於還原反應" },
+                { "id": "d", "text": "重氮鹽會使苯環失去芳香性" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "不對稱烯丙基親電基（如prenyl bromide）進行親核取代時，通常會優先在位阻較小的那一端反應，不論是透過SN2還是SN2'機構。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "無論走SN2（直接進攻離去基所在碳）或SN2'（進攻烯丙基系統遠端），親核基通常偏好攻擊位阻較小的碳；對prenyl bromide而言，這代表反應幾乎完全走SN2（在一級碳上）。",
+              "difficulty": 3,
+              "sourceInfo": "第24章·烯丙基取代的位阻效應"
+            },
+            {
+              "type": "FLASHCARD",
+              "order": 3,
+              "front": "為什麼烯丙基鹵化物比一般飽和烷基鹵化物更容易進行SN2反應？",
+              "back": "因為過渡態中，相鄰雙鍵的π*軌域可以和C-X的σ*軌域組合，形成一個更低能量的LUMO（π*+σ*），這個較低能量的LUMO更容易接受親核基的電子，等於穩定了過渡態、降低活化能，使SN2反應加速。",
+              "explanation": "這也解釋了為什麼烯丙基、苯甲基型鹵化物普遍對SN2特別活潑。",
+              "difficulty": 4,
+              "sourceInfo": "第24章·烯丙基系統加速SN2的原因"
+            }
+          ]
+        },
+        {
+          "title": "自由基的區域選擇性與化學/區域選擇性的交織",
+          "type": "CHALLENGE",
+          "order": 3,
+          "xpReward": 20,
+          "estimatedMinutes": 8,
+          "conceptIds": ["radical_regioselectivity", "conjugate_addition_regioselectivity_revisited"],
+          "slides": [
+            {
+              "order": 1,
+              "title": "自由基反應的區域選擇性：反馬可尼可夫加成",
+              "content": "HBr對烯烴的加成，若有過氧化物（如過氧化苯甲醯）存在並照光或加熱起始，會走**自由基鏈反應**機構，而非離子機構：溴自由基先加到雙鍵較不擁擠的一端，生成最穩定（通常是三級）的**碳自由基**，接著這個自由基從另一分子HBr奪取氫，同時放出新的溴自由基延續鏈反應。因為自由基加成時溴原子加在位阻較小的碳上，整體區域選擇性與離子機構（馬可尼可夫加成，H加在氫較多的碳）恰好**相反**，稱為反馬可尼可夫加成。溴自由基也可以直接從烯丙基位置**奪取**氫原子（而非加成），生成穩定的去域化allylic自由基，這是NBS進行烯丙基溴化的基礎。"
+            },
+            {
+              "order": 2,
+              "title": "收尾：化學選擇性、區域選擇性交織的實例",
+              "content": "區域選擇性經常和化學選擇性交織在一起。以合成甜味劑thiophenesaccharin為例：先讓硫醇對一個不飽和二酯進行**區域選擇性**的共軛加成（而非直接加成到酯上）；接著在鹼中形成烯醇化物，這時分子中有兩個對稱的酯基可以形成烯醇化物，實驗上必須挑選其中一個位置優先反應（區域選擇性的分子內版本），才能得到所要的環狀產物。這類多步驟合成往往需要同時考慮：哪個官能基先反應（化學選擇性）、在哪個位置反應（區域選擇性），才能設計出可行的路徑。"
+            }
+          ],
+          "questions": [
+            {
+              "type": "MULTIPLE_CHOICE",
+              "order": 1,
+              "prompt": "HBr在過氧化物起始的自由基鏈反應中加成到不對稱烯烴上，區域選擇性與離子機構（馬可尼可夫加成）相比會如何？",
+              "explanation": "自由基機構中溴自由基先加成、生成最穩定（通常三級）的碳自由基，使溴原子最終落在位阻較小的一端，與離子機構（H加成生成穩定碳陽離子、Br落在位阻較大端）的區域選擇性正好相反。",
+              "difficulty": 3,
+              "sourceInfo": "第24章·自由基加成的區域選擇性",
+              "options": [
+                { "id": "a", "text": "恰好相反（反馬可尼可夫加成），溴加在位阻較小的碳上" },
+                { "id": "b", "text": "完全相同" },
+                { "id": "c", "text": "自由基反應不具區域選擇性" },
+                { "id": "d", "text": "兩者都讓溴加在位阻較大的碳上" }
+              ],
+              "correctOptionId": "a"
+            },
+            {
+              "type": "TRUE_FALSE",
+              "order": 2,
+              "prompt": "NBS進行烯丙基溴化時，溴自由基是「奪取」烯丙位置的氫原子（而非對雙鍵進行加成），因為這樣能生成穩定的去域化allylic自由基。",
+              "options": [
+                { "id": "true", "text": "正確" },
+                { "id": "false", "text": "錯誤" }
+              ],
+              "correctOptionId": "true",
+              "explanation": "移除烯丙位置的氫能形成能量較低的去域化allylic自由基（電子分散到兩個碳上），比對雙鍵直接加成或移除烯烴sp2位置的氫更有利。",
+              "difficulty": 4,
+              "sourceInfo": "第24章·NBS的烯丙基溴化"
+            },
+            {
+              "type": "FILL_IN_THE_BLANK",
+              "order": 3,
+              "prompt": "在許多多步驟全合成中，化學家除了考慮「哪個官能基先反應」（化學選擇性）之外，還必須考慮「在哪個位置反應」，這稱為______選擇性。",
+              "blankAnswer": "區域",
+              "blankHint": "regioselectivity的中文",
+              "explanation": "這兩種選擇性經常同時出現在真實的合成問題中，需要一起考慮才能設計出可行路徑。",
+              "difficulty": 3,
+              "sourceInfo": "第24章·選擇性的綜合應用"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
